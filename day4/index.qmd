@@ -5,36 +5,17 @@ format:
     css: ../styles.css
 execute: 
   echo: true
-  code-overflow: scroll
 ---
 
-# 第4回：データの整理
+# 第4回：データの整理（２）
 
 ```{r}
 #| echo: false
-options(width = 80)
+options(width = 70)
 ```
 
-2024-04-23
 
-<https://data-science-chiba-2024.github.io/day4/>
-
-## RStudioのデフォルト設定を<br>変えましょう
-
-前のセッションのデータが残っていることは<br>再現的に**ダメ**！
-
-. . . 
-
-Tools → Global Options → General → Workspace
-
-- "Restore .RData into workspace at startup" → **外す**
-- "Save workspace to .RData on exit:" → **"Never"**
-
-## RStudioのデフォルト設定を<br>変えましょう
-
-前のセッションのデータが残っていることは再現の観点<br>からダメ！
-
-![](../images/settings_change.png){fig-alt="Screenshot showing how to change Rstudio settings for .RData"}
+<https://data-science-chiba.github.io/day4/>
 
 ## データの整理（Data Wrangling）
 
@@ -51,33 +32,15 @@ Tools → Global Options → General → Workspace
 
 ![Image by Allison Horst](https://datasciencecampus.github.io/DSCA_data_wrangling_with_r/slides/images/data_cowboy.png){fig-alt="data wrangling monsters"}
 
-## 今日のデータセット
+## 今日学ぶこと
 
-- R4DS第３章で使われているデータは２０１３年にニューヨーク市発着のフライト
+- データの集計
+- データの形の変え方（縦長いから横広いとその逆）
+- データの結合
 
-- このデータは`ncyflights13`というパッケージに入っている
+## データの集計
 
-## チャレンジ
-
-`ncyflights13`パッケージをインストールして、`nycflights.R`というスクリプトでパッケージをロードしてください
-
----
-
-```{r}
-#| eval: false
-install.packages("ncyflights13")
-```
-
----
-
-```{r}
-#| filename: nycflights.R
-library(nycflights13)
-```
-
-## 今日のデータセット
-
-データは`flights`というデータフレームに入っている：
+`summarize()`でデータの**集計**ができる：
 
 ```{r}
 #| message: false
@@ -86,233 +49,332 @@ library(nycflights13)
 library(nycflights13)
 library(tidyverse)
 
-flights
+summarize(flights, mean_sched_dep_time = mean(sched_dep_time))
 ```
 
----
+## グループ化
 
-- `flights`にはいくつの列（変数）がある？
+- しかし、全体の平均だけを計算してもあまり意味はない。
 
-- `flights`にはいくつの行（観察）がある？
+- それよりも、何か**毎に**データの集計を行いたい方が多い。
 
-## データ整理の関数
-
-これから学ぶ関数の共通点：
-
-- データフレームをインプットとし、データフレームを返す
-- 最初の引数がインプットのデータフレーム
-- 他の引数は詳細（行の名前に引用符を使わない）
-
-## `filter()`で行を絞り込む
-
-- 生データが必要以上に多い場合がよくある（特に、「ビッグデータ」を扱っているとき）
-
-- `filter()`で条件を定めて、その行だけに絞り込む
+- それには`group_by()`関数を使う。例えば、**月ごと**。まずはデータのグループを指定する：
 
 ---
 
 ```{r}
-# 出発が２時間以上遅れたフライトに絞り込む
-filter(flights, dep_delay > 120)
+flights %>%
+  group_by(month)
 ```
 
-- 行の数がどれくらい変わった？
+## グループ化してから、集計する
 
-## `filter()`で行を絞り込む
-
-- 元のデータは変わっていない
-
-- `filter()`の出力を保存したい時は`<-`を使う
-
----
+次に、集計する：
 
 ```{r}
-flights_delay_120 <- filter(flights, dep_delay > 120)
-```
-
-## データの比較
-
-データの比較を行う主な記号：
-
-- `>` より大きい
-- `<` より小さい
-- `==` イコール （`=`ではない！）
-- `|` あるいは
-- `&` そして（複数条件の指定）
-
-比較の記号のアウトプットは**論理ベクトル**
-
----
-
-```{r}
-11 > 10
+flights |> 
+  group_by(month) |> 
+  summarize(
+    avg_delay = mean(dep_delay)
+  )
 ```
 
 ---
 
-```{r}
-c(11, 6) > c(10, 6)
-```
+あれ？なんで`NA`になってしまった？
+
+. . . 
+
+- `NA`(「Not Applicable」、「該当しない」)はデータが**欠けている**ことを示す。
+- `mean()`は**一つでもデータが欠けていることがあると、結果は全部**`NA`になってしまう。
+- 欠けているデータを無視して平均を計算するには、`na.rm = TRUE`を指定しないといけない
 
 ---
 
 ```{r}
-c(11, 6) == c(10, 6)
+flights |> 
+  group_by(month) |> 
+  summarize(
+    avg_delay = mean(dep_delay, na.rm = TRUE)
+  )
 ```
 
----
+## どこが`NA`だったのかを`filter()`で確かめる
 
 ```{r}
-#| error: TRUE
-c(5, 6) = c(10, 6)
-```
-
-## チャレンジ
-
-何故`11 = 10`がエラーになってしまう？
-
-## チャレンジ
-
-- １月のフライトに絞っとください
-
-. . .
-
-```{r}
-filter(flights, month == 1)
-```
-
-## チャレンジ
-
-- １月１日のフライトに絞っとください
-
-. . .
-
-```{r}
-filter(flights, month == 1 & day == 1)
-```
-
-## `filter()`で行を絞り込む
-
-もう一つの複数条件を設定方法：`,`で条件を加える（`filter()`だけ）
-
-```{r}
-filter(flights, month == 1, day == 1)
-```
-
-## `arrange()`で行を並べ替える
-
-```{r}
-# 出発の日と時間で並べ替える
-arrange(flights, year, month, day, dep_time)
-```
-
-## `arrange()`で行を並べ替える
-
-- `arrange()`はデフォルトで小さい方からの順になっている
-
-- 大きい方から並べたい時は`desc()`（「descend」、「降りる」）を使う：
-
-```{r}
-# 大きく遅れた順で並べる
-arrange(flights, desc(dep_delay))
-```
-
-## チャレンジ
-
-- `filter()`と`arrange()`を使って、**12月のフライト**に絞ってから、**遠く飛んだ**順に並べ替えてください
-
-## パイプにつて
-
-- `filter(データ, 条件)`というような書き方をしてきたが、また別の書き方がある：
-
-`データ |> filter(条件)`
-
-## パイプにつて
-
-- `|>`は「パイプ」と呼ばれる
-
-- 左にある物を右の方に渡す
-
-- 「それから」と読む
-
-## いつパイプを使う？
-
-- **複数の作業**を施すに便利
-  - 「パイプライン」
-
-```{r}
-# flightsから始まって、12月のデータに絞ってから、遠く飛んだ距離の順で並べる
 flights |>
-  filter(month == 12) |>
-  arrange(desc(distance))
+  filter(is.na(dep_delay))
 ```
 
-## `mutate()`で新しい列を計算する
-
-- 新しい列は右側から追加される
-  - 列が多い場合は見えないことも
+## `n()`でグループの件数を数える
 
 ```{r}
 flights |> 
-  mutate(speed = distance / air_time * 60)
+  group_by(month) |> 
+  summarize(
+    avg_delay = mean(dep_delay, na.rm = TRUE),
+    n = n()
+  )
 ```
 
-## `mutate()`で新しい列を計算する
+## `ungroup()`でグループを解除する
 
-- `.before`を使うと、新しい列が入る場所を指定できる
+- グループ毎の計算が終わったら、`ungroup()`でグループの解除をする必要がある場合がある。
+
+（以下のコードでは自動的にグループが解除されるので本当はいらないけど、必要な場合もある）
 
 ```{r}
 flights |> 
-  mutate(
-    speed = distance / air_time * 60,
-    .before = 1)
+  group_by(month) |> 
+  summarize(
+    avg_delay = mean(dep_delay, na.rm = TRUE)
+  ) |>
+  ungroup()
 ```
 
-## `mutate()`で新しい列を計算する
-
-- `filter()`（と他のデータ整理用関数と同じように）、`mutate()`の出力は元のデータを触らない
-
-- 解析結果を保存したい時は`<-`を使う
-
-## `select()`で列を絞る
-
-- 生データにたくさんの列が入っている場合がよくある。解析に必要な列だけに絞った方が解析がやりやすい
-
-- 基本的な使い方：列名で選択する
+## 複数条件でグループ分けする
 
 ```{r}
-flights |> 
-  select(year, month, day)
+daily <-
+  flights |>
+  group_by(year, month, day)
 ```
-
-## `select()`で列を絞る
-
-- 選択したい列が多い場合は、`:`を使ってどこから〜どこまでというふうに書くと便利：
 
 ```{r}
-flights |> 
-  select(year:day)
+summarize(daily, n = n())
 ```
 
-## チャレンジ
+## `ungroup()`でグループを解除する
 
-`JFK`から出発したフライトに絞ってから、速度を計算してから、早い速度の順に並べ替えてください
+```{r}
+daily |>
+  ungroup() |>
+  summarize(
+    avg_delay = mean(dep_delay, na.rm = TRUE),
+    n = n()
+  )
+```
 
-## まとめ：今日学んだ関数（動詞）
+## データの形を変える
 
-- 行を扱う関数
-  - `filter()`
-  - `arrange()`
-- 列を扱う関数
-  - `mutate()`
-  - `select()`
-- 集計の関数
-  - `summarize()`
-  - `group_by()`
-  - `ungroup()`
+- 同じデータを様々な形で表すことができる。
 
-## まとめ
+- 例えば、以下の結核のデータを見ましょう（`tidyverse`の`tidyr`パッケージに入っている例のデータセット）：
 
-- `|>`とデータ整理用の関数を組み合わせることによって、すぐにでもかなり高度なデータ解析のパイプラインができるようなる。
+```{r}
+table1
+```
 
-- 初めての方にはとてもコードの量が多いように思えるでしょうが、このようなツールを毎日使うって、慣れていくとそのうちどのようなデータでもRで扱えるようになる！
+---
+
+```{r}
+table2
+```
+
+## データの形を変える
+
+- 元々のデータが同じであることは確認できましたか？
+
+- でも、`table1`と`table2`には**大事な違い**がある：
+  - `table1`だけが**tidy**（すぐに解析できるように整っている）になっている
+
+## tidyなデータの定義
+
+- 各列が変数を表している
+- 各行が観察を表している
+- 各セルが一つの値を表している
+
+![](https://r4ds.hadley.nz/images/tidy-1.png)
+
+## tidyなデータの利点
+
+- 今まで学んできた関数（`mutate()`、`filter()`など）はtidyなデータの方が使いやすい
+- グラフを作成する際も、tidyなデータの方が使いやすいです
+
+例えば：
+
+```{r}
+# 1万人あたりの病気の発生率を計算する
+table1 |>
+  mutate(rate = cases / population * 10000)
+```
+
+---
+
+```{r}
+ggplot(table1, aes(x = year, y = cases)) +
+  geom_line(aes(group = country)) +
+  geom_point(aes(shape = country, color = country), size = 4)
+```
+
+## ワイド（横広い）データを縦長（ロング）に変える
+
+`billboard`というデータセットには２０００年の歌のランキングが入っている：
+
+```{r}
+billboard
+```
+
+## ワイドなデータの例：`billboard`
+
+- 列：
+  - `artist` アーティスト（演奏者）
+  - `track` 曲名
+  - `date.entered` 最初にランキングに入った日付
+  - `wk1` .. `wk76` それぞれの種のランキング
+
+列がやたらある。そして、**列の名前にデータがある**（周目）。これをどうやって別の変数にできるのでしょうか？
+
+## ワイドからロングにするのは`pivot_longer()`
+
+- `pivot_longer()`の主な引数：
+  - `cols` どの列を使う（ロングにする）
+  - `names_to` ロング形式に変換される新しい列の名前
+  - `values_to` 新しい値の列の名前
+
+でや、やって見ましょう
+
+---
+
+```{r}
+billboard |>
+  pivot_longer(
+    cols = starts_with("wk"),
+    names_to = "week",
+    values_to = "rank"
+  )
+```
+
+列の数が大幅に減り、行の数が増えたことが分かりますか？
+
+## ロングなデータをワイドに変える
+
+`cms_patient_experience`というデータセットには患者の経験のデータが入っている
+
+```{r}
+cms_patient_experience
+```
+
+## cms_patient_experienceの特徴
+
+- 研究の対象となっているのは**組織**だけど、各組織のデータは６つの行を跨いでいる。
+
+- どうやって一つの組織を一つの列にできる？
+
+## ロングからワイドにするのは`pivot_wider()`
+
+- `pivot_wider()`の主な引数：
+  - `cols` どの列を使う（ワイドにする）
+  - `names_from` 列名として使用するロング形式の列名
+  - `values_from` 新しい列に配置される値を持つロング形式の列
+
+でや、やって見ましょう
+
+---
+
+```{r}
+cms_patient_experience |>
+  pivot_wider(
+    names_from = measure_cd,
+    values_from = prf_rate
+  )
+```
+
+---
+
+ふむ、`NA`が多い、行の数がまだ変わっていない。どうすれば良い・・
+
+---
+
+## id_colsで行を識別する列を指定する
+
+```{r}
+cms_patient_experience |>
+  pivot_wider(
+    names_from = measure_cd,
+    values_from = prf_rate,
+    id_cols = starts_with("org")
+  )
+```
+
+## データの結合
+
+- 多くの場合、使いたいデータが複数のデータセット（データフレーム、あるいはファイル）に跨いで入っている
+
+- したがって、**データの結合**（join）を行う必要がある
+
+## 複数のデータセットの例：飛行機のデータ
+
+`airlines`には航空会社の名前のデータが入っている：
+
+```{r}
+airlines
+```
+
+---
+
+どうやってこのデータを`nycflights13`と結合させることができるのでしょうか？
+
+## 付け加えたデータが右の方に入る
+
+`nycflights13`は列の数が多いことを覚えていますか？
+
+- これから新しいデータと結合しても、付け加えたデータが右の方に入るため、結果が見えないので、説明するために小さいバージョンを用意する
+
+```{r}
+flights2 <- flights |>
+  select(year, time_hour, origin, dest, tailnum, carrier)
+```
+
+## 別のデータフレームからデータを加える：`left_join()`
+
+航空会社の名前を追加しましょう：
+
+```{r}
+flights2 |>
+  left_join(airlines)
+```
+
+## 結合する時は「鍵」が大事
+
+上のコードを走らせた際、このメッセージがありました：
+
+```
+Joining with `by = join_by(carrier)`
+```
+
+- つまり、それぞれのデータフレームが**共通に持っている列**です。これ「鍵」（Key）と呼ぶ。
+
+- 共通に持っている列がないと、結合ができない。
+
+## 結合する時は「鍵」が大事
+
+上のコードは自動的に共通する列を鍵として使ったけど、手動で指定することもできる：
+
+```{r}
+flights2 |>
+  left_join(
+    airlines,
+    by = join_by(carrier))
+```
+
+## 鍵となる列の条件
+
+- 右側のデータの鍵が行を**識別できる**必要がある。それぞれの`carrier`はデータに一回だけ出てくる
+
+- `count()`で確かめる（`n`が全て`1`になっている）
+
+```{r}
+airlines |>
+  count(carrier)
+```
+
+## 他のデータに結合してみる
+
+`nycflights13`パッケージに他のデータフレームがいくつかある：
+
+![](https://r4ds.hadley.nz/diagrams/relational.png)
+
+## チャレンジ：他のデータに結合してみる
+
+`planes`のデータを`flights2`に結合することができますか？

@@ -7,11 +7,11 @@ execute:
   echo: true
 ---
 
-# 第１回：生成AIの基本、RとRStudioのインストール
+# 第1回：ガイダンス、データサイエンスとR入門
 
-2024-04-02
+<https://data-science-chiba.github.io/day1/>
 
-<https://data-science-chiba-2024.github.io/day1/>
+# ガイダンス
 
 ## ニッタ ジョエル
 
@@ -31,91 +31,128 @@ execute:
 
 ::::
 
-# 生成AIの基本
+## スケジュール {.smaller}
 
-## みなさん、生成AI（ChatGPT、DeepLなど）を使っていますか？
+1. 生成AIの基本、RとRStudioのインストール（オンデマンド）
+2. **ガイダンス、データサイエンスとR入門**
+3. プロジェクトの整理とデータの読み込み
+4. データの整理
+5. データの可視化
+6. 再現可能な文書の書き方
+7. レポートの発表
+8. 再現性を高めるツール（オンデマンド）
+
+[内容は**ニーズに合わせる**]{.medlarge}
+
+## サイト
+
+<https://data-science-chiba-2024.github.io/>
+
+スライドと動画のリンクが掲載されている
+
+## オフィスアワー
+
+予約制（<joelnitta@chiba-u.jp>までメールにて連絡ください）。対面・非対面での相談、ご希望とご都合に合わせて対応いたします。
+
+## 教科書
 
 :::: {.columns}
 
-::: {.column}
-- 私も使っています
-
-- データサイエンスのみならず、様々な場面において大事なツール
-
-- でも、**そもそもAIが何をしている**のか、分かりますか？
+::: {.column width="50%"}
+- R for Data Science (2nd edition)
+  - 英語版はオンラインで無料 [https://r4ds.hadley.nz/](https://r4ds.hadley.nz/)
+  - 日本語版（第１エディションのみ）は[アマゾン](https://www.amazon.co.jp/R%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9-Hadley-Wickham/dp/487311814X)などから 
 :::
 
-::: {.column}
-![](../images/chatgpt.png)
-
-<https://chat.openai.com/>
+::: {.column width="50%"}
+![](https://m.media-amazon.com/images/I/91ZTHIjueHL._SL1500_.jpg){height=400px}
 :::
 
 ::::
 
-## Artificial Intelligenceという名前は嘘
+## リーディング {.smaller}
 
-- AI ＝「人工知能」
+毎週のリーディングを講義の**前に**読んでください。
 
-- ・・でも、AIは何も**考えて**いない！
-  - 真偽を知らない！
+- 第２回（2024-04-09）: ガイダンス、データサイエンスとR入門
+  - [R4DS Introduction](https://r4ds.hadley.nz/intro)
+  - [R4DS Chapter 2 (Workflow: Basics)](https://r4ds.hadley.nz/workflow-basics)
+- 第３回（2024-04-16）: プロジェクトの整理とデータの読み込み
+  - [R4DS Chapter 6 (Workflow: Scripts and Projects)](https://r4ds.hadley.nz/workflow-scripts)
+  - [R4DS Chapter 7 (Data Import)](https://r4ds.hadley.nz/data-import)
 
-## LLMは言葉を予測するモデルである
+## リーディング {.smaller}
 
-- ChatGPTは**Large Language Model**（LLM）の一種である
-  - **言葉を予測する**モデル
-  - 莫大的な量のデータ（インターネットの大部分）を使っている
+- 第４回（2024-04-23）: データの整理
+  - [R4DS Chapter 3 (Data Transformation)](https://r4ds.hadley.nz/data-transform)
+  - [R4DS Chapter 5 (Data Tidying)](https://r4ds.hadley.nz/data-tidy)
+- 第５回（2024-05-07）: データの可視化
+  - [R4DS Chapter 1 (Data Visualization)](https://r4ds.hadley.nz/data-visualize)
+- 第６回（2024-05-14）: 再現可能な文書の書き方
+  - [R4DS Chapter 28 (Quarto)](https://r4ds.hadley.nz/quarto)
 
-- LLMは入力された言葉に対して、最も確率の高い次に来る言葉を返す
+## 課題と評価
 
-## LLMにとっての「言葉」は人間にとっての言葉と違う
+- 宿題（25%）
+  - Moodleからダウンロード、提出
+  - 締め切り：次の週の授業まで
+- リーディング
+- 授業のディスカッションに参加する（25%）
+- Rを使って、**自分の研究に関する**レポートを書く（50%）
 
-- 言葉ではなく、**token（トークン）**という
+# データサイエンスとは？
 
-<https://platform.openai.com/tokenizer>
+<!-- icebreaker: write ideas about "what is data science?" on stickies, collect
+them, and discuss -->
 
-## LLMはトークンを予測するモデルである
+## データサイエンスとは？
 
-<https://perplexity.vercel.app/>
+- **データ**から**洞察**（インサイト）を得ること
 
-## LLMは必ず「もっともらしい」言葉を自信満々で返す
+## データサイエンスとは？
 
-・・けど、それが正解とは**限らない**
+- 他の特徴
+  - 大量のデータを扱う（**「ビッグデータ」**）
+    - **統計学**を使う
+  - **プログラミング**を使う（python、R、など）
+  - 様々な用がある（学術研究、治療、産業、など）
 
-- 平気な顔で**嘘をつく**
+## データ解析の循環
 
-## LLMは「妄想」しがち
+![](https://r4ds.hadley.nz/diagrams/data-science/base.png)
 
-<https://chat.openai.com/share/dcee3278-0f51-4bc2-8051-849ef1b0b072>
+[<https://r4ds.hadley.nz/diagrams/data-science/base.png>]{.small}
 
-- LLMが返した言葉を信用できるかどうか判断するのが**あなたの責任**
+---
 
-## じゃ、どうやって使ったら良いのか？
+- Import: データを入力する
+- Tidy and Transform: データを整える
+- Visualize: データを可視化する
+- Model: モデルを構築する（予測する）
+- Communicate: 結果を伝える
 
-- 返ってきた答えを**確かめる**
-  - コードを走らせてみる
-  - 内容を他のソースで確認する
-  - 裏付けとなっている文献を出すように指示する（ChatGPT 4.0に限る）
+![](https://r4ds.hadley.nz/diagrams/data-science/base.png)
 
-- **必ず批判的なスタンスを持つこと**
+# 再現性とは？
 
-## コピペしないこと
+<!-- another activity, similar to the first: discuss "what is reproducibility?"
+-->
 
-- 大学とは自分で考えることを身につける場である
-- 「言葉の計算機」だと思えば良い
-  - 計算機があるからといって、算数を全く勉強しなくていいわけではない
-- LLMは色々な作業を手伝う（よく嘘をつく）アシスタントであるが、自分の代わりに考えるものではない！
+## 再現性とは？
 
-## 宿題
+- 他の人（**将来の自分**を含めて）があなたの解析を<br>**再度行って、同じ結果**を得ることができること
 
-- 自分が得意（詳しい）分野についてChatGPTに質問して、しばらく会話をしてください
-  - 嘘を見つけたら、それをメモってください
+- データサイエンスにおいて、**とても重要**。再現性がなければ、「サイエンス」にならない！
 
-- 提出はしなくていいけど、次回の授業でディスカッションがある
+## 再現可能にするには・・
 
-# RとRStudioのインストール
+- **コード**が必要
+  - 自分が何をやったのか、記録が残る
+  - 将来、同じ解析ができる
 
-## なぜR?
+- コードとして残らない方法はよろしくない（エクセル、SPSSなど）
+
+## 本授業では、Rを使う
 
 :::: {.columns}
 
@@ -139,7 +176,7 @@ execute:
 :::: {.columns}
 
 ::: {.column width="50%"}
-- Rとは「R Project for Statistical Computing」という組織が提供しているオープンソース（タダの）プログラミング言語
+- Rとは「R Project for Statistical Computing」という組織が提供しているオープンソースプログラミング言語
 :::
 
 ::: {.column width="50%"}
@@ -153,7 +190,7 @@ execute:
 :::: {.columns}
 
 ::: {.column width="50%"}
-- Rのコードを書く・実行する最適なソフト（タダ）
+- Rのコードを書く・実行する最適なソフト（無料）
 - RStudioなしでもRは一応使えるけど、不便
 - **この授業ではRStudioを介してRを使う。**
 :::
@@ -172,6 +209,154 @@ execute:
 
 <https://posit.co/download/rstudio-desktop/>から自分のOSに合ったファイルをダウンロードして、インストール
 
-## 困ったら・・
+## RStudioについて
 
-ご連絡下さい（<joelnitta@chiba-u.jp>）
+- 主に四つの**パネル**がある
+  - Source（コードを書く）
+  - Environment（今のRのセッションに入っているオブジェクトが表示される）
+  - R Console（Rに直接コマンドをする）
+  - Files and Plots（ファイルと図）
+
+---
+
+![](../images/rstudio_labeled.png)
+
+## Rを計算機として使う
+
+- RStudioのコンソール（左下のパネル）にカーソルを置いて、簡単な計算をしてみましょう：
+
+::: large
+
+```{r}
+2 * 20
+```
+
+:::
+
+おめでとうございます！Rプログラミングができました！
+
+## オブジェクト（変数）について
+
+- 次に、Rの中のデータを変数（Rでは、「オブジェクト Object」と呼ぶ）として保存しよう：
+
+::: large
+
+```{r}
+age <- 2 * 20
+```
+
+:::
+
+## オブジェクト（変数）について
+
+これだけでは何も返ってこない。
+
+変数の内容を確認するには、コンソールにその変数の名前を打てば良い：
+
+::: large
+
+```{r}
+age
+```
+
+:::
+
+## 関数とは
+
+何かの値（インプット）を受けて、処理して、計算結果（アウトプット）を返すもの
+
+::: center-x
+
+<img src="https://manamina.valuesccg.com/uploads/content/image/12292/__.png" alt="drawing" height="100">
+
+::: small
+<https://manamina.valuesccg.com/articles/756>
+:::
+
+:::
+
+## 関数とは
+
+関数の書き方：
+
+- 関数名(引数)
+
+例えば
+
+::: large
+
+```{r}
+round(3.1415, digits = 1)
+```
+
+:::
+
+## 関数とは
+
+関数の使い方を確認したい時は`?関数名`と打って、ヘルプファイルを参照すれば良い
+
+::: large
+
+```{r}
+#| eval: false
+?round
+```
+
+:::
+
+## パッケージとは
+
+- Rパッケージとは、Rが出来ることを大幅に増やす「追加」のソフト（関数のまとまり）
+  - 現在、**２万**近くのパッケージがある！
+
+## パッケージのインストール
+
+Rパッケージのインストールを行うには、`install.packages()`を使う：
+
+```{r}
+#| label: install
+#| echo: true
+#| eval: false
+install.packages("ggplot2")
+```
+
+一回インストールしたら、次回からはしなくて良いので、これはコードとして保存しない
+
+## パッケージのロード
+
+- パッケージをインストールしたら、使える状態するにはロードすることが必要
+  - インストールは一回でいい
+  - ロードは毎回必要
+
+`library()`関数でロードする：
+
+::: large
+
+```{r}
+library(ggplot2)
+```
+
+:::
+
+## tidyverse
+
+- `tidyverse`はデータサイエンス用パッケー**ジの集まり**のパッケージ
+  - `ggplot2`（可視化）
+  - `dplyr`（データの整理）
+  - `stringr`（文字データを扱う）
+  - など
+
+これからよく使うので、インストールしましょう。一気に出来るから、楽。
+
+```{r}
+#| label: install-tidyverse
+#| echo: true
+#| eval: false
+install.packages("tidyverse")
+```
+
+## `install.packages()`と`library()`の違い
+
+- `install.packages()`は一回だけで良い（パソコンにパッケージをダウンロードする）
+
+- `library()`はRを使う毎にしないといけない（パッケージを今回のRのセッションで使えるようにする）

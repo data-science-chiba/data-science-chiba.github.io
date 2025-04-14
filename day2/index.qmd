@@ -7,350 +7,412 @@ execute:
   echo: true
 ---
 
-# 第２回：ガイダンス、データサイエンスとR入門
+# 第2回：プロジェクトの整理とデータの読み込み
 
-2024-04-09
+<https://data-science-chiba.github.io/day2/>
 
-<https://data-science-chiba-2024.github.io/day2/>
+<link rel="stylesheet" href="https://unpkg.com/keyboard-css@1.2.4/dist/css/main.min.css" />
 
-# ガイダンス
+## スクリプトについて
 
-## ニッタ ジョエル
+- 今までは直接Rにコマンドを出していたけど、毎回そうするのは効率が良くない。
 
-:::: {.columns}
+- 作業を繰り返す場合や再現する場合は**スクリプト**(テキストファイル)が必要。
 
+- Rスクリプトの拡張は`.R`か`.r`。
+
+## スクリプトの作成と保存
+
+- 作成
+  - `File` ➡︎ `New File` ➡︎ `R Script`をクリック
+
+- 保存
+  - `File` ➡︎ `Save As...`をクリックかファイルのアイコンをクリック。
+
+- スクリプトの名前はなるべくローマ字を使うように（あとあと公開する時のため）
+
+## スクリプトからコードを使う
+
+以下のコードをスクリプトに書いて、`script.R`としてデスクトップに保存しましょう（コードの詳細はまた後で学ぶ）。
+
+```{r}
+#| eval: false
+library(tidyverse)
+
+ggplot(diamonds, aes(x = carat, y = price)) + 
+  geom_hex()
+```
+
+## スクリプトからコードを使う
+
+- カーソルが現在位置している行をコンソールに送る：<kbd class="kbc-button">Ctrl</kbd>（あるいは<kbd class="kbc-button">⌘</kbd>） + <kbd class="kbc-button">Enter</kbd>
+
+- 今開いているスクリプトの行を**全て**コンソールに送る：<kbd class="kbc-button">Ctrl</kbd>（あるいは<kbd class="kbc-button">⌘</kbd>） + <kbd class="kbc-button">Shift</kbd>+ <kbd class="kbc-button">Enter</kbd>
+
+## RStudioによる警告
+
+スクリプトに間違いが入っている場合、RStudioはそれを教えてくれる（バツマークと赤い線）：
+
+![](https://r4ds.hadley.nz/screenshots/rstudio-diagnostic.png){height="200"}
+
+## スクリプトの書き方
+
+- **読みやすさ**と**覚えやすさ**を優先しましょう。
+
+- Rは大文字と小文字を区別するので、小文字に揃えた方が覚えやく、間違いが少ない（例えば、`Data`ではなく、`data`）。
+
+- 変数名にはスペースが使えないので、`_`を使いましょう（例えば、`data_set_1`など）。
+
+## スクリプトの書き方
+
+- コメント（Rが無視する場所）を`#`で書く
+  - 例えば、`# this is a comment`
+
+- コメントは**自分用のメモ**
+  - 未来の自分が、今の自分が何をやったのか、分かるように書く。
+  - まだ慣れていないうちには特にたくさん書きましょう。
+
+## ファイル名も整えましょう
+
+::: {.columns}
 ::: {.column}
-- 研究テーマその１：**シダ植物の進化と生態学**
 
-- 研究テーマその２：**データサイエンス**用ソフトの開発
+NG ❌
 
-- <https://www.joelnitta.com>
+```
+alternative model.R
+code for exploratory analysis.r
+finalreport.qmd
+FinalReport.qmd
+fig 1.png
+Figure_02.png
+model_first_try.R
+run-first.r
+temp.txt
+```
+
 :::
-
 ::: {.column}
-![](https://github.com/joelnitta/joelnitta-site/blob/master/static/media/headers/research_img2.jpg?raw=true){fig-alt="Image of Joel Nitta in field" height="450"}
+
+OK ✅
+
+```
+01_load_data.R
+02_exploratory_analysis.R
+03_model_approach_1.R
+04_model_approach_2.R
+fig_01.png
+fig_02.png
+report_2022_03_20.qmd
+report_2022_04_02.qmd
+report_draft_notes.txt
+```
+
+:::
 :::
 
-::::
+## プロジェクトについて
 
-## スケジュール {.smaller}
+- スクリプトとしてコードを保存をするのはいいけど、解析が進むと複数のスクリプトとデータを**整理する必要が生じる**
 
-1. 生成AIの基本、RとRStudioのインストール（オンデマンド）
-2. **ガイダンス、データサイエンスとR入門**
-3. プロジェクトの整理とデータの読み込み
-4. データの整理
-5. データの可視化
-6. 再現可能な文書の書き方
-7. レポートの発表
-8. 再現性を高めるツール（オンデマンド）
+- RStudioの**「Project」機能**によって、スクリプトとデータ（など）の整理ができる
 
-[内容は**ニーズに合わせる**]{.medlarge}
+## 新しいプロジェクトを作る
 
-## サイト
+- `File` ➡︎ `New Project` ➡︎ `New Directory` ➡︎ `New Project` をクリック
+  - **プロジェクト名**と**場所**を入力（今回は`r4ds`にしましょう）
+  - 分かりやすい場所がおすすめ（デスクトップにしましょう）
 
-<https://data-science-chiba-2024.github.io/>
-
-スライドと動画のリンクが掲載されている
-
-## オフィスアワー
-
-予約制（<joelnitta@chiba-u.jp>までメールにて連絡ください）。対面・非対面での相談、ご希望とご都合に合わせて対応いたします。
-
-## 教科書
-
-:::: {.columns}
-
-::: {.column width="50%"}
-- R for Data Science (2nd edition)
-  - 英語版はオンラインで無料 [https://r4ds.hadley.nz/](https://r4ds.hadley.nz/)
-  - 日本語版（第１エディションのみ）は[アマゾン](https://www.amazon.co.jp/R%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9-Hadley-Wickham/dp/487311814X)などから 
-:::
-
-::: {.column width="50%"}
-![](https://m.media-amazon.com/images/I/91ZTHIjueHL._SL1500_.jpg){height=400px}
-:::
-
-::::
-
-## リーディング {.smaller}
-
-毎週のリーディングを講義の**前に**読んでください。
-
-- 第２回（2024-04-09）: ガイダンス、データサイエンスとR入門
-  - [R4DS Introduction](https://r4ds.hadley.nz/intro)
-  - [R4DS Chapter 2 (Workflow: Basics)](https://r4ds.hadley.nz/workflow-basics)
-- 第３回（2024-04-16）: プロジェクトの整理とデータの読み込み
-  - [R4DS Chapter 6 (Workflow: Scripts and Projects)](https://r4ds.hadley.nz/workflow-scripts)
-  - [R4DS Chapter 7 (Data Import)](https://r4ds.hadley.nz/data-import)
-
-## リーディング {.smaller}
-
-- 第４回（2024-04-23）: データの整理
-  - [R4DS Chapter 3 (Data Transformation)](https://r4ds.hadley.nz/data-transform)
-  - [R4DS Chapter 5 (Data Tidying)](https://r4ds.hadley.nz/data-tidy)
-- 第５回（2024-05-07）: データの可視化
-  - [R4DS Chapter 1 (Data Visualization)](https://r4ds.hadley.nz/data-visualize)
-- 第６回（2024-05-14）: 再現可能な文書の書き方
-  - [R4DS Chapter 28 (Quarto)](https://r4ds.hadley.nz/quarto)
-
-## 課題と評価
-
-- 宿題（25%）
-  - Moodleからダウンロード、提出
-  - 締め切り：次の週の授業まで
-- リーディング
-- 授業のディスカッションに参加する（25%）
-- Rを使って、**自分の研究に関する**レポートを書く（50%）
-
-# データサイエンスとは？
-
-<!-- icebreaker: write ideas about "what is data science?" on stickies, collect
-them, and discuss -->
-
-## データサイエンスとは？
-
-- **データ**から**洞察**（インサイト）を得ること
-
-## データサイエンスとは？
-
-- 他の特徴
-  - 大量のデータを扱う（**「ビッグデータ」**）
-    - **統計学**を使う
-  - **プログラミング**を使う（python、R、など）
-  - 様々な用がある（学術研究、治療、産業、など）
-
-## データ解析の循環
-
-![](https://r4ds.hadley.nz/diagrams/data-science/base.png)
-
-[<https://r4ds.hadley.nz/diagrams/data-science/base.png>]{.small}
+- 今回は"Create a git repository"をクリックしないけど、本当はgitも使った方がいい（またあとで説明します）
 
 ---
 
-- Import: データを入力する
-- Tidy and Transform: データを整える
-- Visualize: データを可視化する
-- Model: モデルを構築する（予測する）
-- Communicate: 結果を伝える
+![](../images/new_project.png)
 
-![](https://r4ds.hadley.nz/diagrams/data-science/base.png)
+## 新しいプロジェクトを作る 
 
-# 再現性とは？
+- プロジェクト名の入力が終わると、RStudioが再度立ち上がる
 
-<!-- another activity, similar to the first: discuss "what is reproducibility?"
--->
+- ファイルパネル（右下）をよく見てください。今はRがどこに「います」か？
 
-## 再現性とは？
+## 新しいプロジェクトを作る
 
-- 他の人（**将来の自分**を含めて）があなたの解析を<br>**再度行って、同じ結果**を得ることができること
+- 右下の「ファイル」パネルを使って、`data`というフォルダーを作りましょう
+  - あとで、このフォルダーに**これから解析するデータを置く**
 
-- データサイエンスにおいて、**とても重要**。再現性がなければ、「サイエンス」にならない！
+![](../images/new_folder.png)
 
-## 再現可能にするには・・
+## .Rprojファイルについて
 
-- **コード**が必要
-  - 自分が何をやったのか、記録が残る
-  - 将来、同じ解析ができる
+- 新しいプロジェクトには、`r4ds.Rproj`ファイルが入っている
 
-- コードとして残らない方法はよろしくない（エクセル、SPSSなど）
+- `.Rproj`ファイルの中身はは基本的に**触らない**
+  - 中身はRStudioの設定（RStudioに任せましょう）
+  - 再度プロジェクトを開く時に使う（ダブルクリック）
 
-## 本授業では、Rを使う
+![](../images/rproj_icon.png)
 
-:::: {.columns}
+## 作業ディレクトリについて
 
-::: {.column width="50%"}
-- 無料
-- データ解析の機能が豊富
-- 多様なニーズに応えるパッケージ
-- コミュニティー
-:::
+- 「作業ディレクトリ」（"working directory"）というのは、今Rが今「いる」場所のこと
 
-::: {.column width="50%"}
-![](../images/r_uses_crop.png)
+- `getwd()`で確認できる：
 
-[<https://www.linkedin.com/pulse/why-r-4-reason-learn-programming-language-business-corporate>]{.tiny}
-:::
+```{r}
+#| eval: false
+getwd()
+```
 
-::::
+```{r}
+#| echo: false
+withr::with_dir("~/Desktop/r4ds", getwd())
+```
 
-## RとRStudioについて
+## 作業ディレクトリについて
 
-:::: {.columns}
+- 時々、他のスクリプトを見ると、`set.wd()`という関数を目にする
+  - 例：`set.wd("/Users/joelnitta/analysis/")`
+  - 後ろの部分は「パス」と言う（パソコンの中の住所のような物）
 
-::: {.column width="50%"}
-- Rとは「R Project for Statistical Computing」という組織が提供しているオープンソースプログラミング言語
-:::
+## 作業ディレクトリについて
 
-::: {.column width="50%"}
-![](https://www.r-project.org/logo/Rlogo.svg)
-:::
+- でも、多くの場合、**他の人のパソコンにあるパスは自分のパソコンに存在しない**
+  - `.Rproj`を使えば、`set.wd()`を使う必要がない
 
-::::
+- なので、**`set.wd()`は使わないようにしましょう。**
 
-## RとRStudioについて
+## プロジェクトにスクリプトを置きましょう
 
-:::: {.columns}
+以下のコードを書いて、スクリプトを`diamonds.R`として`r4ds`プロジェクトに保存して、実行しましょう：
 
-::: {.column width="50%"}
-- Rのコードを書く・実行する最適なソフト（無料）
-- RStudioなしでもRは一応使えるけど、不便
-- **この授業ではRStudioを介してRを使う。**
-:::
+```{r}
+#| eval: false
+library(tidyverse)
 
-::: {.column width="50%"}
-![](https://posit.co/wp-content/uploads/2022/10/thumbnail-3.jpg)
-:::
+ggplot(diamonds, aes(x = carat, y = price)) + 
+  geom_hex()
+ggsave("diamonds.png")
 
-::::
+write_csv(diamonds, "data/diamonds.csv")
+```
 
-## RStudioについて
+このスクリプトは何をするのでしょうか？
 
-- 主に四つの**パネル**がある
-  - Source（コードを書く）
-  - Environment（今のRのセッションに入っているオブジェクトが表示される）
-  - R Console（Rに直接コマンドをする）
-  - Files and Plots（ファイルと図）
+## コードによる再現性
+
+- `diamonds.R`は`diamonds.png`というグラフを作る。
+
+. . .
+
+- `diamonds.png`を消しましょう。
+
+. . .
+
+- 解析結果が消えてしまった！どうしよう！？
+
+## コードによる再現性
+
+- ご心配なく！
+  - 再度`diamonds.R`を実行してください（<kbd class="kbc-button">Ctrl</kbd>（あるいは<kbd class="kbc-button">⌘</kbd>） + <kbd class="kbc-button">Shift</kbd>+ <kbd class="kbc-button">Enter</kbd>）
+
+- 全く同じグラフが再度できた！つまり、**再現**しました。
+
+. . .
+
+- **コードとデータがあれば、解析結果はいつでも再現できる**
+
+. . .
+
+- 絶対に必要なのは、**コード**と**データ**。結果は「使い捨て」と考えて良い。
+
+## ディスカッション
+
+<br>
+
+データ整理やプロジェクトの管理はどうしていますか？
+
+## データの読み込み
+
+- Moodleから`students.csv`をダウンロードして、`data/`に置きましょう。
+
+- `.csv`は**c**omma **s**eparated **v**aluesの略です
+  - エクセルで扱うようなデータ形式（エクセルでも開くことができる）
+  - `.xslx`との違いは、`.csv`はそのままどのテキストエディターでも開ける（エクセルがいらない）
+
+## データの読み込み
+
+- `read_csv()`関数で読み込む
+
+まずは、読み込んでから直接に中身を見てみましょう：
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+suppressPackageStartupMessages(library(tidyverse))
+```
+
+```{r}
+read_csv("data/students.csv")
+```
+
+## 読み込んだデータの保存
+
+- でも、これだけではRの環境にそのデータが**入っていません**
+
+- 変数（オブジェクト）として保存する必要がある：
+
+```{r}
+students <- read_csv("data/students.csv")
+```
 
 ---
 
-![](../images/rstudio_labeled.png)
+![](../images/students_data_in_env.png)
 
-## Rを計算機として使う
+---
 
-- RStudioのコンソール（左下のパネル）にカーソルを置いて、簡単な計算をしてみましょう：
+- このようにRに読み込んだデータを**データフレーム**（"dataframe"）、あるいは「tibble」と呼ぶ
+  - ２次元データ。エクセルのデータシートみたいな物。
 
-::: large
+## 読み込んだデータの中身の確認（１）
 
-```{r}
-2 * 20
-```
+- 変数として保存する時は中身が見えない（オブジェクトに渡された）
 
-:::
-
-おめでとうございます！Rプログラミングができました！
-
-## オブジェクト（変数）について
-
-- 次に、Rの中のデータを変数（Rでは、「オブジェクト Object」と呼ぶ）として保存しよう：
-
-::: large
+- 中身を見たい時は**変数名を直接コンソールに入力**すればいい
 
 ```{r}
-age <- 2 * 20
+students
 ```
 
-:::
+## コンソールの使い方（使うとき）
 
-## オブジェクト（変数）について
+- このような時に使う：データの中身を確認したい、ヘルプファイルを開きたい、など。
 
-これだけでは何も返ってこない。
+- つまり、**データ解析に必要ではない**（関係のない）コマンド。
 
-変数の内容を確認するには、コンソールにその変数の名前を打てば良い：
+## 読み込んだデータの中身の確認（２）
 
-::: large
+- もう一つのデータの確認の仕方がある：「Environment」パネルでそのオブジェクトをクリック
+
+- すると、エクセルのようなレイアウトになる
+  - エクセルと大きな違い：直接にデータをいじることができない！
+
+. . .
+
+- **エクセルはデータ入力に使う。Rはデータ解析に使う**
+
+---
+
+![](../images/students_data_view.png)
+
+## データの種類（型）について
+
+- `students`をコンソール（左下のパネル）でもう一回打ってみてください
+
+- データの上に`<dbl>`とか`<chr>`とかと出ているけど、これは何でしょうか？
+
+. . .
+
+- A: データの**種類**です
+
+## データの種類（型）について
+
+- `dbl`: 数字（"double"の略。なぜ"double"でしょう・・）
+- `chr`: 文字（"character"の略。この方がしっくり来るね）
+
+このほかに、
+
+- `lgl`：ロジカル（`TRUE`か`FALSE`か、そのどっちか）
+- `int`：整数（"integer"の略）
+
+がある
+
+## ベクトルについて
+
+- **ベクトル**（vector）とは、**同じ型を持つ一**連のデータの集まり（一次元の配列）
+
+- ベクトルに含まれている一つ一つのデータを**要素**（element）という
+
+- 例えば、`letters`
+  - `"a"`が`letters`の１個目の要素
+
+## ベクトルの作り方
+
+- ベクトルを関数は`c()`
+  - "combine"（「くっつける」）の略
 
 ```{r}
-age
+c(1, 2, 3)
 ```
 
-:::
+## ベクトルの作り方
 
-## 関数とは
-
-何かの値（インプット）を受けて、処理して、計算結果（アウトプット）を返すもの
-
-::: center-x
-
-<img src="https://manamina.valuesccg.com/uploads/content/image/12292/__.png" alt="drawing" height="100">
-
-::: small
-<https://manamina.valuesccg.com/articles/756>
-:::
-
-:::
-
-## 関数とは
-
-関数の書き方：
-
-- 関数名(引数)
-
-例えば
-
-::: large
+- 文字列（文字でできているベクトル）を作るときは、引用符をつけないといけない
 
 ```{r}
-round(3.1415, digits = 1)
+c("a", "b", "c")
 ```
 
-:::
+## ベクトルの型の確認
 
-## 関数とは
+- `typeof()`関数でベクトルの型を確認することができる
 
-関数の使い方を確認したい時は`?関数名`と打って、ヘルプファイルを参照すれば良い
+```{r}
+typeof(letters)
+```
 
-::: large
+## チャレンジ
+
+- 以下のコードでベクトルを作ると、そのベクトルの型は何でしょうか？
 
 ```{r}
 #| eval: false
-?round
+c(1, 2, "c")
 ```
 
-:::
+## ベクトル変換
 
-## パッケージとは
+- 先も言いましたが、あるベクトルの要素は全て同じ型を持たないといけない
 
-- Rパッケージとは、Rが出来ることを大幅に増やす「追加」のソフト（関数のまとまり）
-  - 現在、**２万**近くのパッケージがある！
-
-## パッケージのインストール
-
-Rパッケージのインストールを行うには、`install.packages()`を使う：
+- なので、入力が複数の型を含む場合、Rはそれを同じ型に合わせる
 
 ```{r}
-#| label: install
-#| echo: true
-#| eval: false
-install.packages("ggplot2")
+x <- c(1, 2, "c")
+typeof(x)
 ```
 
-一回インストールしたら、次回からはしなくて良いので、これはコードとして保存しない
+- 先のベクトルは**文字**に変換された
 
-## パッケージのロード
+## ベクトル型とデータフレーム
 
-- パッケージをインストールしたら、使える状態するにはロードすることが必要
-  - インストールは一回でいい
-  - ロードは毎回必要
+- データフレームの列は、本当は**ベクトル**になっている
 
-`library()`関数でロードする：
+- なので、データフレームの列はそれぞれ、**型が決まっている**
+  - これはエクセルと大きな違い
 
-::: large
+![](../images/dataframe.png)
 
-```{r}
-library(ggplot2)
-```
+## まとめ
 
-:::
+- スクリプト（.Rファイル）に解析に必要な**コードを書く**
 
-## tidyverse
+- スクリプトとデータがあれば、解析結果を**再現できる**
 
-- `tidyverse`はデータサイエンス用パッケー**ジの集まり**のパッケージ
-  - `ggplot2`（可視化）
-  - `dplyr`（データの整理）
-  - `stringr`（文字データを扱う）
-  - など
+- **プロジェクト**を使うと、解析の管理が大幅にやりやすくなる
 
-これからよく使うので、インストールしましょう。一気に出来るから、楽。
+- **データフレーム**はベクトルからなっている
 
-```{r}
-#| label: install-tidyverse
-#| echo: true
-#| eval: false
-install.packages("tidyverse")
-```
+- **ベクトル**は一つの型しか持てない
 
-## `install.packages()`と`library()`の違い
+## 宿題
 
-- `install.packages()`は一回だけで良い（パソコンにパッケージをダウンロードする）
+**締め切り：2024-04-23 12:50**
 
-- `library()`はRを使う毎にしないといけない（パッケージを今回のRのセッションで使えるようにする）
+- **クイズ**（moodle）
+- 自分のデータを読み込む。  
+二つのファイルmoodleにアップロード：
+  - **データのファイル**（csv）
+  - **読み込むスクリプト**
+
+- もしcsvではないファイルを読み込みたければ、連絡してください
