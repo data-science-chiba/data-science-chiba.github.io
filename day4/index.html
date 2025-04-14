@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.39">
+
+  <title>データサイエンス – index</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
+  <link rel="stylesheet" href="../styles.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section>
+<section id="第4回データの整理２" class="title-slide slide level1 center">
+<h1>第4回：データの整理（２）</h1>
+<p><a href="https://data-science-chiba.github.io/day4/" class="uri">https://data-science-chiba.github.io/day4/</a></p>
+</section>
+<section id="データの整理data-wrangling" class="slide level2">
+<h2>データの整理（Data Wrangling）</h2>
+<ul>
+<li><p>データが手に入る時、まだ解析に使いえない状態が多い</p></li>
+<li><p>データの整理（「wrangling」）は<strong>解析に使えるように整えるプロセス</strong></p>
+<ul>
+<li>元々はカウボーイが<strong>牛を扱う技術</strong>から来る</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+
+<img data-src="https://media.istockphoto.com/id/172342607/photo/cattle-drive.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=Fz--vTqe2gMWKxbHvgdLCgfUveH_Y3-k0js5H1m9Snc=" class="r-stretch quarto-figure-center"><p class="caption">Getty Images</p></section>
+<section class="slide level2">
+
+
+<img data-src="https://datasciencecampus.github.io/DSCA_data_wrangling_with_r/slides/images/data_cowboy.png" alt="data wrangling monsters" class="r-stretch quarto-figure-center"><p class="caption">Image by Allison Horst</p></section>
+<section id="今日学ぶこと" class="slide level2">
+<h2>今日学ぶこと</h2>
+<ul>
+<li>データの集計</li>
+<li>データの形の変え方（縦長いから横広いとその逆）</li>
+<li>データの結合</li>
+</ul>
+</section>
+<section id="データの集計" class="slide level2">
+<h2>データの集計</h2>
+<p><code>summarize()</code>でデータの<strong>集計</strong>ができる：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="fu">summarize</span>(flights, <span class="at">mean_sched_dep_time =</span> <span class="fu">mean</span>(sched_dep_time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  mean_sched_dep_time
+                &lt;dbl&gt;
+1               1344.</code></pre>
+</div>
+</div>
+</section>
+<section id="グループ化" class="slide level2">
+<h2>グループ化</h2>
+<ul>
+<li><p>しかし、全体の平均だけを計算してもあまり意味はない。</p></li>
+<li><p>それよりも、何か<strong>毎に</strong>データの集計を行いたい方が多い。</p></li>
+<li><p>それには<code>group_by()</code>関数を使う。例えば、<strong>月ごと</strong>。まずはデータのグループを指定する：</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a></a>  <span class="fu">group_by</span>(month)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 336,776 × 19
+# Groups:   month [12]
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+ 1  2013     1     1      517            515         2      830
+ 2  2013     1     1      533            529         4      850
+ 3  2013     1     1      542            540         2      923
+ 4  2013     1     1      544            545        -1     1004
+ 5  2013     1     1      554            600        -6      812
+ 6  2013     1     1      554            558        -4      740
+ 7  2013     1     1      555            600        -5      913
+ 8  2013     1     1      557            600        -3      709
+ 9  2013     1     1      557            600        -3      838
+10  2013     1     1      558            600        -2      753
+# ℹ 336,766 more rows
+# ℹ 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;,
+#   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;,
+#   dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="グループ化してから集計する" class="slide level2">
+<h2>グループ化してから、集計する</h2>
+<p>次に、集計する：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a></a>  <span class="fu">group_by</span>(month) <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb5-4"><a></a>    <span class="at">avg_delay =</span> <span class="fu">mean</span>(dep_delay)</span>
+<span id="cb5-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 2
+   month avg_delay
+   &lt;int&gt;     &lt;dbl&gt;
+ 1     1        NA
+ 2     2        NA
+ 3     3        NA
+ 4     4        NA
+ 5     5        NA
+ 6     6        NA
+ 7     7        NA
+ 8     8        NA
+ 9     9        NA
+10    10        NA
+11    11        NA
+12    12        NA</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>あれ？なんで<code>NA</code>になってしまった？</p>
+<div class="fragment">
+<ul>
+<li><code>NA</code>(「Not Applicable」、「該当しない」)はデータが<strong>欠けている</strong>ことを示す。</li>
+<li><code>mean()</code>は<strong>一つでもデータが欠けていることがあると、結果は全部</strong><code>NA</code>になってしまう。</li>
+<li>欠けているデータを無視して平均を計算するには、<code>na.rm = TRUE</code>を指定しないといけない</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">group_by</span>(month) <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb7-4"><a></a>    <span class="at">avg_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 2
+   month avg_delay
+   &lt;int&gt;     &lt;dbl&gt;
+ 1     1     10.0 
+ 2     2     10.8 
+ 3     3     13.2 
+ 4     4     13.9 
+ 5     5     13.0 
+ 6     6     20.8 
+ 7     7     21.7 
+ 8     8     12.6 
+ 9     9      6.72
+10    10      6.24
+11    11      5.44
+12    12     16.6 </code></pre>
+</div>
+</div>
+</section>
+<section id="どこがnaだったのかをfilterで確かめる" class="slide level2">
+<h2>どこが<code>NA</code>だったのかを<code>filter()</code>で確かめる</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(dep_delay))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8,255 × 19
+    year month   day dep_time sched_dep_time dep_delay arr_time
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+ 1  2013     1     1       NA           1630        NA       NA
+ 2  2013     1     1       NA           1935        NA       NA
+ 3  2013     1     1       NA           1500        NA       NA
+ 4  2013     1     1       NA            600        NA       NA
+ 5  2013     1     2       NA           1540        NA       NA
+ 6  2013     1     2       NA           1620        NA       NA
+ 7  2013     1     2       NA           1355        NA       NA
+ 8  2013     1     2       NA           1420        NA       NA
+ 9  2013     1     2       NA           1321        NA       NA
+10  2013     1     2       NA           1545        NA       NA
+# ℹ 8,245 more rows
+# ℹ 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;,
+#   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;,
+#   dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="nでグループの件数を数える" class="slide level2">
+<h2><code>n()</code>でグループの件数を数える</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">group_by</span>(month) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb11-4"><a></a>    <span class="at">avg_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-5"><a></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb11-6"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   month avg_delay     n
+   &lt;int&gt;     &lt;dbl&gt; &lt;int&gt;
+ 1     1     10.0  27004
+ 2     2     10.8  24951
+ 3     3     13.2  28834
+ 4     4     13.9  28330
+ 5     5     13.0  28796
+ 6     6     20.8  28243
+ 7     7     21.7  29425
+ 8     8     12.6  29327
+ 9     9      6.72 27574
+10    10      6.24 28889
+11    11      5.44 27268
+12    12     16.6  28135</code></pre>
+</div>
+</div>
+</section>
+<section id="ungroupでグループを解除する" class="slide level2">
+<h2><code>ungroup()</code>でグループを解除する</h2>
+<ul>
+<li>グループ毎の計算が終わったら、<code>ungroup()</code>でグループの解除をする必要がある場合がある。</li>
+</ul>
+<p>（以下のコードでは自動的にグループが解除されるので本当はいらないけど、必要な場合もある）</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">group_by</span>(month) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb13-4"><a></a>    <span class="at">avg_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-5"><a></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-6"><a></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 2
+   month avg_delay
+   &lt;int&gt;     &lt;dbl&gt;
+ 1     1     10.0 
+ 2     2     10.8 
+ 3     3     13.2 
+ 4     4     13.9 
+ 5     5     13.0 
+ 6     6     20.8 
+ 7     7     21.7 
+ 8     8     12.6 
+ 9     9      6.72
+10    10      6.24
+11    11      5.44
+12    12     16.6 </code></pre>
+</div>
+</div>
+</section>
+<section id="複数条件でグループ分けする" class="slide level2">
+<h2>複数条件でグループ分けする</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>daily <span class="ot">&lt;-</span></span>
+<span id="cb15-2"><a></a>  flights <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a></a>  <span class="fu">group_by</span>(year, month, day)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">summarize</span>(daily, <span class="at">n =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 365 × 4
+# Groups:   year, month [12]
+    year month   day     n
+   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1  2013     1     1   842
+ 2  2013     1     2   943
+ 3  2013     1     3   914
+ 4  2013     1     4   915
+ 5  2013     1     5   720
+ 6  2013     1     6   832
+ 7  2013     1     7   933
+ 8  2013     1     8   899
+ 9  2013     1     9   902
+10  2013     1    10   932
+# ℹ 355 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="ungroupでグループを解除する-1" class="slide level2">
+<h2><code>ungroup()</code>でグループを解除する</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>daily <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb18-4"><a></a>    <span class="at">avg_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb18-5"><a></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb18-6"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  avg_delay      n
+      &lt;dbl&gt;  &lt;int&gt;
+1      12.6 336776</code></pre>
+</div>
+</div>
+</section>
+<section id="データの形を変える" class="slide level2">
+<h2>データの形を変える</h2>
+<ul>
+<li><p>同じデータを様々な形で表すことができる。</p></li>
+<li><p>例えば、以下の結核のデータを見ましょう（<code>tidyverse</code>の<code>tidyr</code>パッケージに入っている例のデータセット）：</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>table1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>table2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+</div>
+</section>
+<section id="データの形を変える-1" class="slide level2">
+<h2>データの形を変える</h2>
+<ul>
+<li><p>元々のデータが同じであることは確認できましたか？</p></li>
+<li><p>でも、<code>table1</code>と<code>table2</code>には<strong>大事な違い</strong>がある：</p>
+<ul>
+<li><code>table1</code>だけが<strong>tidy</strong>（すぐに解析できるように整っている）になっている</li>
+</ul></li>
+</ul>
+</section>
+<section id="tidyなデータの定義" class="slide level2">
+<h2>tidyなデータの定義</h2>
+<ul>
+<li>各列が変数を表している</li>
+<li>各行が観察を表している</li>
+<li>各セルが一つの値を表している</li>
+</ul>
+
+<img data-src="https://r4ds.hadley.nz/images/tidy-1.png" class="r-stretch"></section>
+<section id="tidyなデータの利点" class="slide level2">
+<h2>tidyなデータの利点</h2>
+<ul>
+<li>今まで学んできた関数（<code>mutate()</code>、<code>filter()</code>など）はtidyなデータの方が使いやすい</li>
+<li>グラフを作成する際も、tidyなデータの方が使いやすいです</li>
+</ul>
+<p>例えば：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># 1万人あたりの病気の発生率を計算する</span></span>
+<span id="cb24-2"><a></a>table1 <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a></a>  <span class="fu">mutate</span>(<span class="at">rate =</span> cases <span class="sc">/</span> population <span class="sc">*</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  country      year  cases population  rate
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071 0.373
+2 Afghanistan  2000   2666   20595360 1.29 
+3 Brazil       1999  37737  172006362 2.19 
+4 Brazil       2000  80488  174504898 4.61 
+5 China        1999 212258 1272915272 1.67 
+6 China        2000 213766 1280428583 1.67 </code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">ggplot</span>(table1, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
+<span id="cb26-2"><a></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> country)) <span class="sc">+</span></span>
+<span id="cb26-3"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">shape =</span> country, <span class="at">color =</span> country), <span class="at">size =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
+<section id="ワイド横広いデータを縦長ロングに変える" class="slide level2">
+<h2>ワイド（横広い）データを縦長（ロング）に変える</h2>
+<p><code>billboard</code>というデータセットには２０００年の歌のランキングが入っている：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>billboard</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 317 × 79
+   artist track date.entered   wk1   wk2   wk3   wk4   wk5   wk6   wk7
+   &lt;chr&gt;  &lt;chr&gt; &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 2 Pac  Baby… 2000-02-26      87    82    72    77    87    94    99
+ 2 2Ge+h… The … 2000-09-02      91    87    92    NA    NA    NA    NA
+ 3 3 Doo… Kryp… 2000-04-08      81    70    68    67    66    57    54
+ 4 3 Doo… Loser 2000-10-21      76    76    72    69    67    65    55
+ 5 504 B… Wobb… 2000-04-15      57    34    25    17    17    31    36
+ 6 98^0   Give… 2000-08-19      51    39    34    26    26    19     2
+ 7 A*Tee… Danc… 2000-07-08      97    97    96    95   100    NA    NA
+ 8 Aaliy… I Do… 2000-01-29      84    62    51    41    38    35    35
+ 9 Aaliy… Try … 2000-03-18      59    53    38    28    21    18    16
+10 Adams… Open… 2000-08-26      76    76    74    69    68    67    61
+# ℹ 307 more rows
+# ℹ 69 more variables: wk8 &lt;dbl&gt;, wk9 &lt;dbl&gt;, wk10 &lt;dbl&gt;, wk11 &lt;dbl&gt;,
+#   wk12 &lt;dbl&gt;, wk13 &lt;dbl&gt;, wk14 &lt;dbl&gt;, wk15 &lt;dbl&gt;, wk16 &lt;dbl&gt;,
+#   wk17 &lt;dbl&gt;, wk18 &lt;dbl&gt;, wk19 &lt;dbl&gt;, wk20 &lt;dbl&gt;, wk21 &lt;dbl&gt;,
+#   wk22 &lt;dbl&gt;, wk23 &lt;dbl&gt;, wk24 &lt;dbl&gt;, wk25 &lt;dbl&gt;, wk26 &lt;dbl&gt;,
+#   wk27 &lt;dbl&gt;, wk28 &lt;dbl&gt;, wk29 &lt;dbl&gt;, wk30 &lt;dbl&gt;, wk31 &lt;dbl&gt;,
+#   wk32 &lt;dbl&gt;, wk33 &lt;dbl&gt;, wk34 &lt;dbl&gt;, wk35 &lt;dbl&gt;, wk36 &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+</section>
+<section id="ワイドなデータの例billboard" class="slide level2">
+<h2>ワイドなデータの例：<code>billboard</code></h2>
+<ul>
+<li>列：
+<ul>
+<li><code>artist</code> アーティスト（演奏者）</li>
+<li><code>track</code> 曲名</li>
+<li><code>date.entered</code> 最初にランキングに入った日付</li>
+<li><code>wk1</code> .. <code>wk76</code> それぞれの種のランキング</li>
+</ul></li>
+</ul>
+<p>列がやたらある。そして、<strong>列の名前にデータがある</strong>（周目）。これをどうやって別の変数にできるのでしょうか？</p>
+</section>
+<section id="ワイドからロングにするのはpivot_longer" class="slide level2">
+<h2>ワイドからロングにするのは<code>pivot_longer()</code></h2>
+<ul>
+<li><code>pivot_longer()</code>の主な引数：
+<ul>
+<li><code>cols</code> どの列を使う（ロングにする）</li>
+<li><code>names_to</code> ロング形式に変換される新しい列の名前</li>
+<li><code>values_to</code> 新しい値の列の名前</li>
+</ul></li>
+</ul>
+<p>でや、やって見ましょう</p>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>billboard <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb29-3"><a></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"wk"</span>),</span>
+<span id="cb29-4"><a></a>    <span class="at">names_to =</span> <span class="st">"week"</span>,</span>
+<span id="cb29-5"><a></a>    <span class="at">values_to =</span> <span class="st">"rank"</span></span>
+<span id="cb29-6"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 24,092 × 5
+   artist track                   date.entered week   rank
+   &lt;chr&gt;  &lt;chr&gt;                   &lt;date&gt;       &lt;chr&gt; &lt;dbl&gt;
+ 1 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk1      87
+ 2 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk2      82
+ 3 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk3      72
+ 4 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk4      77
+ 5 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk5      87
+ 6 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk6      94
+ 7 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk7      99
+ 8 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk8      NA
+ 9 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk9      NA
+10 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk10     NA
+# ℹ 24,082 more rows</code></pre>
+</div>
+</div>
+<p>列の数が大幅に減り、行の数が増えたことが分かりますか？</p>
+</section>
+<section id="ロングなデータをワイドに変える" class="slide level2">
+<h2>ロングなデータをワイドに変える</h2>
+<p><code>cms_patient_experience</code>というデータセットには患者の経験のデータが入っている</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>cms_patient_experience</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 500 × 5
+   org_pac_id org_nm                 measure_cd measure_title prf_rate
+   &lt;chr&gt;      &lt;chr&gt;                  &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;
+ 1 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       63
+ 2 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       87
+ 3 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       86
+ 4 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       57
+ 5 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       85
+ 6 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       24
+ 7 0446162697 ASSOCIATION OF UNIVER… CAHPS_GRP… CAHPS for MI…       59
+ 8 0446162697 ASSOCIATION OF UNIVER… CAHPS_GRP… CAHPS for MI…       85
+ 9 0446162697 ASSOCIATION OF UNIVER… CAHPS_GRP… CAHPS for MI…       83
+10 0446162697 ASSOCIATION OF UNIVER… CAHPS_GRP… CAHPS for MI…       63
+# ℹ 490 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="cms_patient_experienceの特徴" class="slide level2">
+<h2>cms_patient_experienceの特徴</h2>
+<ul>
+<li><p>研究の対象となっているのは<strong>組織</strong>だけど、各組織のデータは６つの行を跨いでいる。</p></li>
+<li><p>どうやって一つの組織を一つの列にできる？</p></li>
+</ul>
+</section>
+<section id="ロングからワイドにするのはpivot_wider" class="slide level2">
+<h2>ロングからワイドにするのは<code>pivot_wider()</code></h2>
+<ul>
+<li><code>pivot_wider()</code>の主な引数：
+<ul>
+<li><code>cols</code> どの列を使う（ワイドにする）</li>
+<li><code>names_from</code> 列名として使用するロング形式の列名</li>
+<li><code>values_from</code> 新しい列に配置される値を持つロング形式の列</li>
+</ul></li>
+</ul>
+<p>でや、やって見ましょう</p>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>cms_patient_experience <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb33-3"><a></a>    <span class="at">names_from =</span> measure_cd,</span>
+<span id="cb33-4"><a></a>    <span class="at">values_from =</span> prf_rate</span>
+<span id="cb33-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 500 × 9
+   org_pac_id org_nm measure_title CAHPS_GRP_1 CAHPS_GRP_2 CAHPS_GRP_3
+   &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;               &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+ 1 0446157747 USC C… CAHPS for MI…          63          NA          NA
+ 2 0446157747 USC C… CAHPS for MI…          NA          87          NA
+ 3 0446157747 USC C… CAHPS for MI…          NA          NA          86
+ 4 0446157747 USC C… CAHPS for MI…          NA          NA          NA
+ 5 0446157747 USC C… CAHPS for MI…          NA          NA          NA
+ 6 0446157747 USC C… CAHPS for MI…          NA          NA          NA
+ 7 0446162697 ASSOC… CAHPS for MI…          59          NA          NA
+ 8 0446162697 ASSOC… CAHPS for MI…          NA          85          NA
+ 9 0446162697 ASSOC… CAHPS for MI…          NA          NA          83
+10 0446162697 ASSOC… CAHPS for MI…          NA          NA          NA
+# ℹ 490 more rows
+# ℹ 3 more variables: CAHPS_GRP_5 &lt;dbl&gt;, CAHPS_GRP_8 &lt;dbl&gt;,
+#   CAHPS_GRP_12 &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>ふむ、<code>NA</code>が多い、行の数がまだ変わっていない。どうすれば良い・・</p>
+</section>
+<section id="id_colsで行を識別する列を指定する" class="slide level2">
+<h2>id_colsで行を識別する列を指定する</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>cms_patient_experience <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb35-3"><a></a>    <span class="at">names_from =</span> measure_cd,</span>
+<span id="cb35-4"><a></a>    <span class="at">values_from =</span> prf_rate,</span>
+<span id="cb35-5"><a></a>    <span class="at">id_cols =</span> <span class="fu">starts_with</span>(<span class="st">"org"</span>)</span>
+<span id="cb35-6"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 95 × 8
+   org_pac_id org_nm   CAHPS_GRP_1 CAHPS_GRP_2 CAHPS_GRP_3 CAHPS_GRP_5
+   &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+ 1 0446157747 USC CAR…          63          87          86          57
+ 2 0446162697 ASSOCIA…          59          85          83          63
+ 3 0547164295 BEAVER …          49          NA          75          44
+ 4 0749333730 CAPE PH…          67          84          85          65
+ 5 0840104360 ALLIANC…          66          87          87          64
+ 6 0840109864 REX HOS…          73          87          84          67
+ 7 0840513552 SCL HEA…          58          83          76          58
+ 8 0941545784 GRITMAN…          46          86          81          54
+ 9 1052612785 COMMUNI…          65          84          80          58
+10 1254237779 OUR LAD…          61          NA          NA          65
+# ℹ 85 more rows
+# ℹ 2 more variables: CAHPS_GRP_8 &lt;dbl&gt;, CAHPS_GRP_12 &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="データの結合" class="slide level2">
+<h2>データの結合</h2>
+<ul>
+<li><p>多くの場合、使いたいデータが複数のデータセット（データフレーム、あるいはファイル）に跨いで入っている</p></li>
+<li><p>したがって、<strong>データの結合</strong>（join）を行う必要がある</p></li>
+</ul>
+</section>
+<section id="複数のデータセットの例飛行機のデータ" class="slide level2">
+<h2>複数のデータセットの例：飛行機のデータ</h2>
+<p><code>airlines</code>には航空会社の名前のデータが入っている：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>airlines</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 2
+   carrier name                       
+   &lt;chr&gt;   &lt;chr&gt;                      
+ 1 9E      Endeavor Air Inc.          
+ 2 AA      American Airlines Inc.     
+ 3 AS      Alaska Airlines Inc.       
+ 4 B6      JetBlue Airways            
+ 5 DL      Delta Air Lines Inc.       
+ 6 EV      ExpressJet Airlines Inc.   
+ 7 F9      Frontier Airlines Inc.     
+ 8 FL      AirTran Airways Corporation
+ 9 HA      Hawaiian Airlines Inc.     
+10 MQ      Envoy Air                  
+11 OO      SkyWest Airlines Inc.      
+12 UA      United Air Lines Inc.      
+13 US      US Airways Inc.            
+14 VX      Virgin America             
+15 WN      Southwest Airlines Co.     
+16 YV      Mesa Airlines Inc.         </code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>どうやってこのデータを<code>nycflights13</code>と結合させることができるのでしょうか？</p>
+</section>
+<section id="付け加えたデータが右の方に入る" class="slide level2">
+<h2>付け加えたデータが右の方に入る</h2>
+<p><code>nycflights13</code>は列の数が多いことを覚えていますか？</p>
+<ul>
+<li>これから新しいデータと結合しても、付け加えたデータが右の方に入るため、結果が見えないので、説明するために小さいバージョンを用意する</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>flights2 <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a></a>  <span class="fu">select</span>(year, time_hour, origin, dest, tailnum, carrier)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="別のデータフレームからデータを加えるleft_join" class="slide level2">
+<h2>別のデータフレームからデータを加える：<code>left_join()</code></h2>
+<p>航空会社の名前を追加しましょう：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>flights2 <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a></a>  <span class="fu">left_join</span>(airlines)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 336,776 × 7
+    year time_hour           origin dest  tailnum carrier name        
+   &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;       
+ 1  2013 2013-01-01 05:00:00 EWR    IAH   N14228  UA      United Air …
+ 2  2013 2013-01-01 05:00:00 LGA    IAH   N24211  UA      United Air …
+ 3  2013 2013-01-01 05:00:00 JFK    MIA   N619AA  AA      American Ai…
+ 4  2013 2013-01-01 05:00:00 JFK    BQN   N804JB  B6      JetBlue Air…
+ 5  2013 2013-01-01 06:00:00 LGA    ATL   N668DN  DL      Delta Air L…
+ 6  2013 2013-01-01 05:00:00 EWR    ORD   N39463  UA      United Air …
+ 7  2013 2013-01-01 06:00:00 EWR    FLL   N516JB  B6      JetBlue Air…
+ 8  2013 2013-01-01 06:00:00 LGA    IAD   N829AS  EV      ExpressJet …
+ 9  2013 2013-01-01 06:00:00 JFK    MCO   N593JB  B6      JetBlue Air…
+10  2013 2013-01-01 06:00:00 LGA    ORD   N3ALAA  AA      American Ai…
+# ℹ 336,766 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="結合する時は鍵が大事" class="slide level2">
+<h2>結合する時は「鍵」が大事</h2>
+<p>上のコードを走らせた際、このメッセージがありました：</p>
+<pre><code>Joining with `by = join_by(carrier)`</code></pre>
+<ul>
+<li><p>つまり、それぞれのデータフレームが<strong>共通に持っている列</strong>です。これ「鍵」（Key）と呼ぶ。</p></li>
+<li><p>共通に持っている列がないと、結合ができない。</p></li>
+</ul>
+</section>
+<section id="結合する時は鍵が大事-1" class="slide level2">
+<h2>結合する時は「鍵」が大事</h2>
+<p>上のコードは自動的に共通する列を鍵として使ったけど、手動で指定することもできる：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>flights2 <span class="sc">|&gt;</span></span>
+<span id="cb43-2"><a></a>  <span class="fu">left_join</span>(</span>
+<span id="cb43-3"><a></a>    airlines,</span>
+<span id="cb43-4"><a></a>    <span class="at">by =</span> <span class="fu">join_by</span>(carrier))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 336,776 × 7
+    year time_hour           origin dest  tailnum carrier name        
+   &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;       
+ 1  2013 2013-01-01 05:00:00 EWR    IAH   N14228  UA      United Air …
+ 2  2013 2013-01-01 05:00:00 LGA    IAH   N24211  UA      United Air …
+ 3  2013 2013-01-01 05:00:00 JFK    MIA   N619AA  AA      American Ai…
+ 4  2013 2013-01-01 05:00:00 JFK    BQN   N804JB  B6      JetBlue Air…
+ 5  2013 2013-01-01 06:00:00 LGA    ATL   N668DN  DL      Delta Air L…
+ 6  2013 2013-01-01 05:00:00 EWR    ORD   N39463  UA      United Air …
+ 7  2013 2013-01-01 06:00:00 EWR    FLL   N516JB  B6      JetBlue Air…
+ 8  2013 2013-01-01 06:00:00 LGA    IAD   N829AS  EV      ExpressJet …
+ 9  2013 2013-01-01 06:00:00 JFK    MCO   N593JB  B6      JetBlue Air…
+10  2013 2013-01-01 06:00:00 LGA    ORD   N3ALAA  AA      American Ai…
+# ℹ 336,766 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="鍵となる列の条件" class="slide level2">
+<h2>鍵となる列の条件</h2>
+<ul>
+<li><p>右側のデータの鍵が行を<strong>識別できる</strong>必要がある。それぞれの<code>carrier</code>はデータに一回だけ出てくる</p></li>
+<li><p><code>count()</code>で確かめる（<code>n</code>が全て<code>1</code>になっている）</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>airlines <span class="sc">|&gt;</span></span>
+<span id="cb45-2"><a></a>  <span class="fu">count</span>(carrier)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 2
+   carrier     n
+   &lt;chr&gt;   &lt;int&gt;
+ 1 9E          1
+ 2 AA          1
+ 3 AS          1
+ 4 B6          1
+ 5 DL          1
+ 6 EV          1
+ 7 F9          1
+ 8 FL          1
+ 9 HA          1
+10 MQ          1
+11 OO          1
+12 UA          1
+13 US          1
+14 VX          1
+15 WN          1
+16 YV          1</code></pre>
+</div>
+</div>
+</section>
+<section id="他のデータに結合してみる" class="slide level2">
+<h2>他のデータに結合してみる</h2>
+<p><code>nycflights13</code>パッケージに他のデータフレームがいくつかある：</p>
+
+<img data-src="https://r4ds.hadley.nz/diagrams/relational.png" class="r-stretch"></section>
+<section id="チャレンジ他のデータに結合してみる" class="slide level2">
+<h2>チャレンジ：他のデータに結合してみる</h2>
+<p><code>planes</code>のデータを<code>flights2</code>に結合することができますか？</p>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
