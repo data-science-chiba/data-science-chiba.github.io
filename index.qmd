@@ -52,8 +52,9 @@ toc: false
 - 第7回（2025-05-27）: **レポートの発表、再現可能なデータ解析のベストプラクティス**
   - [スライド](day7/index.qmd)
 - オンデマンド回: **生成AIの基本**
-  - [スライド](on-demand/index.qmd)
-  - [録画](https://youtu.be/PVTgdrTJKyM)
+  - [スライド](https://joelnitta.github.io/joho-shori/on-demand)
+  - [資料：中部大学「ChatGPTについて」](https://edu.isc.chubu.ac.jp/hsuzuki/iip/DataScience/ChatGPT/chatgpt.html)
+  - [録画](https://www.youtube.com/watch?v=ok837FBoEI8)
 
 ## オフィスアワー
 

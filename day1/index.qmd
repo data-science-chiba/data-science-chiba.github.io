@@ -33,22 +33,23 @@ execute:
 
 ## スケジュール {.smaller}
 
-1. 生成AIの基本、RとRStudioのインストール（オンデマンド）
-2. **ガイダンス、データサイエンスとR入門**
-3. プロジェクトの整理とデータの読み込み
-4. データの整理
+1. **ガイダンス、データサイエンスとR入門**
+2. プロジェクトの整理とデータの読み込み
+3. データの整理（1）
+4. データの整理（2）
 5. データの可視化
 6. 再現可能な文書の書き方
-7. レポートの発表
-8. 再現性を高めるツール（オンデマンド）
+7. レポートの発表、再現可能なデータ解析のベストプラクティス
 
+オンデマンド：生成AIの基本
+<br><br>
 [内容は**ニーズに合わせる**]{.medlarge}
 
-## サイト
+## Moodle
 
-<https://data-science-chiba-2024.github.io/>
+<https://moodle.gs.chiba-u.jp/moodle/course/view.php?id=44391>
 
-スライドと動画のリンクが掲載されている
+全てのリーディング、宿題などが載っています
 
 ## オフィスアワー
 
@@ -61,7 +62,8 @@ execute:
 ::: {.column width="50%"}
 - R for Data Science (2nd edition)
   - 英語版はオンラインで無料 [https://r4ds.hadley.nz/](https://r4ds.hadley.nz/)
-  - 日本語版（第１エディションのみ）は[アマゾン](https://www.amazon.co.jp/R%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9-Hadley-Wickham/dp/487311814X)などから 
+  - 日本語版は[アマゾン](https://www.amazon.co.jp/R%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9-%E7%AC%AC2%E7%89%88-Hadley-Wickham/dp/4814400772/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=9KJHX9QQMBK5&dib=eyJ2IjoiMSJ9.2ha8cmqrDOomCOHJkAPlt_t3bIfh1eItp5IQ2QJQv5FuECUZ1jl1dzKHoMbhaO9GdczEX2PbxK6bZuGnURl3ZMYVYIiSmEXHv9QweSMAfu9flNOvIMKF9N8-L0knVdMnIg6oaWTtU0op9xhQoNEFW_YlKDGFqH0DAA9QmED3sIwXBz--VgsZLRiYcN4idnVMcDAghNWfmJLhw-0mf2Mm0nylbrnEBYT3ol2MInUVSDI.PysZxg03x8FcNs079fbbuB8yA5sZX-DkqtKxwpZVP_Q&dib_tag=se&keywords=R%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9&qid=1744598012&s=books&sprefix=r%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9%2Cstripbooks%2C149&sr=1-1)などから 
+    - 一部をPDFとしてMoodleからダウンロード可
 :::
 
 ::: {.column width="50%"}
@@ -74,31 +76,37 @@ execute:
 
 毎週のリーディングを講義の**前に**読んでください。
 
-- 第２回（2024-04-09）: ガイダンス、データサイエンスとR入門
+- 第1回: ガイダンス、データサイエンスとR入門
   - [R4DS Introduction](https://r4ds.hadley.nz/intro)
   - [R4DS Chapter 2 (Workflow: Basics)](https://r4ds.hadley.nz/workflow-basics)
-- 第３回（2024-04-16）: プロジェクトの整理とデータの読み込み
+- 第2回: プロジェクトの整理とデータの読み込み
   - [R4DS Chapter 6 (Workflow: Scripts and Projects)](https://r4ds.hadley.nz/workflow-scripts)
   - [R4DS Chapter 7 (Data Import)](https://r4ds.hadley.nz/data-import)
 
 ## リーディング {.smaller}
 
-- 第４回（2024-04-23）: データの整理
+- 第3回: データの整理
   - [R4DS Chapter 3 (Data Transformation)](https://r4ds.hadley.nz/data-transform)
   - [R4DS Chapter 5 (Data Tidying)](https://r4ds.hadley.nz/data-tidy)
-- 第５回（2024-05-07）: データの可視化
+- 第4回: データの可視化
   - [R4DS Chapter 1 (Data Visualization)](https://r4ds.hadley.nz/data-visualize)
-- 第６回（2024-05-14）: 再現可能な文書の書き方
+- 第5回: 再現可能な文書の書き方
   - [R4DS Chapter 28 (Quarto)](https://r4ds.hadley.nz/quarto)
 
 ## 課題と評価
 
-- 宿題（25%）
-  - Moodleからダウンロード、提出
-  - 締め切り：次の週の授業まで
-- リーディング
-- 授業のディスカッションに参加する（25%）
-- Rを使って、**自分の研究に関する**レポートを書く（50%）
+- 宿題（40%）
+  - Moodleで実施または提出
+  - 締切まで何度でも再提出可
+  - 締切：次回の授業開始前まで
+-  オンデマンド回のクイズ（10%）
+  - Moodleで実施
+  - 提出は**1回限り**
+  - 締切：4月30日 23:59
+- レポート（50%）
+  - Rを使って**自分が選んだデータセット**で作成
+  - 授業中に発表あり
+  - 締切：5月27日　12:50
 
 # データサイエンスとは？
 
