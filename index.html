@@ -203,8 +203,9 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li>オンデマンド回: <strong>生成AIの基本</strong>
 <ul>
-<li><a href="./on-demand/index.html">スライド</a></li>
-<li><a href="https://youtu.be/PVTgdrTJKyM">録画</a></li>
+<li><a href="https://joelnitta.github.io/joho-shori/on-demand">スライド</a></li>
+<li><a href="https://edu.isc.chubu.ac.jp/hsuzuki/iip/DataScience/ChatGPT/chatgpt.html">資料：中部大学「ChatGPTについて」</a></li>
+<li><a href="https://www.youtube.com/watch?v=ok837FBoEI8">録画</a></li>
 </ul></li>
 </ul>
 </section>
@@ -312,7 +313,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/data-science-chiba-2024\.github\.io\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

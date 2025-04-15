@@ -11,14 +11,14 @@
     "href": "day1/index.html#スケジュール",
     "title": "データサイエンス",
     "section": "スケジュール",
-    "text": "スケジュール\n\n生成AIの基本、RとRStudioのインストール（オンデマンド）\nガイダンス、データサイエンスとR入門\nプロジェクトの整理とデータの読み込み\nデータの整理\nデータの可視化\n再現可能な文書の書き方\nレポートの発表\n再現性を高めるツール（オンデマンド）\n\n内容はニーズに合わせる"
+    "text": "スケジュール\n\nガイダンス、データサイエンスとR入門\nプロジェクトの整理とデータの読み込み\nデータの整理（1）\nデータの整理（2）\nデータの可視化\n再現可能な文書の書き方\nレポートの発表、再現可能なデータ解析のベストプラクティス\n\nオンデマンド：生成AIの基本  内容はニーズに合わせる"
   },
   {
-    "objectID": "day1/index.html#サイト",
-    "href": "day1/index.html#サイト",
+    "objectID": "day1/index.html#moodle",
+    "href": "day1/index.html#moodle",
     "title": "データサイエンス",
-    "section": "サイト",
-    "text": "サイト\nhttps://data-science-chiba-2024.github.io/\nスライドと動画のリンクが掲載されている"
+    "section": "Moodle",
+    "text": "Moodle\nhttps://moodle.gs.chiba-u.jp/moodle/course/view.php?id=44391\n全てのリーディング、宿題などが載っています"
   },
   {
     "objectID": "day1/index.html#オフィスアワー",
@@ -32,28 +32,28 @@
     "href": "day1/index.html#教科書",
     "title": "データサイエンス",
     "section": "教科書",
-    "text": "教科書\n\n\n\nR for Data Science (2nd edition)\n\n英語版はオンラインで無料 https://r4ds.hadley.nz/\n日本語版（第１エディションのみ）はアマゾンなどから"
+    "text": "教科書\n\n\n\nR for Data Science (2nd edition)\n\n英語版はオンラインで無料 https://r4ds.hadley.nz/\n日本語版はアマゾンなどから\n\n一部をPDFとしてMoodleからダウンロード可"
   },
   {
     "objectID": "day1/index.html#リーディング",
     "href": "day1/index.html#リーディング",
     "title": "データサイエンス",
     "section": "リーディング",
-    "text": "リーディング\n毎週のリーディングを講義の前に読んでください。\n\n第２回（2024-04-09）: ガイダンス、データサイエンスとR入門\n\nR4DS Introduction\nR4DS Chapter 2 (Workflow: Basics)\n\n第３回（2024-04-16）: プロジェクトの整理とデータの読み込み\n\nR4DS Chapter 6 (Workflow: Scripts and Projects)\nR4DS Chapter 7 (Data Import)"
+    "text": "リーディング\n毎週のリーディングを講義の前に読んでください。\n\n第1回: ガイダンス、データサイエンスとR入門\n\nR4DS Introduction\nR4DS Chapter 2 (Workflow: Basics)\n\n第2回: プロジェクトの整理とデータの読み込み\n\nR4DS Chapter 6 (Workflow: Scripts and Projects)\nR4DS Chapter 7 (Data Import)"
   },
   {
     "objectID": "day1/index.html#リーディング-1",
     "href": "day1/index.html#リーディング-1",
     "title": "データサイエンス",
     "section": "リーディング",
-    "text": "リーディング\n\n第４回（2024-04-23）: データの整理\n\nR4DS Chapter 3 (Data Transformation)\nR4DS Chapter 5 (Data Tidying)\n\n第５回（2024-05-07）: データの可視化\n\nR4DS Chapter 1 (Data Visualization)\n\n第６回（2024-05-14）: 再現可能な文書の書き方\n\nR4DS Chapter 28 (Quarto)"
+    "text": "リーディング\n\n第3回: データの整理\n\nR4DS Chapter 3 (Data Transformation)\nR4DS Chapter 5 (Data Tidying)\n\n第4回: データの可視化\n\nR4DS Chapter 1 (Data Visualization)\n\n第5回: 再現可能な文書の書き方\n\nR4DS Chapter 28 (Quarto)"
   },
   {
     "objectID": "day1/index.html#課題と評価",
     "href": "day1/index.html#課題と評価",
     "title": "データサイエンス",
     "section": "課題と評価",
-    "text": "課題と評価\n\n宿題（25%）\n\nMoodleからダウンロード、提出\n締め切り：次の週の授業まで\n\nリーディング\n授業のディスカッションに参加する（25%）\nRを使って、自分の研究に関するレポートを書く（50%）"
+    "text": "課題と評価\n\n宿題（40%）\n\nMoodleで実施または提出\n締切まで何度でも再提出可\n締切：次回の授業開始前まで\n\nオンデマンド回のクイズ（10%）\nMoodleで実施\n提出は1回限り\n締切：4月30日 23:59\nレポート（50%）\n\nRを使って自分が選んだデータセットで作成\n授業中に発表あり\n締切：5月27日　12:50"
   },
   {
     "objectID": "day1/index.html#データサイエンスとは-1",
@@ -1327,7 +1327,7 @@
     "href": "index.html#スケジュール",
     "title": "データサイエンス",
     "section": "スケジュール",
-    "text": "スケジュール\n毎週のリーディングを講義の前に読んでください。\n（全ての講義の録画はありません）\n\n第1回（2025-04-15）: ガイダンス、データサイエンスとR入門\n\nスライド\nリーディング\n\nR4DS Introduction\nR4DS Chapter 2 (Workflow: Basics)\n\n\n第2回（2025-04-22）: プロジェクトの整理とデータの読み込み\n\nスライド\nリーディング\n\nR4DS Chapter 6 (Workflow: Scripts and Projects)\nR4DS Chapter 7 (Data Import)\n\n\n第3回（2025-04-30）: データの整理（１）\n\nスライド\nリーディング\n\nR4DS Chapter 3 (Data Transformation)\n\n\n第4回（2025-05-09）: データの整理（２）\n\nスライド\nリーディング\n\nR4DS Chapter 5 (Data Tidying)\nR4DS Chapter 19 (Joins)\n\n\n第5回（2025-05-13）: データの可視化\n\nスライド\nリーディング\n\nR4DS Chapter 1 (Data Visualization)\n\n\n第6回（2025-05-20）: 再現可能な文書の書き方\n\nスライド\nリーディング\n\nR4DS Chapter 28 (Quarto)\n\n\n第7回（2025-05-27）: レポートの発表、再現可能なデータ解析のベストプラクティス\n\nスライド\n\nオンデマンド回: 生成AIの基本\n\nスライド\n録画"
+    "text": "スケジュール\n毎週のリーディングを講義の前に読んでください。\n（全ての講義の録画はありません）\n\n第1回（2025-04-15）: ガイダンス、データサイエンスとR入門\n\nスライド\nリーディング\n\nR4DS Introduction\nR4DS Chapter 2 (Workflow: Basics)\n\n\n第2回（2025-04-22）: プロジェクトの整理とデータの読み込み\n\nスライド\nリーディング\n\nR4DS Chapter 6 (Workflow: Scripts and Projects)\nR4DS Chapter 7 (Data Import)\n\n\n第3回（2025-04-30）: データの整理（１）\n\nスライド\nリーディング\n\nR4DS Chapter 3 (Data Transformation)\n\n\n第4回（2025-05-09）: データの整理（２）\n\nスライド\nリーディング\n\nR4DS Chapter 5 (Data Tidying)\nR4DS Chapter 19 (Joins)\n\n\n第5回（2025-05-13）: データの可視化\n\nスライド\nリーディング\n\nR4DS Chapter 1 (Data Visualization)\n\n\n第6回（2025-05-20）: 再現可能な文書の書き方\n\nスライド\nリーディング\n\nR4DS Chapter 28 (Quarto)\n\n\n第7回（2025-05-27）: レポートの発表、再現可能なデータ解析のベストプラクティス\n\nスライド\n\nオンデマンド回: 生成AIの基本\n\nスライド\n資料：中部大学「ChatGPTについて」\n録画"
   },
   {
     "objectID": "index.html#オフィスアワー",
