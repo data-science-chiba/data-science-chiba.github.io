@@ -103,13 +103,25 @@ execute:
   - Moodleで実施
   - 提出は**1回限り**
   - 締切：4月30日 23:59
-
+ 
 ## 課題と評価
 
 - レポート（50%）
   - Rを使って**自分が選んだデータセット**で作成
   - 授業中に発表あり
   - 締切：5月27日　12:50
+
+## 課題と評価
+
+- 遅れた提出・クイズの再実施は認めません
+
+## オンデマンド回：生成AIの基本
+
+- Moodle -> [「オンデマンド回」](https://moodle.gs.chiba-u.jp/moodle/course/section.php?id=804658)
+  - オンデマンド講義（[YouTubeからアケセス](https://www.youtube.com/watch?v=ok837FBoEI8)、10分）
+  - 中部大学の「[ChatGPTについて](https://edu.isc.chubu.ac.jp/hsuzuki/iip/DataScience/ChatGPT/chatgpt.html)」の資料
+  - クイズ
+    - **締め切り：2025年4月30日 23:59**
 
 # データサイエンスとは？
 
