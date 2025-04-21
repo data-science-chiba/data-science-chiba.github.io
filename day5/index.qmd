@@ -16,7 +16,7 @@ options(width = 70)
 library(tidyverse)
 ```
 
-<https://data-science-chiba-2024.github.io/day5/>
+<https://data-science-chiba.github.io/day5/>
 
 ## データの可視化について
 
