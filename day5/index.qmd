@@ -112,7 +112,7 @@ glimpse(penguins)
 
 ## 目的：このグラフを作る
 
-![](https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-7-1.png)
+![](https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-6-1.png)
 
 ## `ggplot()`でグラフの基盤を作る
 
@@ -559,3 +559,26 @@ ggplot(penguins,　aes(x = flipper_length_mm, y = body_mass_g)) +
 - aesthetic mapping（`mapping`と`aes`）、どのデータをグラフのどの要素で表示するかを設定する
 - geometry（`geom`）は、グラフの形状を設定する
 - グラフを作成するコマンドは、レイヤーを`+`で重ねていく
+
+## レポートについて
+
+- レポートでは、**自分で選んだデータ**を使って、解析と可視化を行ってください。
+
+- もし自分のデータがない場合は、[TidyTuesday](https://github.com/rfordatascience/tidytuesday)のデータを使ってもかまいません。
+  - TidyTuesdayは、データサイエンスを学ぶ人たち向けに、練習用のデータセットを提供しているプロジェクトです。
+
+- 締め切り：**第７回（５月２７日）**
+
+---
+
+![](../images/2025-05-final_proj_moodle.jpg)
+
+## TidyTuesdayのデータの読み込み方
+
+```{r}
+library(tidytuesdayR)
+tuesdata <- tidytuesdayR::tt_load(2025, week = 13)
+pokemon_df <- tuesdata$pokemon_df
+
+pokemon_df
+```
