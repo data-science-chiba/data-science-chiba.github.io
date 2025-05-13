@@ -314,7 +314,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, …</c
 <section id="目的このグラフを作る" class="slide level2">
 <h2>目的：このグラフを作る</h2>
 
-<img data-src="https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-7-1.png" class="r-stretch"></section>
+<img data-src="https://r4ds.hadley.nz/data-visualize_files/figure-html/unnamed-chunk-6-1.png" class="r-stretch"></section>
 <section id="ggplotでグラフの基盤を作る" class="slide level2">
 <h2><code>ggplot()</code>でグラフの基盤を作る</h2>
 <div class="cell columns column-output-location">
@@ -876,6 +876,52 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, …</c
 <li>geometry（<code>geom</code>）は、グラフの形状を設定する</li>
 <li>グラフを作成するコマンドは、レイヤーを<code>+</code>で重ねていく</li>
 </ul>
+</section>
+<section id="レポートについて" class="slide level2">
+<h2>レポートについて</h2>
+<ul>
+<li><p>レポートでは、<strong>自分で選んだデータ</strong>を使って、解析と可視化を行ってください。</p></li>
+<li><p>もし自分のデータがない場合は、<a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a>のデータを使ってもかまいません。</p>
+<ul>
+<li>TidyTuesdayは、データサイエンスを学ぶ人たち向けに、練習用のデータセットを提供しているプロジェクトです。</li>
+</ul></li>
+<li><p>締め切り：<strong>第７回（５月２７日）</strong></p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/2025-05-final_proj_moodle.jpg" class="r-stretch"></section>
+<section id="tidytuesdayのデータの読み込み方" class="slide level2">
+<h2>TidyTuesdayのデータの読み込み方</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">library</span>(tidytuesdayR)</span>
+<span id="cb27-2"><a></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="dv">2025</span>, <span class="at">week =</span> <span class="dv">13</span>)</span>
+<span id="cb27-3"><a></a>pokemon_df <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>pokemon_df</span>
+<span id="cb27-4"><a></a></span>
+<span id="cb27-5"><a></a>pokemon_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 949 × 22
+      id pokemon    species_id height weight base_experience type_1
+   &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt; 
+ 1     1 bulbasaur           1    0.7    6.9              64 grass 
+ 2     2 ivysaur             2    1     13               142 grass 
+ 3     3 venusaur            3    2    100               236 grass 
+ 4     4 charmander          4    0.6    8.5              62 fire  
+ 5     5 charmeleon          5    1.1   19               142 fire  
+ 6     6 charizard           6    1.7   90.5             240 fire  
+ 7     7 squirtle            7    0.5    9                63 water 
+ 8     8 wartortle           8    1     22.5             142 water 
+ 9     9 blastoise           9    1.6   85.5             239 water 
+10    10 caterpie           10    0.3    2.9              39 bug   
+# ℹ 939 more rows
+# ℹ 15 more variables: type_2 &lt;chr&gt;, hp &lt;dbl&gt;, attack &lt;dbl&gt;,
+#   defense &lt;dbl&gt;, special_attack &lt;dbl&gt;, special_defense &lt;dbl&gt;,
+#   speed &lt;dbl&gt;, color_1 &lt;chr&gt;, color_2 &lt;chr&gt;, color_f &lt;chr&gt;,
+#   egg_group_1 &lt;chr&gt;, egg_group_2 &lt;chr&gt;, url_icon &lt;chr&gt;,
+#   generation_id &lt;dbl&gt;, url_image &lt;chr&gt;</code></pre>
+</div>
+</div>
 
 
 </section></section>

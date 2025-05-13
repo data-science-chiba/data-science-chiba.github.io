@@ -658,6 +658,20 @@
     "text": "まとめ\n\nどのデータやグラフでも、同じ「文法」で記述することができます。\naesthetic mapping（mappingとaes）、どのデータをグラフのどの要素で表示するかを設定する\ngeometry（geom）は、グラフの形状を設定する\nグラフを作成するコマンドは、レイヤーを+で重ねていく"
   },
   {
+    "objectID": "day5/index.html#レポートについて",
+    "href": "day5/index.html#レポートについて",
+    "title": "データサイエンス",
+    "section": "レポートについて",
+    "text": "レポートについて\n\nレポートでは、自分で選んだデータを使って、解析と可視化を行ってください。\nもし自分のデータがない場合は、TidyTuesdayのデータを使ってもかまいません。\n\nTidyTuesdayは、データサイエンスを学ぶ人たち向けに、練習用のデータセットを提供しているプロジェクトです。\n\n締め切り：第７回（５月２７日）"
+  },
+  {
+    "objectID": "day5/index.html#tidytuesdayのデータの読み込み方",
+    "href": "day5/index.html#tidytuesdayのデータの読み込み方",
+    "title": "データサイエンス",
+    "section": "TidyTuesdayのデータの読み込み方",
+    "text": "TidyTuesdayのデータの読み込み方\n\nlibrary(tidytuesdayR)\ntuesdata &lt;- tidytuesdayR::tt_load(2025, week = 13)\npokemon_df &lt;- tuesdata$pokemon_df\n\npokemon_df\n\n# A tibble: 949 × 22\n      id pokemon    species_id height weight base_experience type_1\n   &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt; \n 1     1 bulbasaur           1    0.7    6.9              64 grass \n 2     2 ivysaur             2    1     13               142 grass \n 3     3 venusaur            3    2    100               236 grass \n 4     4 charmander          4    0.6    8.5              62 fire  \n 5     5 charmeleon          5    1.1   19               142 fire  \n 6     6 charizard           6    1.7   90.5             240 fire  \n 7     7 squirtle            7    0.5    9                63 water \n 8     8 wartortle           8    1     22.5             142 water \n 9     9 blastoise           9    1.6   85.5             239 water \n10    10 caterpie           10    0.3    2.9              39 bug   \n# ℹ 939 more rows\n# ℹ 15 more variables: type_2 &lt;chr&gt;, hp &lt;dbl&gt;, attack &lt;dbl&gt;,\n#   defense &lt;dbl&gt;, special_attack &lt;dbl&gt;, special_defense &lt;dbl&gt;,\n#   speed &lt;dbl&gt;, color_1 &lt;chr&gt;, color_2 &lt;chr&gt;, color_f &lt;chr&gt;,\n#   egg_group_1 &lt;chr&gt;, egg_group_2 &lt;chr&gt;, url_icon &lt;chr&gt;,\n#   generation_id &lt;dbl&gt;, url_image &lt;chr&gt;"
+  },
+  {
     "objectID": "day3/index.html#rstudioのデフォルト設定を-変えましょう",
     "href": "day3/index.html#rstudioのデフォルト設定を-変えましょう",
     "title": "データサイエンス",
