@@ -425,19 +425,19 @@ smaller &lt;- diamonds |&gt;
 <section id="レポート" class="slide level2">
 <h2>レポート</h2>
 <ul>
-<li><p>Tidy Tuesdayプロジェクトが提供しているデータセットを使って、<strong>二つ以上</strong>のグラフを作成し、そのグラフから読み取るメッセージを説明してください</p></li>
+<li><p>自分のデータ、あるいはTidy Tuesdayプロジェクトが提供しているデータセットを使って、<strong>二つ以上</strong>のグラフを作成し、そのグラフから読み取るメッセージを説明してください</p></li>
 <li><p>QuartoとRを使って書いて、HTMLとして出力</p></li>
-<li><p>次回（５月２８日）までに提出して、授業中に発表する</p></li>
+<li><p>次回（5月27日）までに提出して、授業中に発表する</p></li>
 </ul>
 </section>
 <section id="レポートのデータの読み込み" class="slide level2">
 <h2>レポートのデータの読み込み</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">library</span>(tidytuesdayR)</span>
-<span id="cb8-2"><a></a>tuesdata <span class="ot">&lt;-</span> <span class="fu">tt_load</span>(<span class="dv">2022</span>, <span class="at">week =</span> <span class="dv">10</span>)</span>
-<span id="cb8-3"><a></a>erasmus <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>erasmus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="dv">2025</span>, <span class="at">week =</span> <span class="dv">13</span>)</span>
+<span id="cb8-3"><a></a>pokemon_df <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>pokemon_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="https://github.com/rfordatascience/tidytuesday/tree/c0168e6866dc33bb2ddfd58328eac8b83e239db6/data/2022/2022-03-08#eu-student-mobility">データの詳細については、こちらを見てください</a></p>
+<p><a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-04-01/readme.md">データの詳細については、こちらを見てください</a></p>
 
 
 </section></section>

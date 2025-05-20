@@ -354,14 +354,14 @@
     "href": "day6/index.html#レポート",
     "title": "データサイエンス",
     "section": "レポート",
-    "text": "レポート\n\nTidy Tuesdayプロジェクトが提供しているデータセットを使って、二つ以上のグラフを作成し、そのグラフから読み取るメッセージを説明してください\nQuartoとRを使って書いて、HTMLとして出力\n次回（５月２８日）までに提出して、授業中に発表する"
+    "text": "レポート\n\n自分のデータ、あるいはTidy Tuesdayプロジェクトが提供しているデータセットを使って、二つ以上のグラフを作成し、そのグラフから読み取るメッセージを説明してください\nQuartoとRを使って書いて、HTMLとして出力\n次回（5月27日）までに提出して、授業中に発表する"
   },
   {
     "objectID": "day6/index.html#レポートのデータの読み込み",
     "href": "day6/index.html#レポートのデータの読み込み",
     "title": "データサイエンス",
     "section": "レポートのデータの読み込み",
-    "text": "レポートのデータの読み込み\n\nlibrary(tidytuesdayR)\ntuesdata &lt;- tt_load(2022, week = 10)\nerasmus &lt;- tuesdata$erasmus\n\nデータの詳細については、こちらを見てください"
+    "text": "レポートのデータの読み込み\n\nlibrary(tidytuesdayR)\ntuesdata &lt;- tidytuesdayR::tt_load(2025, week = 13)\npokemon_df &lt;- tuesdata$pokemon_df\n\nデータの詳細については、こちらを見てください"
   },
   {
     "objectID": "day6/diamond-sizes-small.html",
