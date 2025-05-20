@@ -203,19 +203,19 @@ cat(readr::read_file("diamond-sizes-hide.qmd"))
 
 ## レポート
 
-- Tidy Tuesdayプロジェクトが提供しているデータセットを使って、**二つ以上**のグラフを作成し、そのグラフから読み取るメッセージを説明してください
+- 自分のデータ、あるいはTidy Tuesdayプロジェクトが提供しているデータセットを使って、**二つ以上**のグラフを作成し、そのグラフから読み取るメッセージを説明してください
 
 - QuartoとRを使って書いて、HTMLとして出力
 
-- 次回（５月２８日）までに提出して、授業中に発表する
+- 次回（5月27日）までに提出して、授業中に発表する
 
 ## レポートのデータの読み込み
 
 ```{r}
 #| eval: false
 library(tidytuesdayR)
-tuesdata <- tt_load(2022, week = 10)
-erasmus <- tuesdata$erasmus
+tuesdata <- tidytuesdayR::tt_load(2025, week = 13)
+pokemon_df <- tuesdata$pokemon_df
 ```
 
-[データの詳細については、こちらを見てください](https://github.com/rfordatascience/tidytuesday/tree/c0168e6866dc33bb2ddfd58328eac8b83e239db6/data/2022/2022-03-08#eu-student-mobility)
+[データの詳細については、こちらを見てください](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-04-01/readme.md)
