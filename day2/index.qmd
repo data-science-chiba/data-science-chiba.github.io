@@ -165,6 +165,7 @@ getwd()
 
 ```{r}
 #| echo: false
+fs::dir_create("~/Desktop/r4ds")
 withr::with_dir("~/Desktop/r4ds", getwd())
 ```
 
