@@ -55,9 +55,9 @@ library(tidyverse)
 
 <https://github.com/joelnitta/pleurosoriopsis>
 
-- 必要なソフトはDockerのみ
+- 必要なソフトは**Dockerのみ**
 
-- あとは全部Dockerのコンテナに入っているので、別にインストールするひつしょうがない
+- あとは全部Dockerのコンテナに入っているので、別にインストールする必要がない
 
 ## データのリポジトリ
 
