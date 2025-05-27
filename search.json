@@ -403,7 +403,7 @@
     "href": "day7/index.html#gitとdockerのデモンストレーション",
     "title": "データサイエンス",
     "section": "gitとDockerのデモンストレーション",
-    "text": "gitとDockerのデモンストレーション\nhttps://github.com/joelnitta/pleurosoriopsis\n\n必要なソフトはDockerのみ\nあとは全部Dockerのコンテナに入っているので、別にインストールするひつしょうがない"
+    "text": "gitとDockerのデモンストレーション\nhttps://github.com/joelnitta/pleurosoriopsis\n\n必要なソフトはDockerのみ\nあとは全部Dockerのコンテナに入っているので、別にインストールする必要がない"
   },
   {
     "objectID": "day7/index.html#データのリポジトリ",
