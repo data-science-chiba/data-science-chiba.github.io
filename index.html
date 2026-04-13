@@ -146,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 <p>毎週のリーディングを講義の<strong>前に</strong>読んでください。</p>
 <p>（全ての講義の録画はありません）</p>
 <ul>
-<li>第1回（2025-04-15）: <strong>ガイダンス、データサイエンスとR入門</strong>
+<li>第1回（2026-04-14）: <strong>ガイダンス、データサイエンスとR入門</strong>
 <ul>
 <li><a href="./day1/index.html">スライド</a></li>
 <li>リーディング
@@ -155,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://r4ds.hadley.nz/workflow-basics">R4DS Chapter 2 (Workflow: Basics)</a></li>
 </ul></li>
 </ul></li>
-<li>第2回（2025-04-22）: <strong>プロジェクトの整理とデータの読み込み</strong>
+<li>第2回（2026-04-21）: <strong>プロジェクトの整理とデータの読み込み</strong>
 <ul>
 <li><a href="./day2/index.html">スライド</a></li>
 <li>リーディング
@@ -164,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://r4ds.hadley.nz/data-import">R4DS Chapter 7 (Data Import)</a></li>
 </ul></li>
 </ul></li>
-<li>第3回（2025-04-30）: <strong>データの整理（１）</strong>
+<li>第3回（2026-04-28）: <strong>データの整理（１）</strong>
 <ul>
 <li><a href="./day3/index.html">スライド</a></li>
 <li>リーディング
@@ -172,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://r4ds.hadley.nz/">R4DS Chapter 3 (Data Transformation)</a></li>
 </ul></li>
 </ul></li>
-<li>第4回（2025-05-09）: <strong>データの整理（２）</strong>
+<li>第4回（2026-05-07）: <strong>データの整理（２）</strong>
 <ul>
 <li><a href="./day4/index.html">スライド</a></li>
 <li>リーディング
@@ -181,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://r4ds.hadley.nz/joins">R4DS Chapter 19 (Joins)</a></li>
 </ul></li>
 </ul></li>
-<li>第5回（2025-05-13）: <strong>データの可視化</strong>
+<li>第5回（2026-05-12）: <strong>データの可視化</strong>
 <ul>
 <li><a href="./day5/index.html">スライド</a></li>
 <li>リーディング
@@ -189,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://r4ds.hadley.nz/data-visualize">R4DS Chapter 1 (Data Visualization)</a></li>
 </ul></li>
 </ul></li>
-<li>第6回（2025-05-20）: <strong>再現可能な文書の書き方</strong>
+<li>第6回（2026-05-19）: <strong>再現可能な文書の書き方</strong>
 <ul>
 <li><a href="./day6/index.html">スライド</a></li>
 <li>リーディング
@@ -197,7 +197,7 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://r4ds.hadley.nz/quarto">R4DS Chapter 28 (Quarto)</a></li>
 </ul></li>
 </ul></li>
-<li>第7回（2025-05-27）: <strong>レポートの発表、再現可能なデータ解析のベストプラクティス</strong>
+<li>第7回（2026-05-26）: <strong>レポートの発表、再現可能なデータ解析のベストプラクティス</strong>
 <ul>
 <li><a href="./day7/index.html">スライド</a></li>
 </ul></li>
@@ -216,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="リンク" class="level2">
 <h2 class="anchored" data-anchor-id="リンク">リンク</h2>
 <ul>
-<li><a href="https://syllabus.gs.chiba-u.jp/2025/211218201000000/Z021100201/ja_JP">シラバス</a></li>
+<li><a href="https://syllabus.gs.chiba-u.jp/2026/211218201000000/Z021100201/ja_JP">シラバス</a></li>
 </ul>
 
 
@@ -313,7 +313,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/data-science-chiba-2024\.github\.io\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

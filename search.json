@@ -74,7 +74,7 @@
     "href": "day1/index.html#オンデマンド回生成aiの基本",
     "title": "データサイエンス",
     "section": "オンデマンド回：生成AIの基本",
-    "text": "オンデマンド回：生成AIの基本\n\nMoodle -&gt; 「オンデマンド回」\n\nオンデマンド講義（YouTubeからアケセス、10分）\n中部大学の「ChatGPTについて」の資料\nクイズ\n\n締め切り：2025年4月30日 23:59"
+    "text": "オンデマンド回：生成AIの基本\n\nMoodle -&gt; 「オンデマンド回」\n\nオンデマンド講義（YouTubeからアケセス、10分）\n中部大学の「ChatGPTについて」の資料\nクイズ\n\n締め切り：2026年4月30日 23:59"
   },
   {
     "objectID": "day1/index.html#データサイエンスとは-1",
@@ -1362,7 +1362,7 @@
     "href": "index.html#スケジュール",
     "title": "データサイエンス",
     "section": "スケジュール",
-    "text": "スケジュール\n毎週のリーディングを講義の前に読んでください。\n（全ての講義の録画はありません）\n\n第1回（2025-04-15）: ガイダンス、データサイエンスとR入門\n\nスライド\nリーディング\n\nR4DS Introduction\nR4DS Chapter 2 (Workflow: Basics)\n\n\n第2回（2025-04-22）: プロジェクトの整理とデータの読み込み\n\nスライド\nリーディング\n\nR4DS Chapter 6 (Workflow: Scripts and Projects)\nR4DS Chapter 7 (Data Import)\n\n\n第3回（2025-04-30）: データの整理（１）\n\nスライド\nリーディング\n\nR4DS Chapter 3 (Data Transformation)\n\n\n第4回（2025-05-09）: データの整理（２）\n\nスライド\nリーディング\n\nR4DS Chapter 5 (Data Tidying)\nR4DS Chapter 19 (Joins)\n\n\n第5回（2025-05-13）: データの可視化\n\nスライド\nリーディング\n\nR4DS Chapter 1 (Data Visualization)\n\n\n第6回（2025-05-20）: 再現可能な文書の書き方\n\nスライド\nリーディング\n\nR4DS Chapter 28 (Quarto)\n\n\n第7回（2025-05-27）: レポートの発表、再現可能なデータ解析のベストプラクティス\n\nスライド\n\nオンデマンド回: 生成AIの基本\n\nスライド\n資料：中部大学「ChatGPTについて」\n録画"
+    "text": "スケジュール\n毎週のリーディングを講義の前に読んでください。\n（全ての講義の録画はありません）\n\n第1回（2026-04-14）: ガイダンス、データサイエンスとR入門\n\nスライド\nリーディング\n\nR4DS Introduction\nR4DS Chapter 2 (Workflow: Basics)\n\n\n第2回（2026-04-21）: プロジェクトの整理とデータの読み込み\n\nスライド\nリーディング\n\nR4DS Chapter 6 (Workflow: Scripts and Projects)\nR4DS Chapter 7 (Data Import)\n\n\n第3回（2026-04-28）: データの整理（１）\n\nスライド\nリーディング\n\nR4DS Chapter 3 (Data Transformation)\n\n\n第4回（2026-05-07）: データの整理（２）\n\nスライド\nリーディング\n\nR4DS Chapter 5 (Data Tidying)\nR4DS Chapter 19 (Joins)\n\n\n第5回（2026-05-12）: データの可視化\n\nスライド\nリーディング\n\nR4DS Chapter 1 (Data Visualization)\n\n\n第6回（2026-05-19）: 再現可能な文書の書き方\n\nスライド\nリーディング\n\nR4DS Chapter 28 (Quarto)\n\n\n第7回（2026-05-26）: レポートの発表、再現可能なデータ解析のベストプラクティス\n\nスライド\n\nオンデマンド回: 生成AIの基本\n\nスライド\n資料：中部大学「ChatGPTについて」\n録画"
   },
   {
     "objectID": "index.html#オフィスアワー",
@@ -1453,7 +1453,7 @@
     "href": "day6/diamond-sizes-hide.html",
     "title": "データサイエンス",
     "section": "",
-    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.0     ✔ readr     2.1.6\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.2.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
   },
   {
     "objectID": "day6/diamond-sizes.html",
