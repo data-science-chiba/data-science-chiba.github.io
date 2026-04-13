@@ -121,7 +121,7 @@ execute:
   - オンデマンド講義（[YouTubeからアケセス](https://www.youtube.com/watch?v=ok837FBoEI8)、10分）
   - 中部大学の「[ChatGPTについて](https://edu.isc.chubu.ac.jp/hsuzuki/iip/DataScience/ChatGPT/chatgpt.html)」の資料
   - クイズ
-    - **締め切り：2026年4月29日 23:59**
+    - **締め切り：2026年4月30日 23:59**
 
 # データサイエンスとは？
 
