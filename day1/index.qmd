@@ -232,6 +232,19 @@ them, and discuss -->
 
 <https://posit.co/download/rstudio-desktop/>から自分のOSに合ったファイルをダウンロードして、インストール
 
+## GitHubのアカウント作成
+
+- GitHubは、コードを保存・共有するためのオンラインサービス
+- 本授業では、GitHub Copilot (プログラミング用のAI) を使うために、GitHubのアカウントが必要
+- <https://github.com/> からアカウントを作成
+
+## GitHub Education に応募する
+
+- GitHub Educationは、学生や教員がGitHubの有料機能を無料で使えるようにするプログラム
+- [Education benefits](https://github.com/settings/education/benefits) を開く
+- `GitHub Education` で、`Start an application` をクリック
+- フォームに入力し、`Submit application` をクリック
+
 ## RStudioについて
 
 - 主に四つの**パネル**がある
