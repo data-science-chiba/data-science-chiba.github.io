@@ -147,6 +147,20 @@
     "text": "RStudioのインストール\nhttps://posit.co/download/rstudio-desktop/から自分のOSに合ったファイルをダウンロードして、インストール"
   },
   {
+    "objectID": "day1/index.html#githubのアカウント作成",
+    "href": "day1/index.html#githubのアカウント作成",
+    "title": "データサイエンス",
+    "section": "GitHubのアカウント作成",
+    "text": "GitHubのアカウント作成\n\nGitHubは、コードを保存・共有するためのオンラインサービス\n本授業では、GitHub Copilot (プログラミング用のAI) を使うために、GitHubのアカウントが必要\nhttps://github.com/ からアカウントを作成"
+  },
+  {
+    "objectID": "day1/index.html#github-education-に応募する",
+    "href": "day1/index.html#github-education-に応募する",
+    "title": "データサイエンス",
+    "section": "GitHub Education に応募する",
+    "text": "GitHub Education に応募する\n\nGitHub Educationは、学生や教員がGitHubの有料機能を無料で使えるようにするプログラム\nEducation benefits を開く\nGitHub Education で、Start an application をクリック\nフォームに入力し、Submit application をクリック"
+  },
+  {
     "objectID": "day1/index.html#rstudioについて",
     "href": "day1/index.html#rstudioについて",
     "title": "データサイエンス",
