@@ -63,14 +63,25 @@ ggplot(diamonds, aes(x = carat, y = price)) +
 
 - 変数名にはスペースが使えないので、`_`を使いましょう（例えば、`data_set_1`など）。
 
-## スクリプトの書き方
+## コメントについて
 
 - コメント（Rが無視する場所）を`#`で書く
   - 例えば、`# this is a comment`
 
 - コメントは**自分用のメモ**
   - 未来の自分が、今の自分が何をやったのか、分かるように書く。
-  - まだ慣れていないうちには特にたくさん書きましょう。
+
+- コメントは**AIへの指示にも使える**（後で説明します）
+
+## 日本語が表れない時の解決策
+
+- もう一つのスクリプトを作成して、使う
+
+![](../images/fix-ja-typing.png){height="350"}
+
+::: {.aside}
+<https://walkintheforest.net/rstudio-editor-japanese/>
+:::
 
 ## ファイル名も整えましょう
 
@@ -123,7 +134,7 @@ report_draft_notes.txt
   - **プロジェクト名**と**場所**を入力（今回は`r4ds`にしましょう）
   - 分かりやすい場所がおすすめ（デスクトップにしましょう）
 
-- 今回は"Create a git repository"をクリックしないけど、本当はgitも使った方がいい（またあとで説明します）
+- 今回は"Create a git repository"をクリック（gitについてまたあとで説明します）
 
 ---
 
@@ -182,9 +193,46 @@ withr::with_dir("~/Desktop/r4ds", getwd())
 
 - なので、**`set.wd()`は使わないようにしましょう。**
 
-## プロジェクトにスクリプトを置きましょう
+## スクリプトの中でCopilotを使う
 
-以下のコードを書いて、スクリプトを`diamonds.R`として`r4ds`プロジェクトに保存して、実行しましょう：
+- 今までは、スクリプトを書くのに相当な知識が必要だた
+- でも、AIを使うと、すぐにコードでやりたいことを実行できるようになる
+
+![](../images/copilot.png)
+
+## Copilotの設定
+
+- `Tools` ➡︎ `Global Options` ➡︎ `GitHub Copilot` をクリック
+- `Enable GitHub Copilot`をクリックして、GitHubアカウントでログイン
+
+![Copilotの設定](../images/copilot-menu.png)
+
+## Copilotの使い方
+
+- スクリプトにカーソルを置いて、**コメントで**やりたいことを書く
+- 例えば、`# plot diamonds data`と書いてみましょう
+- すると、Copilotがコードを提案してくれる
+- そのコードを受け入れるには、<kbd class="kbc-button">Tab</kbd>を押す
+
+## 今回のスクリプトの目的
+
+- これから、`diamonds`データセットを使って、以下のような**グラフを作って**から、その**グラフを保存する**
+
+
+```{r}
+#| echo: false
+#| message: false
+
+suppressPackageStartupMessages(library(tidyverse))
+
+ggplot(diamonds, aes(x = carat, y = price)) + 
+  geom_hex()
+
+```
+
+---
+
+- このようなスクリプトになるでしょう：
 
 ```{r}
 #| eval: false
@@ -193,23 +241,15 @@ library(tidyverse)
 ggplot(diamonds, aes(x = carat, y = price)) + 
   geom_hex()
 ggsave("diamonds.png")
-
-write_csv(diamonds, "data/diamonds.csv")
 ```
-
-このスクリプトは何をするのでしょうか？
 
 ## コードによる再現性
 
-- `diamonds.R`は`diamonds.png`というグラフを作る。
+- `diamonds.R`は`diamonds.png`というグラフを作った
 
 . . .
 
-- `diamonds.png`を消しましょう。
-
-. . .
-
-- 解析結果が消えてしまった！どうしよう！？
+- うっかりして`diamonds.png`を消してしまった！どうしよう！？
 
 ## コードによる再現性
 
