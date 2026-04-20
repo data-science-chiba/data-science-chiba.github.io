@@ -250,8 +250,8 @@
 <li><p>変数名にはスペースが使えないので、<code>_</code>を使いましょう（例えば、<code>data_set_1</code>など）。</p></li>
 </ul>
 </section>
-<section id="スクリプトの書き方-1" class="slide level2">
-<h2>スクリプトの書き方</h2>
+<section id="コメントについて" class="slide level2">
+<h2>コメントについて</h2>
 <ul>
 <li>コメント（Rが無視する場所）を<code>#</code>で書く
 <ul>
@@ -260,10 +260,20 @@
 <li>コメントは<strong>自分用のメモ</strong>
 <ul>
 <li>未来の自分が、今の自分が何をやったのか、分かるように書く。</li>
-<li>まだ慣れていないうちには特にたくさん書きましょう。</li>
 </ul></li>
+<li>コメントは<strong>AIへの指示にも使える</strong>（後で説明します）</li>
 </ul>
 </section>
+<section id="日本語が表れない時の解決策" class="slide level2">
+<h2>日本語が表れない時の解決策</h2>
+<ul>
+<li>もう一つのスクリプトを作成して、使う</li>
+</ul>
+<p><img data-src="../images/fix-ja-typing.png" height="350"></p>
+
+<aside><div>
+<p><a href="https://walkintheforest.net/rstudio-editor-japanese/" class="uri">https://walkintheforest.net/rstudio-editor-japanese/</a></p>
+</div></aside></section>
 <section id="ファイル名も整えましょう" class="slide level2">
 <h2>ファイル名も整えましょう</h2>
 <div class="columns">
@@ -306,7 +316,7 @@ report_draft_notes.txt</code></pre>
 <li><strong>プロジェクト名</strong>と<strong>場所</strong>を入力（今回は<code>r4ds</code>にしましょう）</li>
 <li>分かりやすい場所がおすすめ（デスクトップにしましょう）</li>
 </ul></li>
-<li>今回は”Create a git repository”をクリックしないけど、本当はgitも使った方がいい（またあとで説明します）</li>
+<li>今回は”Create a git repository”をクリック（gitについてまたあとで説明します）</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -377,33 +387,59 @@ report_draft_notes.txt</code></pre>
 <li>なので、<strong><code>set.wd()</code>は使わないようにしましょう。</strong></li>
 </ul>
 </section>
-<section id="プロジェクトにスクリプトを置きましょう" class="slide level2">
-<h2>プロジェクトにスクリプトを置きましょう</h2>
-<p>以下のコードを書いて、スクリプトを<code>diamonds.R</code>として<code>r4ds</code>プロジェクトに保存して、実行しましょう：</p>
+<section id="スクリプトの中でcopilotを使う" class="slide level2">
+<h2>スクリプトの中でCopilotを使う</h2>
+<ul>
+<li>今までは、スクリプトを書くのに相当な知識が必要だた</li>
+<li>でも、AIを使うと、すぐにコードでやりたいことを実行できるようになる</li>
+</ul>
+
+<img data-src="../images/copilot.png" class="r-stretch"></section>
+<section id="copilotの設定" class="slide level2">
+<h2>Copilotの設定</h2>
+<ul>
+<li><code>Tools</code> ➡︎ <code>Global Options</code> ➡︎ <code>GitHub Copilot</code> をクリック</li>
+<li><code>Enable GitHub Copilot</code>をクリックして、GitHubアカウントでログイン</li>
+</ul>
+
+<img data-src="../images/copilot-menu.png" class="r-stretch quarto-figure-center"><p class="caption">Copilotの設定</p></section>
+<section id="copilotの使い方" class="slide level2">
+<h2>Copilotの使い方</h2>
+<ul>
+<li>スクリプトにカーソルを置いて、<strong>コメントで</strong>やりたいことを書く</li>
+<li>例えば、<code># plot diamonds data</code>と書いてみましょう</li>
+<li>すると、Copilotがコードを提案してくれる</li>
+<li>そのコードを受け入れるには、<kbd class="kbc-button">Tab</kbd>を押す</li>
+</ul>
+</section>
+<section id="今回のスクリプトの目的" class="slide level2">
+<h2>今回のスクリプトの目的</h2>
+<ul>
+<li>これから、<code>diamonds</code>データセットを使って、以下のような<strong>グラフを作って</strong>から、その<strong>グラフを保存する</strong></li>
+</ul>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+<ul>
+<li>このようなスクリプトになるでしょう：</li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
 <span id="cb6-4"><a></a>  <span class="fu">geom_hex</span>()</span>
-<span id="cb6-5"><a></a><span class="fu">ggsave</span>(<span class="st">"diamonds.png"</span>)</span>
-<span id="cb6-6"><a></a></span>
-<span id="cb6-7"><a></a><span class="fu">write_csv</span>(diamonds, <span class="st">"data/diamonds.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a></a><span class="fu">ggsave</span>(<span class="st">"diamonds.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>このスクリプトは何をするのでしょうか？</p>
 </section>
 <section id="コードによる再現性" class="slide level2">
 <h2>コードによる再現性</h2>
 <ul>
-<li><code>diamonds.R</code>は<code>diamonds.png</code>というグラフを作る。</li>
+<li><code>diamonds.R</code>は<code>diamonds.png</code>というグラフを作った</li>
 </ul>
 <div class="fragment">
 <ul>
-<li><code>diamonds.png</code>を消しましょう。</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>解析結果が消えてしまった！どうしよう！？</li>
+<li>うっかりして<code>diamonds.png</code>を消してしまった！どうしよう！？</li>
 </ul>
 </div>
 </section>

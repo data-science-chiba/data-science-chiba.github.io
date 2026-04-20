@@ -1134,11 +1134,18 @@
     "text": "スクリプトの書き方\n\n読みやすさと覚えやすさを優先しましょう。\nRは大文字と小文字を区別するので、小文字に揃えた方が覚えやく、間違いが少ない（例えば、Dataではなく、data）。\n変数名にはスペースが使えないので、_を使いましょう（例えば、data_set_1など）。"
   },
   {
-    "objectID": "day2/index.html#スクリプトの書き方-1",
-    "href": "day2/index.html#スクリプトの書き方-1",
+    "objectID": "day2/index.html#コメントについて",
+    "href": "day2/index.html#コメントについて",
     "title": "データサイエンス",
-    "section": "スクリプトの書き方",
-    "text": "スクリプトの書き方\n\nコメント（Rが無視する場所）を#で書く\n\n例えば、# this is a comment\n\nコメントは自分用のメモ\n\n未来の自分が、今の自分が何をやったのか、分かるように書く。\nまだ慣れていないうちには特にたくさん書きましょう。"
+    "section": "コメントについて",
+    "text": "コメントについて\n\nコメント（Rが無視する場所）を#で書く\n\n例えば、# this is a comment\n\nコメントは自分用のメモ\n\n未来の自分が、今の自分が何をやったのか、分かるように書く。\n\nコメントはAIへの指示にも使える（後で説明します）"
+  },
+  {
+    "objectID": "day2/index.html#日本語が表れない時の解決策",
+    "href": "day2/index.html#日本語が表れない時の解決策",
+    "title": "データサイエンス",
+    "section": "日本語が表れない時の解決策",
+    "text": "日本語が表れない時の解決策\n\nもう一つのスクリプトを作成して、使う\n\n\n\n\nhttps://walkintheforest.net/rstudio-editor-japanese/"
   },
   {
     "objectID": "day2/index.html#ファイル名も整えましょう",
@@ -1159,7 +1166,7 @@
     "href": "day2/index.html#新しいプロジェクトを作る",
     "title": "データサイエンス",
     "section": "新しいプロジェクトを作る",
-    "text": "新しいプロジェクトを作る\n\nFile ➡︎ New Project ➡︎ New Directory ➡︎ New Project をクリック\n\nプロジェクト名と場所を入力（今回はr4dsにしましょう）\n分かりやすい場所がおすすめ（デスクトップにしましょう）\n\n今回は”Create a git repository”をクリックしないけど、本当はgitも使った方がいい（またあとで説明します）"
+    "text": "新しいプロジェクトを作る\n\nFile ➡︎ New Project ➡︎ New Directory ➡︎ New Project をクリック\n\nプロジェクト名と場所を入力（今回はr4dsにしましょう）\n分かりやすい場所がおすすめ（デスクトップにしましょう）\n\n今回は”Create a git repository”をクリック（gitについてまたあとで説明します）"
   },
   {
     "objectID": "day2/index.html#新しいプロジェクトを作る-1",
@@ -1204,18 +1211,39 @@
     "text": "作業ディレクトリについて\n\nでも、多くの場合、他の人のパソコンにあるパスは自分のパソコンに存在しない\n\n.Rprojを使えば、set.wd()を使う必要がない\n\nなので、set.wd()は使わないようにしましょう。"
   },
   {
-    "objectID": "day2/index.html#プロジェクトにスクリプトを置きましょう",
-    "href": "day2/index.html#プロジェクトにスクリプトを置きましょう",
+    "objectID": "day2/index.html#スクリプトの中でcopilotを使う",
+    "href": "day2/index.html#スクリプトの中でcopilotを使う",
     "title": "データサイエンス",
-    "section": "プロジェクトにスクリプトを置きましょう",
-    "text": "プロジェクトにスクリプトを置きましょう\n以下のコードを書いて、スクリプトをdiamonds.Rとしてr4dsプロジェクトに保存して、実行しましょう：\n\nlibrary(tidyverse)\n\nggplot(diamonds, aes(x = carat, y = price)) + \n  geom_hex()\nggsave(\"diamonds.png\")\n\nwrite_csv(diamonds, \"data/diamonds.csv\")\n\nこのスクリプトは何をするのでしょうか？"
+    "section": "スクリプトの中でCopilotを使う",
+    "text": "スクリプトの中でCopilotを使う\n\n今までは、スクリプトを書くのに相当な知識が必要だた\nでも、AIを使うと、すぐにコードでやりたいことを実行できるようになる"
+  },
+  {
+    "objectID": "day2/index.html#copilotの設定",
+    "href": "day2/index.html#copilotの設定",
+    "title": "データサイエンス",
+    "section": "Copilotの設定",
+    "text": "Copilotの設定\n\nTools ➡︎ Global Options ➡︎ GitHub Copilot をクリック\nEnable GitHub Copilotをクリックして、GitHubアカウントでログイン\n\n\nCopilotの設定"
+  },
+  {
+    "objectID": "day2/index.html#copilotの使い方",
+    "href": "day2/index.html#copilotの使い方",
+    "title": "データサイエンス",
+    "section": "Copilotの使い方",
+    "text": "Copilotの使い方\n\nスクリプトにカーソルを置いて、コメントでやりたいことを書く\n例えば、# plot diamonds dataと書いてみましょう\nすると、Copilotがコードを提案してくれる\nそのコードを受け入れるには、Tabを押す"
+  },
+  {
+    "objectID": "day2/index.html#今回のスクリプトの目的",
+    "href": "day2/index.html#今回のスクリプトの目的",
+    "title": "データサイエンス",
+    "section": "今回のスクリプトの目的",
+    "text": "今回のスクリプトの目的\n\nこれから、diamondsデータセットを使って、以下のようなグラフを作ってから、そのグラフを保存する"
   },
   {
     "objectID": "day2/index.html#コードによる再現性",
     "href": "day2/index.html#コードによる再現性",
     "title": "データサイエンス",
     "section": "コードによる再現性",
-    "text": "コードによる再現性\n\ndiamonds.Rはdiamonds.pngというグラフを作る。\n\n\n\ndiamonds.pngを消しましょう。\n\n\n\n\n解析結果が消えてしまった！どうしよう！？"
+    "text": "コードによる再現性\n\ndiamonds.Rはdiamonds.pngというグラフを作った\n\n\n\nうっかりしてdiamonds.pngを消してしまった！どうしよう！？"
   },
   {
     "objectID": "day2/index.html#コードによる再現性-1",
@@ -1467,7 +1495,7 @@
     "href": "day6/diamond-sizes-hide.html",
     "title": "データサイエンス",
     "section": "",
-    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.0     ✔ readr     2.1.6\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.2.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.0     ✔ readr     2.1.6\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.2     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.2.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
   },
   {
     "objectID": "day6/diamond-sizes.html",
