@@ -8,14 +8,7 @@ execute:
   code-overflow: scroll
 ---
 
-# 第3回：データの整理
-
-```{r}
-#| echo: false
-options(width = 80)
-```
-
-<https://data-science-chiba.github.io/day3/>
+# 第3回：Git
 
 ## RStudioのデフォルト設定を<br>変えましょう
 
@@ -34,283 +27,194 @@ Tools → Global Options → General → Workspace
 
 ![](../images/settings_change.png){fig-alt="Screenshot showing how to change Rstudio settings for .RData"}
 
-## データの整理（Data Wrangling）
-
-- データが手に入る時、まだ解析に使いえない状態が多い
-
-- データの整理（「wrangling」）は**解析に使えるように整えるプロセス**
-  - 元々はカウボーイが**牛を扱う技術**から来る
-
----
-
-![Getty Images](https://media.istockphoto.com/id/172342607/photo/cattle-drive.jpg?s=612x612&w=0&k=20&c=Fz--vTqe2gMWKxbHvgdLCgfUveH_Y3-k0js5H1m9Snc=)
-
----
-
-![Image by Allison Horst](https://datasciencecampus.github.io/DSCA_data_wrangling_with_r/slides/images/data_cowboy.png){fig-alt="data wrangling monsters"}
-
-## 今日のデータセット
-
-- R4DS第３章で使われているデータは２０１３年にニューヨーク市発着のフライト
-
-- このデータは`ncyflights13`というパッケージに入っている
-
-## チャレンジ
-
-`ncyflights13`パッケージをインストールして、`nycflights.R`というスクリプトでパッケージをロードしてください
-
----
-
 ```{r}
-#| eval: false
-install.packages("ncyflights13")
+#| echo: false
+options(width = 80)
 ```
 
----
+<https://data-science-chiba.github.io/day3/>
 
-```{r}
-#| filename: nycflights.R
-library(nycflights13)
+## AIを使う時の注意点
+
+- 先週、AIを使ってみました。どんなことに注意が必要だと思った？
+
+## AIを使う時の注意点 
+
+::: {.incremental}
+- 取扱注意のデータの扱い
+  - このデータをAIに渡してもいいのか？（個人情報など）
+  - 研究用に使う前に、指導教官と相談してください
+- 思う通りの結果にならないことがある
+  - 正しく機能した状態にれる？
+:::
+
+## 
+
+# Git
+
+## What is Git?
+
+- Git is **version control software**
+
+- You can think of it kind of like the "track comments" function in MS Word or Google Docs, but for code (plain text)
+
+## Why use Git?
+
+- To share code
+  - Important for **reproducibility**. Other people can't reproduce your analysis if they can't access your code
+
+- To have a history of all the things your tried in your analysis
+  - You can go back and see what you have changed. Especially important **when something breaks**.
+
+- To organize how you develop your code
+  - You will make comments about all your changes to your code ("commits"), so this forces you to think about **how** you are writing your code
+
+## What is GitHub?
+
+- An online tool for managing projects that use Git
+
+- Acts like a cloud backup tool for your code
+
+- Makes it easy to share code with others
+
+## Setup
+
+- You need to install git on your computer **and** set up an account on <https://github.com>
+
+## Instructions to [install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+- [Mac](https://git-scm.com/download/mac)
+  - First check if git is already installed by running `git` in the terminal
+  - If you do need to install git, install [Homebrew](https://brew.sh/) first
+
+- [Windows](https://git-scm.com/download/win)
+
+- [Linux](https://git-scm.com/download/linux)
+
+## Setup GitHub account
+
+- Navigate to <https://github.com/> and follow the prompts
+
+## Setup GitHub authentication: PAT
+
+A PAT is a "Personal Access Token". It is like an extra-secure password.
+
+There is another method for authentication called SSH, but it's a bit more complicated to set up. If you want to use SSH, see these [instructions](../appendix.html#setup-github-authentication-ssh).
+
+## Create PAT on GitHub
+
+- Go to <https://github.com/settings/tokens>
+
+Or, from R, first install `usethis` with `install.packages("usethis")`, then do
+
+```
+usethis::create_github_token()
 ```
 
-## 今日のデータセット
+- Look over the scopes (permissions); “repo”, “user”, and “workflow” are recommended. Recommended scopes will be pre-selected if you used `create_github_token()`.
 
-データは`flights`というデータフレームに入っている：
+- Click “Generate token”.
 
-```{r}
-#| message: false
-#| warning: false
+## Save your PAT
 
-library(nycflights13)
-library(tidyverse)
+- Copy the generated PAT to your clipboard. DON'T CLOSE THE BROWSER WINDOW YET.
 
-flights
+- Install gitcreds in R with `install.packages("gitcreds")`
+
+- Next, run `gitcreds::gitcreds_set()`.
+
+- Enter the PAT that you copied from GitHub. Now you can close the browser window.
+
+Done!
+
+## A few more notes about PAT
+
+- Your PAT will expire (after 30 days by default).
+
+- You then need to re-create a new one on GitHub and enter it again with `gitcreds::gitcreds_set()`.
+
+- Using an expiration date is recommended for security
+
+## Troubleshooting
+
+If you get an error like `Could not find system git`, try [the following](https://github.com/SBOHVM/RPiR/discussions/444#discussioncomment-1795047):
+
+Go to `Tools -> Global Options`, choose the `git/svn` tab , then you need to browse for the git executable - presumably in `C:\Program Files\Git\bin\git.exe`
+
+## Introduce yourself to git
+
+You need to let git know your GitHub username and email address:
+
+``` bash
+git config --global user.name "your_github_username"
+git config --global user.email "your_email_adress"
+git config --global --list
 ```
 
----
+## Change some default settings
 
-- `flights`にはいくつの列（変数）がある？
+- Git can allow you to have multiple versions of your code at the same time.
 
-- `flights`にはいくつの行（観察）がある？
+- These are called "branches".
 
-## データ整理の関数
+- Tell git to use the name "main" for the main branch:
 
-これから学ぶ関数の共通点：
-
-- データフレームをインプットとし、データフレームを返す
-- 最初の引数がインプットのデータフレーム
-- 他の引数は詳細（行の名前に引用符を使わない）
-
-## `filter()`で行を絞り込む
-
-- 生データが必要以上に多い場合がよくある（特に、「ビッグデータ」を扱っているとき）
-
-- `filter()`で条件を定めて、その行だけに絞り込む
-
----
-
-```{r}
-# 出発が２時間以上遅れたフライトに絞り込む
-filter(flights, dep_delay > 120)
+```bash
+git config --global init.defaultBranch main
 ```
 
-- 行の数がどれくらい変わった？
+## About repos
 
-## `filter()`で行を絞り込む
+- A 'repo' (short for repository) is a folder where you store all the code and other files needed for a project.
 
-- 元のデータは変わっていない
+**git tracks the content of a repo**
 
-- `filter()`の出力を保存したい時は`<-`を使う
+## Remote and local repos
 
----
+- A **local** repo is just the project on your own computer
 
-```{r}
-flights_delay_120 <- filter(flights, dep_delay > 120)
-```
+- A **remote** repo is a copy of the repo online (on GitHub)
+  - Somewhat confusingly, the remote repo is typically referred to by the name `origin`
 
-## データの比較
+## Cloning
 
-データの比較を行う主な記号：
+Sometimes, you want to download a repo that doesn't exist on your computer yet.
 
-- `>` より大きい
-- `<` より小さい
-- `==` イコール （`=`ではない！）
-- `|` あるいは
-- `&` そして（複数条件の指定）
+- **Cloning** is copying an online repo to your computer
 
-比較の記号のアウトプットは**論理ベクトル**
+## Pushing and pulling
 
----
+Once you have the repos set up, you need to keep them in sync.
 
-```{r}
-11 > 10
-```
+- You **push** changes from your local repo to the remote
 
----
+- You **pull** changes from the remote repo to your local one
 
-```{r}
-c(11, 6) > c(10, 6)
-```
+## Commits
 
----
+- A **commit** is a single change made to a repo that you have stored in git's history.
 
-```{r}
-c(11, 6) == c(10, 6)
-```
+There are two steps to making a commit.
 
----
+## Staging and committing
 
-```{r}
-#| error: TRUE
-c(5, 6) = c(10, 6)
-```
+A file that has been changed is not automatically added to git's history.
 
-## チャレンジ
+- You need to **stage** the file (or part of the file) that you want to add to a particular commit
 
-何故`11 = 10`がエラーになってしまう？
+- Next, you type a short message describing the change, the **commit message**
 
-## チャレンジ
+- Finally, you **commit** the change to log it in git's history
 
-- １月のフライトに絞っとください
+## The `.gitignore` file
 
-. . .
+If there are any files you don't want git to track, you can ignore them by listing them in a special file called `.gitignore`.
 
-```{r}
-filter(flights, month == 1)
-```
+It is usually a good idea to ignore **raw data files** and **output files**. We only want to track code (in other words, the analysis itself)
 
-## チャレンジ
+## How this works in practice
 
-- １月１日のフライトに絞っとください
+We will go through a typical git workflow together in class using RStudio.
 
-. . .
+This is explained in the ["Intro to Git" markdown file](https://github.com/data-analysis-chiba/day02-git/blob/main/day02_intro_to_git.md), which you will copy to your computer when you clone the [Day 2 repo](https://github.com/data-analysis-chiba/day02-git/).
 
-```{r}
-filter(flights, month == 1 & day == 1)
-```
-
-## `filter()`で行を絞り込む
-
-もう一つの複数条件を設定方法：`,`で条件を加える（`filter()`だけ）
-
-```{r}
-filter(flights, month == 1, day == 1)
-```
-
-## `arrange()`で行を並べ替える
-
-```{r}
-# 出発の日と時間で並べ替える
-arrange(flights, year, month, day, dep_time)
-```
-
-## `arrange()`で行を並べ替える
-
-- `arrange()`はデフォルトで小さい方からの順になっている
-
-- 大きい方から並べたい時は`desc()`（「descend」、「降りる」）を使う：
-
-```{r}
-# 大きく遅れた順で並べる
-arrange(flights, desc(dep_delay))
-```
-
-## チャレンジ
-
-- `filter()`と`arrange()`を使って、**12月のフライト**に絞ってから、**遠く飛んだ**順に並べ替えてください
-
-## パイプにつて
-
-- `filter(データ, 条件)`というような書き方をしてきたが、また別の書き方がある：
-
-`データ |> filter(条件)`
-
-## パイプにつて
-
-- `|>`は「パイプ」と呼ばれる
-
-- 左にある物を右の方に渡す
-
-- 「それから」と読む
-
-## いつパイプを使う？
-
-- **複数の作業**を施すに便利
-  - 「パイプライン」
-
-```{r}
-# flightsから始まって、12月のデータに絞ってから、遠く飛んだ距離の順で並べる
-flights |>
-  filter(month == 12) |>
-  arrange(desc(distance))
-```
-
-## `mutate()`で新しい列を計算する
-
-- 新しい列は右側から追加される
-  - 列が多い場合は見えないことも
-
-```{r}
-flights |> 
-  mutate(speed = distance / air_time * 60)
-```
-
-## `mutate()`で新しい列を計算する
-
-- `.before`を使うと、新しい列が入る場所を指定できる
-
-```{r}
-flights |> 
-  mutate(
-    speed = distance / air_time * 60,
-    .before = 1)
-```
-
-## `mutate()`で新しい列を計算する
-
-- `filter()`（と他のデータ整理用関数と同じように）、`mutate()`の出力は元のデータを触らない
-
-- 解析結果を保存したい時は`<-`を使う
-
-## `select()`で列を絞る
-
-- 生データにたくさんの列が入っている場合がよくある。解析に必要な列だけに絞った方が解析がやりやすい
-
-- 基本的な使い方：列名で選択する
-
-```{r}
-flights |> 
-  select(year, month, day)
-```
-
-## `select()`で列を絞る
-
-- 選択したい列が多い場合は、`:`を使ってどこから〜どこまでというふうに書くと便利：
-
-```{r}
-flights |> 
-  select(year:day)
-```
-
-## チャレンジ
-
-`JFK`から出発したフライトに絞ってから、速度を計算してから、早い速度の順に並べ替えてください
-
-## まとめ：今日学んだ関数（動詞）
-
-- 行を扱う関数
-  - `filter()`
-  - `arrange()`
-- 列を扱う関数
-  - `mutate()`
-  - `select()`
-- 集計の関数
-  - `summarize()`
-  - `group_by()`
-  - `ungroup()`
-
-## まとめ
-
-- `|>`とデータ整理用の関数を組み合わせることによって、すぐにでもかなり高度なデータ解析のパイプラインができるようなる。
-
-- 初めての方にはとてもコードの量が多いように思えるでしょうが、このようなツールを毎日使うって、慣れていくとそのうちどのようなデータでもRで扱えるようになる！
