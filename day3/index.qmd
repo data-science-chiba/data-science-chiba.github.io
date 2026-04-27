@@ -43,178 +43,152 @@ options(width = 80)
 ::: {.incremental}
 - 取扱注意のデータの扱い
   - このデータをAIに渡してもいいのか？（個人情報など）
-  - 研究用に使う前に、指導教官と相談してください
+  - 研究用に使う前に、**指導教官と相談してください**
 - 思う通りの結果にならないことがある
-  - 正しく機能した状態にれる？
+  - 正しく機能した状態に戻れる？
 :::
 
-## 
+## Gitとは？
 
-# Git
+- Gitは**バージョン管理ソフトウェア**です。
+- MS WordやGoogle Docsの「変更履歴」機能のようなものですが、コード（テキスト）用です。
 
-## What is Git?
+## なぜGitを使うのか？
 
-- Git is **version control software**
+- コードを共有するため
+  - **再現性**のために重要。他の人があなたのコードにアクセスできなければ、解析を再現できません。
+- 解析で試したことの履歴を残すため
+  - 何を変更したかを後から確認できます。特に**何かが壊れた時**に重要です。
+- コードの開発を整理するため
+  - すべての変更（"コミット"）にコメントを付けるので、**どのように**コードを書いているかを意識できます。
 
-- You can think of it kind of like the "track comments" function in MS Word or Google Docs, but for code (plain text)
+## GitHubとは？
 
-## Why use Git?
+- Gitを使ったプロジェクトを管理するためのオンラインツール（サイト）
+- コードのクラウドバックアップのような役割も果たす。
+- 他の人とコードを簡単に共有できる。
 
-- To share code
-  - Important for **reproducibility**. Other people can't reproduce your analysis if they can't access your code
+## セットアップ
 
-- To have a history of all the things your tried in your analysis
-  - You can go back and see what you have changed. Especially important **when something breaks**.
+- パソコンにgitをインストールし、<https://github.com>でアカウントを作成しましょう。
 
-- To organize how you develop your code
-  - You will make comments about all your changes to your code ("commits"), so this forces you to think about **how** you are writing your code
-
-## What is GitHub?
-
-- An online tool for managing projects that use Git
-
-- Acts like a cloud backup tool for your code
-
-- Makes it easy to share code with others
-
-## Setup
-
-- You need to install git on your computer **and** set up an account on <https://github.com>
-
-## Instructions to [install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+## gitのインストール
 
 - [Mac](https://git-scm.com/download/mac)
-  - First check if git is already installed by running `git` in the terminal
-  - If you do need to install git, install [Homebrew](https://brew.sh/) first
-
+  - まずターミナルで`git`と入力して、すでにインストールされているか確認
+  - 必要なら[Homebrew](https://brew.sh/)を先にインストール
 - [Windows](https://git-scm.com/download/win)
-
 - [Linux](https://git-scm.com/download/linux)
 
-## Setup GitHub account
+## GitHubアカウントの作成
 
-- Navigate to <https://github.com/> and follow the prompts
+- <https://github.com/>にアクセスし、案内に従ってアカウントを作成
 
-## Setup GitHub authentication: PAT
+## GitHub認証：PAT
 
-A PAT is a "Personal Access Token". It is like an extra-secure password.
+PAT（Personal Access Token）は特別なパスワードのようなものです。
 
-There is another method for authentication called SSH, but it's a bit more complicated to set up. If you want to use SSH, see these [instructions](../appendix.html#setup-github-authentication-ssh).
+SSHという別の認証方法もありますが、少し設定が複雑です。
 
-## Create PAT on GitHub
+## GitHubでPATを作成
 
-- Go to <https://github.com/settings/tokens>
+- <https://github.com/settings/tokens>にアクセス
 
-Or, from R, first install `usethis` with `install.packages("usethis")`, then do
+または、Rで`usethis`パッケージをインストールし、
 
 ```
+install.packages("usethis")
 usethis::create_github_token()
 ```
 
-- Look over the scopes (permissions); “repo”, “user”, and “workflow” are recommended. Recommended scopes will be pre-selected if you used `create_github_token()`.
+- スコープ（権限）を確認。「repo」「user」「workflow」がおすすめ。`create_github_token()`を使うと推奨スコープが自動で選択されます。
+- 「Generate token」をクリック
 
-- Click “Generate token”.
+## PATの保存
 
-## Save your PAT
+- 発行されたPATをクリップボードにコピー。**まだブラウザを閉じないでください！**
+- Rで`install.packages("gitcreds")`を実行し、
+- `gitcreds::gitcreds_set()`を実行。
+- 先ほどコピーしたPATを入力。これでブラウザを閉じてOKです。
 
-- Copy the generated PAT to your clipboard. DON'T CLOSE THE BROWSER WINDOW YET.
+完了！
 
-- Install gitcreds in R with `install.packages("gitcreds")`
+## PATについての注意
 
-- Next, run `gitcreds::gitcreds_set()`.
+- PATは（デフォルトで30日後に）期限切れになります。
+- 期限が切れたら、GitHubで新しいPATを作成し、再度`gitcreds::gitcreds_set()`で登録してください。
+- セキュリティのため、有効期限を設定するのがおすすめです。
 
-- Enter the PAT that you copied from GitHub. Now you can close the browser window.
+## トラブルシューティング
 
-Done!
+`Could not find system git`のようなエラーが出た場合は、[こちら](https://github.com/SBOHVM/RPiR/discussions/444#discussioncomment-1795047)を参照：
 
-## A few more notes about PAT
+`Tools -> Global Options`で`git/svn`タブを選び、`C:\Program Files\Git\bin\git.exe`など、gitの実行ファイルを指定してください。
 
-- Your PAT will expire (after 30 days by default).
+## gitに自分の情報を登録
 
-- You then need to re-create a new one on GitHub and enter it again with `gitcreds::gitcreds_set()`.
+gitにGitHubのユーザー名とメールアドレスを教えましょう：
 
-- Using an expiration date is recommended for security
-
-## Troubleshooting
-
-If you get an error like `Could not find system git`, try [the following](https://github.com/SBOHVM/RPiR/discussions/444#discussioncomment-1795047):
-
-Go to `Tools -> Global Options`, choose the `git/svn` tab , then you need to browse for the git executable - presumably in `C:\Program Files\Git\bin\git.exe`
-
-## Introduce yourself to git
-
-You need to let git know your GitHub username and email address:
-
-``` bash
+```bash
 git config --global user.name "your_github_username"
 git config --global user.email "your_email_adress"
 git config --global --list
 ```
 
-## Change some default settings
+## デフォルト設定の変更
 
-- Git can allow you to have multiple versions of your code at the same time.
-
-- These are called "branches".
-
-- Tell git to use the name "main" for the main branch:
+- gitでは複数のバージョン（"ブランチ"）を同時に管理できます。
+- メインのブランチ名を「main」に設定しましょう：
 
 ```bash
 git config --global init.defaultBranch main
 ```
 
-## About repos
+## リポジトリ（repo）について
 
-- A 'repo' (short for repository) is a folder where you store all the code and other files needed for a project.
+- 「リポジトリ（repo）」は、プロジェクトのコードやファイルをまとめて保存するフォルダです。
 
-**git tracks the content of a repo**
+- **gitはリポジトリの中身を管理する**
 
-## Remote and local repos
+## リモートとローカルのリポジトリ
 
-- A **local** repo is just the project on your own computer
+- **ローカルリポジトリ**：自分のパソコン上のプロジェクト
+- **リモートリポジトリ**：オンライン（GitHub上）のコピー
+  - 通常、リモートリポジトリは`origin`という名前で呼ばれます
 
-- A **remote** repo is a copy of the repo online (on GitHub)
-  - Somewhat confusingly, the remote repo is typically referred to by the name `origin`
+## クローン（cloning）
 
-## Cloning
+まだ自分のパソコンにないリポジトリをダウンロードしたいときは、
 
-Sometimes, you want to download a repo that doesn't exist on your computer yet.
+- **クローン**＝オンラインのリポジトリを自分のパソコンにコピーすること
 
-- **Cloning** is copying an online repo to your computer
+## プッシュとプル
 
-## Pushing and pulling
+リポジトリをセットアップしたら、内容を同期する必要があります。
 
-Once you have the repos set up, you need to keep them in sync.
+- **プッシュ**：ローカルの変更をリモートに送る
+- **プル**：リモートの変更をローカルに取り込む
 
-- You **push** changes from your local repo to the remote
+## コミット
 
-- You **pull** changes from the remote repo to your local one
+- **コミット**は、リポジトリに記録される1回分の変更です。
 
-## Commits
+コミットには2つのステップがあります。
 
-- A **commit** is a single change made to a repo that you have stored in git's history.
+## ステージングとコミット
 
-There are two steps to making a commit.
+変更したファイルは自動的にgitの履歴に追加されません。
 
-## Staging and committing
+- まず**ステージング**（追加したいファイルや部分を選ぶ）
+- 次に**コミットメッセージ**（変更内容の短い説明）を入力
+- 最後に**コミット**して履歴に記録します
 
-A file that has been changed is not automatically added to git's history.
+## `.gitignore`ファイル
 
-- You need to **stage** the file (or part of the file) that you want to add to a particular commit
+gitで管理したくないファイルは、`.gitignore`という特別なファイルにリストアップします。
 
-- Next, you type a short message describing the change, the **commit message**
+**生データや出力ファイル**は通常無視するのが良いです。解析そのもの（コード）だけを管理しましょう。
 
-- Finally, you **commit** the change to log it in git's history
+## 実際の流れ
 
-## The `.gitignore` file
-
-If there are any files you don't want git to track, you can ignore them by listing them in a special file called `.gitignore`.
-
-It is usually a good idea to ignore **raw data files** and **output files**. We only want to track code (in other words, the analysis itself)
-
-## How this works in practice
-
-We will go through a typical git workflow together in class using RStudio.
-
-This is explained in the ["Intro to Git" markdown file](https://github.com/data-analysis-chiba/day02-git/blob/main/day02_intro_to_git.md), which you will copy to your computer when you clone the [Day 2 repo](https://github.com/data-analysis-chiba/day02-git/).
-
+RStudioを使って、典型的なgitのワークフローを一緒に体験します。

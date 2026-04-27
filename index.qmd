@@ -27,16 +27,15 @@ toc: false
   - リーディング
     - [R4DS Introduction](https://r4ds.hadley.nz/intro)
     - [R4DS Chapter 2 (Workflow: Basics)](https://r4ds.hadley.nz/workflow-basics)
-- 第2回（2026-04-21）: **プロジェクトの整理とデータの読み込み**
+- 第2回（2026-04-21）: **プロジェクトの整理**
   - [スライド](day2/index.qmd)
   - リーディング
     - [R4DS Chapter 6 (Workflow: Scripts and Projects)](https://r4ds.hadley.nz/workflow-scripts)
-    - [R4DS Chapter 7 (Data Import)](https://r4ds.hadley.nz/data-import)
-- 第3回（2026-04-28）: **データの整理（１）**
+- 第3回（2026-04-28）: **Git**
   - [スライド](day3/index.qmd)
   - リーディング
-    - [R4DS Chapter 3 (Data Transformation)](https://r4ds.hadley.nz/)
-- 第4回（2026-05-07）: **データの整理（２）**
+    - [Git/GitHub入門](day3/day02_intro_to_git_ja.qmd)
+- 第4回（2026-05-07）: **データの整理**
   - [スライド](day4/index.qmd)
   - リーディング
     - [R4DS Chapter 5 (Data Tidying)](https://r4ds.hadley.nz/data-tidy)

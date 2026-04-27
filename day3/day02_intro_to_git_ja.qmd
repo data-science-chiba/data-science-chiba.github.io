@@ -1,5 +1,5 @@
 ---
-title: "再現可能なデータ解析 Day 2: Git/GitHub入門"
+title: "Git/GitHub入門"
 format: html
 ---
 
@@ -30,6 +30,32 @@ Gitは数あるバージョン管理システムの一つですが、非常に�
 
 この[動画](https://git-scm.com/video/what-is-version-control)も参考にしてください。
 
+### なぜGit？（[Happy Git and GitHub for the useR 第1.1節](http://happygitwithr.com/big-picture.html#why-git) より抜粋）
+
+Gitはバージョン管理システムです。もともとは大規模なソフトウェア開発プロジェクトで、複数の開発者が協力して作業するために作られました。Gitは「リポジトリ」と呼ばれるファイル群の進化を、理路整然と、かつ高度に構造化された方法で管理します。
+
+もしピンとこなければ、「Microsoft Wordの『変更履歴』機能を超強化したもの」と考えてみてください。
+
+近年、データサイエンス分野でもGitが活用されています。ソースコードだけでなく、データ、図、レポートなど、データ分析プロジェクトを構成する様々なファイルの管理にも使われています。
+
+### なぜGitHub？（[Happy Git and GitHub for the useR 第1.2節](http://happygitwithr.com/big-picture.html#why-github) より抜粋）
+
+ここでGitHubやBitbucket、GitLabなどのホスティングサービスが登場します。これらはインターネット上でGitプロジェクトの「家」となる場所を提供します。
+
+もしイメージが湧かなければ、「DropBoxの超強化版」と考えてみてください。リモートホストは、Gitで管理されたプロジェクトの配布チャンネルや中継所の役割を果たします。他の人があなたの成果物を見たり、同期したり、場合によっては変更を加えることもできます。これらのサービスは、従来のUnix系Gitサーバーよりも、洗練されたWebインターフェースを備えている点が特徴です。
+
+ただし注意が必要です。GitHubなどのサービスはファイル管理には優れていますが、大容量データの保存には向いていません。GitHubはリポジトリのサイズを1GB未満にすることを推奨しています（[参考](https://help.github.com/articles/what-is-my-disk-quota/)）。さらに、100MBを超えるファイルはアップロードできません（[参考](https://help.github.com/articles/working-with-large-files/)）。
+
+個人プロジェクトでも、バックアップのためにリモートにプッシュしておくのは良い習慣です。なぜなら、Gitの操作に慣れていないうちは、ローカルリポジトリを壊してしまうことがよくあるからです。幸い、多くの場合Gitのインフラだけが壊れていて、ファイル自体は無事です。とはいえ、そうしたトラブルはとても厄介です。公式のGitの解決策もありますが、深夜3時に自力で直すのは大変です。最近GitHubにプッシュしていれば、新しいコピーを取得し、ローカルだけの変更をパッチして、すぐに作業を再開できます。
+
+本講義では具体性のためGitHubを使いますが、他のサービス（BitbucketやGitLab）でも基本的な考え方や多くの操作は共通です。
+
+### そもそも何が何なの？
+
+***バージョン管理*** とは、ファイル（主にコードベース）を「管理」するためのソフトウェアシステム全般を指します。Gitはその一例に過ぎません。他にも [Mercurial](https://www.mercurial-scm.org/)、[Perforce](https://www.perforce.com/)、[Subversion](https://subversion.apache.org/) などがあります。
+
+***Git*** はバージョン管理ソフトウェアです。GitHubサーバーとあなたのパソコンの両方で動作します。これにより、パソコンとGitHub上のリモートリポジトリが通信でき、プッシュやプル、履歴管理などの機能が使えます。
+
 ***GitHub*** は、リモートリポジトリをクラウド上で管理するサービスです。
 グループで作業する場合、あなたや共同作業者はそれぞれ独立して
 GitHubとやり取りし、最新のコード変更をプル／プッシュします。
@@ -47,9 +73,7 @@ GitHubは、各自がローカルマシンで作業していても、
 ## パート2: 環境のセットアップ
 
 Gitを使い始める前に、パソコンに必要なソフトウェアを
-インストールする必要があります。このセクションでは、
-1. Gitのインストール、2. GitHubアカウントの登録、
-3. SSHキーの設定、4. RStudioからGitを使う方法を説明します。
+インストールする必要があります。このセクションでは、1. Gitのインストール、2. GitHubアカウントの登録、3. SSHキーの設定、4. RStudioからGitを使う方法を説明します。
 
 ### 1. Gitのインストール（[Happy Git and GitHub for the useR 第6章](http://happygitwithr.com/install-git.html) より抜粋）
 
@@ -74,7 +98,7 @@ OSごとのインストール手順に進んでください。
 
 上記のようにバージョン番号が表示された場合は、
 すでにGitがインストールされています。素晴らしい！
-ただし、バージョン番号が2.28未満の場合は、
+ただし、バージョン番号が`2.28`未満の場合は、
 アップデートをおすすめします（下記の手順を参照）。
 新しいバージョンでは、デフォルトブランチ名を設定できるためです。
 Gitコミュニティでは、リポジトリのデフォルトブランチ名を
@@ -189,23 +213,10 @@ GitHubアカウントをまだ持っていない場合は、
 シェル／ターミナルで以下を実行します：
 
 ``` bash
-git config --global user.name 'your_github_username'
-git config --global user.email 'your_email_adress'
+git config --global user.name ＜あなたのGitHubユーザー名＞
+git config --global user.email ＜あなたのメールアドレス＞
 git config --global --list
 ```
-
-'...
-````
-This is the description of what the code block changes:
-<changeDescription>
-Translate and append lines 301-420 of day2/day02_intro_to_git.qmd to Japanese, preserving all formatting, code, and URLs, and following all user rules.
-</changeDescription>
-
-This is the code block that represents the suggested code change:
-```quarto
-...existing code...
-
-'...（自分のGitHubユーザー名とメールアドレスに置き換えてください）
 
 ### 4. SSHで認証する（[Happy Git and GitHub for the useR 第10章](https://happygitwithr.com/ssh-keys.html) より抜粋）
 
@@ -307,16 +318,6 @@ RStudioなどのGitクライアントでできることは、
 これを自分のパソコンに **「クローン」** すると、
 ローカルリポジトリができます。
 **「プッシュ」** や **「プル」** でローカルとリモートの内容を同期します。
-````
-`````
-This is the description of what the code block changes:
-<changeDescription>
-Translate and append lines 421-540 of day2/day02_intro_to_git.qmd to Japanese, preserving all formatting, code, and URLs, and following all user rules.
-</changeDescription>
-
-This is the code block that represents the suggested code change:
-```quarto
-...existing code...
 
 例えば、ローカルリポジトリでコードを修正し、
 準備ができたら「プッシュ」してリモートリポジトリ（GitHub）に反映します。
@@ -337,7 +338,7 @@ This is the code block that represents the suggested code change:
 Moodleにログインし、コースページに移動します。
 「Day 2: Git and GitHub」タブの「First repo」リンクをクリックします。
 
-![Canvas](images/canvas.png)
+![Moodle](images/canvas.png)
 
 GitHubにログインしていない場合はログインを求められます。
 初めての課題の場合は、最初にGitHub IDと名簿の名前を紐付ける画面が表示されます。
@@ -397,7 +398,7 @@ RStudioで新しいプロジェクトを作成します：
 プロジェクトのローカルディレクトリを必ず確認しましょう。
 どこに保存されているか分からなくなるのはよくあるミスです。
 
-複数のプロジェクトを作成する場合は、デスクトップに「data-analysis-course」フォルダを作り、
+複数のプロジェクトを作成する場合は、デスクトップに「data-science-course」フォルダを作り、
 その中に各プロジェクトをまとめておくのがおすすめです。
 
 「Open in new session」にチェックを入れると、
@@ -453,15 +454,6 @@ RStudioでは Tools > Version Control > Commit（またはGitペインのCommit�
 
 GitHubのリポジトリページを開いても、まだ新しいファイルは表示されません。
 驚きましたか？
-``````
-This is the description of what the code block changes:
-<changeDescription>
-Translate and append lines 541-720 of day2/day02_intro_to_git.qmd to Japanese, preserving all formatting, code, and URLs, and following all user rules.
-</changeDescription>
-
-This is the code block that represents the suggested code change:
-```quarto
-...existing code...
 
 **重要！** 変更はまだGitHubには反映されていません。
 コミットはローカルリポジトリだけの操作です。
@@ -538,7 +530,7 @@ RStudioの青い下矢印（または Tools > Version Control > Pull Branches）
 
 これまで無視してきた.gitignoreファイルを見てみましょう。
 
-``` r
+```
 .Rproj.user
 .Rhistory
 .RData
@@ -554,16 +546,6 @@ GitHubのファイルサイズ制限に引っかかることがあります。
 例：`*.txt` と書けばtxtファイル全てを無視できます。
 
 GitHubの[.gitignoreテンプレート集](https://github.com/github/gitignore)も参考にしてください。
-````
-```````
-This is the description of what the code block changes:
-<changeDescription>
-Translate and append lines 721-780 of day2/day02_intro_to_git.qmd to Japanese, preserving all formatting, code, and URLs, and following all user rules.
-</changeDescription>
-
-This is the code block that represents the suggested code change:
-```quarto
-...existing code...
 
 ## パート4: 宿題課題
 
@@ -612,15 +594,3 @@ Joel H. Nitta が改変したものです。
 [Happy Git and GitHub for the useR](http://happygitwithr.com/)（著：
 [Dr. Jenny Bryan](https://github.com/jennybc)）の内容を元にしています。
 その後、Keegan Korthauer により大幅に改変されました。
-````````
-This is the description of what the code block changes:
-<changeDescription>
-Mark the end of the translation for clarity and completeness.
-</changeDescription>
-
-This is the code block that represents the suggested code change:
-```quarto
-...existing code...
-
-<!-- ここまでで翻訳は完了です -->
-```
