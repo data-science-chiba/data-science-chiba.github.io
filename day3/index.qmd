@@ -10,6 +10,8 @@ execute:
 
 # 第3回：Git
 
+<https://data-science-chiba.github.io/day3/>
+
 ## RStudioのデフォルト設定を<br>変えましょう
 
 前のセッションのデータが残っていることは<br>再現的に**ダメ**！
@@ -31,8 +33,6 @@ Tools → Global Options → General → Workspace
 #| echo: false
 options(width = 80)
 ```
-
-<https://data-science-chiba.github.io/day3/>
 
 ## AIを使う時の注意点
 
