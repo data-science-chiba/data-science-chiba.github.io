@@ -34,7 +34,7 @@ toc: false
 - 第3回（2026-04-28）: **Git**
   - [スライド](day3/index.qmd)
   - リーディング
-    - [Git/GitHub入門](day3/day02_intro_to_git_ja.qmd)
+    - [Git/GitHub入門](day3/intro_to_git_ja.qmd)
 - 第4回（2026-05-07）: **データの整理**
   - [スライド](day4/index.qmd)
   - リーディング
