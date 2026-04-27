@@ -193,8 +193,8 @@
 
 
 <section>
-<section id="第3回データの整理" class="title-slide slide level1 center">
-<h1>第3回：データの整理</h1>
+<section id="第3回git" class="title-slide slide level1 center">
+<h1>第3回：Git</h1>
 <p><a href="https://data-science-chiba.github.io/day3/" class="uri">https://data-science-chiba.github.io/day3/</a></p>
 </section>
 <section id="rstudioのデフォルト設定を-変えましょう" class="slide level2">
@@ -213,549 +213,197 @@
 <p>前のセッションのデータが残っていることは再現の観点<br>からダメ！</p>
 
 <img data-src="../images/settings_change.png" alt="Screenshot showing how to change Rstudio settings for .RData" class="r-stretch"></section>
-<section id="データの整理data-wrangling" class="slide level2">
-<h2>データの整理（Data Wrangling）</h2>
+<section id="aiを使う時の注意点" class="slide level2">
+<h2>AIを使う時の注意点</h2>
 <ul>
-<li><p>データが手に入る時、まだ解析に使いえない状態が多い</p></li>
-<li><p>データの整理（「wrangling」）は<strong>解析に使えるように整えるプロセス</strong></p>
+<li>先週、AIを使ってみました。どんなことに注意が必要だと思った？</li>
+</ul>
+</section>
+<section id="aiを使う時の注意点-1" class="slide level2">
+<h2>AIを使う時の注意点</h2>
+<div>
 <ul>
-<li>元々はカウボーイが<strong>牛を扱う技術</strong>から来る</li>
+<li class="fragment">取扱注意のデータの扱い
+<ul>
+<li class="fragment">このデータをAIに渡してもいいのか？（個人情報など）</li>
+<li class="fragment">研究用に使う前に、<strong>指導教官と相談してください</strong></li>
+</ul></li>
+<li class="fragment">思う通りの結果にならないことがある
+<ul>
+<li class="fragment">正しく機能した状態に戻れる？</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="gitとは" class="slide level2">
+<h2>Gitとは？</h2>
+<ul>
+<li>Gitは<strong>バージョン管理ソフトウェア</strong>です。</li>
+<li>MS WordやGoogle Docsの「変更履歴」機能のようなものですが、コード（テキスト）用です。</li>
+</ul>
+</section>
+<section id="なぜgitを使うのか" class="slide level2">
+<h2>なぜGitを使うのか？</h2>
+<ul>
+<li>コードを共有するため
+<ul>
+<li><strong>再現性</strong>のために重要。他の人があなたのコードにアクセスできなければ、解析を再現できません。</li>
+</ul></li>
+<li>解析で試したことの履歴を残すため
+<ul>
+<li>何を変更したかを後から確認できます。特に<strong>何かが壊れた時</strong>に重要です。</li>
+</ul></li>
+<li>コードの開発を整理するため
+<ul>
+<li>すべての変更（“コミット”）にコメントを付けるので、<strong>どのように</strong>コードを書いているかを意識できます。</li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
-
-
-<img data-src="https://media.istockphoto.com/id/172342607/photo/cattle-drive.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=Fz--vTqe2gMWKxbHvgdLCgfUveH_Y3-k0js5H1m9Snc=" class="r-stretch quarto-figure-center"><p class="caption">Getty Images</p></section>
-<section class="slide level2">
-
-
-<img data-src="https://datasciencecampus.github.io/DSCA_data_wrangling_with_r/slides/images/data_cowboy.png" alt="data wrangling monsters" class="r-stretch quarto-figure-center"><p class="caption">Image by Allison Horst</p></section>
-<section id="今日のデータセット" class="slide level2">
-<h2>今日のデータセット</h2>
+<section id="githubとは" class="slide level2">
+<h2>GitHubとは？</h2>
 <ul>
-<li><p>R4DS第３章で使われているデータは２０１３年にニューヨーク市発着のフライト</p></li>
-<li><p>このデータは<code>ncyflights13</code>というパッケージに入っている</p></li>
+<li>Gitを使ったプロジェクトを管理するためのオンラインツール（サイト）</li>
+<li>コードのクラウドバックアップのような役割も果たす。</li>
+<li>他の人とコードを簡単に共有できる。</li>
 </ul>
 </section>
-<section id="チャレンジ" class="slide level2">
-<h2>チャレンジ</h2>
-<p><code>ncyflights13</code>パッケージをインストールして、<code>nycflights.R</code>というスクリプトでパッケージをロードしてください</p>
-</section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">install.packages</span>(<span class="st">"ncyflights13"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>nycflights.R</strong></pre>
-</div>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(nycflights13)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</section>
-<section id="今日のデータセット-1" class="slide level2">
-<h2>今日のデータセット</h2>
-<p>データは<code>flights</code>というデータフレームに入っている：</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(nycflights13)</span>
-<span id="cb3-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-3"><a></a></span>
-<span id="cb3-4"><a></a>flights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 336,776 × 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
- 1  2013     1     1      517            515         2      830            819
- 2  2013     1     1      533            529         4      850            830
- 3  2013     1     1      542            540         2      923            850
- 4  2013     1     1      544            545        -1     1004           1022
- 5  2013     1     1      554            600        -6      812            837
- 6  2013     1     1      554            558        -4      740            728
- 7  2013     1     1      555            600        -5      913            854
- 8  2013     1     1      557            600        -3      709            723
- 9  2013     1     1      557            600        -3      838            846
-10  2013     1     1      558            600        -2      753            745
-# ℹ 336,766 more rows
-# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
+<section id="セットアップ" class="slide level2">
+<h2>セットアップ</h2>
 <ul>
-<li><p><code>flights</code>にはいくつの列（変数）がある？</p></li>
-<li><p><code>flights</code>にはいくつの行（観察）がある？</p></li>
+<li>パソコンにgitをインストールし、<a href="https://github.com" class="uri">https://github.com</a>でアカウントを作成しましょう。</li>
 </ul>
 </section>
-<section id="データ整理の関数" class="slide level2">
-<h2>データ整理の関数</h2>
-<p>これから学ぶ関数の共通点：</p>
+<section id="gitのインストール" class="slide level2">
+<h2>gitのインストール</h2>
 <ul>
-<li>データフレームをインプットとし、データフレームを返す</li>
-<li>最初の引数がインプットのデータフレーム</li>
-<li>他の引数は詳細（行の名前に引用符を使わない）</li>
-</ul>
-</section>
-<section id="filterで行を絞り込む" class="slide level2">
-<h2><code>filter()</code>で行を絞り込む</h2>
+<li><a href="https://git-scm.com/download/mac">Mac</a>
 <ul>
-<li><p>生データが必要以上に多い場合がよくある（特に、「ビッグデータ」を扱っているとき）</p></li>
-<li><p><code>filter()</code>で条件を定めて、その行だけに絞り込む</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># 出発が２時間以上遅れたフライトに絞り込む</span></span>
-<span id="cb5-2"><a></a><span class="fu">filter</span>(flights, dep_delay <span class="sc">&gt;</span> <span class="dv">120</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9,723 × 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
- 1  2013     1     1      848           1835       853     1001           1950
- 2  2013     1     1      957            733       144     1056            853
- 3  2013     1     1     1114            900       134     1447           1222
- 4  2013     1     1     1540           1338       122     2020           1825
- 5  2013     1     1     1815           1325       290     2120           1542
- 6  2013     1     1     1842           1422       260     1958           1535
- 7  2013     1     1     1856           1645       131     2212           2005
- 8  2013     1     1     1934           1725       129     2126           1855
- 9  2013     1     1     1938           1703       155     2109           1823
-10  2013     1     1     1942           1705       157     2124           1830
-# ℹ 9,713 more rows
-# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-</div>
-</div>
-<ul>
-<li>行の数がどれくらい変わった？</li>
-</ul>
-</section>
-<section id="filterで行を絞り込む-1" class="slide level2">
-<h2><code>filter()</code>で行を絞り込む</h2>
-<ul>
-<li><p>元のデータは変わっていない</p></li>
-<li><p><code>filter()</code>の出力を保存したい時は<code>&lt;-</code>を使う</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>flights_delay_120 <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, dep_delay <span class="sc">&gt;</span> <span class="dv">120</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="データの比較" class="slide level2">
-<h2>データの比較</h2>
-<p>データの比較を行う主な記号：</p>
-<ul>
-<li><code>&gt;</code> より大きい</li>
-<li><code>&lt;</code> より小さい</li>
-<li><code>==</code> イコール （<code>=</code>ではない！）</li>
-<li><code>|</code> あるいは</li>
-<li><code>&amp;</code> そして（複数条件の指定）</li>
-</ul>
-<p>比較の記号のアウトプットは<strong>論理ベクトル</strong></p>
-</section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="dv">11</span> <span class="sc">&gt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">6</span>) <span class="sc">&gt;</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  TRUE FALSE</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">6</span>) <span class="sc">==</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE  TRUE</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>) <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in c(5, 6) = c(10, 6): target of assignment expands to non-language object</code></pre>
-</div>
-</div>
-</section>
-<section id="チャレンジ-1" class="slide level2">
-<h2>チャレンジ</h2>
-<p>何故<code>11 = 10</code>がエラーになってしまう？</p>
-</section>
-<section id="チャレンジ-2" class="slide level2">
-<h2>チャレンジ</h2>
-<ul>
-<li>１月のフライトに絞っとください</li>
-</ul>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 27,004 × 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
- 1  2013     1     1      517            515         2      830            819
- 2  2013     1     1      533            529         4      850            830
- 3  2013     1     1      542            540         2      923            850
- 4  2013     1     1      544            545        -1     1004           1022
- 5  2013     1     1      554            600        -6      812            837
- 6  2013     1     1      554            558        -4      740            728
- 7  2013     1     1      555            600        -5      913            854
- 8  2013     1     1      557            600        -3      709            723
- 9  2013     1     1      557            600        -3      838            846
-10  2013     1     1      558            600        -2      753            745
-# ℹ 26,994 more rows
-# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="チャレンジ-3" class="slide level2">
-<h2>チャレンジ</h2>
-<ul>
-<li>１月１日のフライトに絞っとください</li>
-</ul>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> day <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 842 × 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
- 1  2013     1     1      517            515         2      830            819
- 2  2013     1     1      533            529         4      850            830
- 3  2013     1     1      542            540         2      923            850
- 4  2013     1     1      544            545        -1     1004           1022
- 5  2013     1     1      554            600        -6      812            837
- 6  2013     1     1      554            558        -4      740            728
- 7  2013     1     1      555            600        -5      913            854
- 8  2013     1     1      557            600        -3      709            723
- 9  2013     1     1      557            600        -3      838            846
-10  2013     1     1      558            600        -2      753            745
-# ℹ 832 more rows
-# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="filterで行を絞り込む-2" class="slide level2">
-<h2><code>filter()</code>で行を絞り込む</h2>
-<p>もう一つの複数条件を設定方法：<code>,</code>で条件を加える（<code>filter()</code>だけ）</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">1</span>, day <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 842 × 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
- 1  2013     1     1      517            515         2      830            819
- 2  2013     1     1      533            529         4      850            830
- 3  2013     1     1      542            540         2      923            850
- 4  2013     1     1      544            545        -1     1004           1022
- 5  2013     1     1      554            600        -6      812            837
- 6  2013     1     1      554            558        -4      740            728
- 7  2013     1     1      555            600        -5      913            854
- 8  2013     1     1      557            600        -3      709            723
- 9  2013     1     1      557            600        -3      838            846
-10  2013     1     1      558            600        -2      753            745
-# ℹ 832 more rows
-# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="arrangeで行を並べ替える" class="slide level2">
-<h2><code>arrange()</code>で行を並べ替える</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># 出発の日と時間で並べ替える</span></span>
-<span id="cb22-2"><a></a><span class="fu">arrange</span>(flights, year, month, day, dep_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 336,776 × 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
- 1  2013     1     1      517            515         2      830            819
- 2  2013     1     1      533            529         4      850            830
- 3  2013     1     1      542            540         2      923            850
- 4  2013     1     1      544            545        -1     1004           1022
- 5  2013     1     1      554            600        -6      812            837
- 6  2013     1     1      554            558        -4      740            728
- 7  2013     1     1      555            600        -5      913            854
- 8  2013     1     1      557            600        -3      709            723
- 9  2013     1     1      557            600        -3      838            846
-10  2013     1     1      558            600        -2      753            745
-# ℹ 336,766 more rows
-# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="arrangeで行を並べ替える-1" class="slide level2">
-<h2><code>arrange()</code>で行を並べ替える</h2>
-<ul>
-<li><p><code>arrange()</code>はデフォルトで小さい方からの順になっている</p></li>
-<li><p>大きい方から並べたい時は<code>desc()</code>（「descend」、「降りる」）を使う：</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># 大きく遅れた順で並べる</span></span>
-<span id="cb24-2"><a></a><span class="fu">arrange</span>(flights, <span class="fu">desc</span>(dep_delay))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 336,776 × 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
- 1  2013     1     9      641            900      1301     1242           1530
- 2  2013     6    15     1432           1935      1137     1607           2120
- 3  2013     1    10     1121           1635      1126     1239           1810
- 4  2013     9    20     1139           1845      1014     1457           2210
- 5  2013     7    22      845           1600      1005     1044           1815
- 6  2013     4    10     1100           1900       960     1342           2211
- 7  2013     3    17     2321            810       911      135           1020
- 8  2013     6    27      959           1900       899     1236           2226
- 9  2013     7    22     2257            759       898      121           1026
-10  2013    12     5      756           1700       896     1058           2020
-# ℹ 336,766 more rows
-# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="チャレンジ-4" class="slide level2">
-<h2>チャレンジ</h2>
-<ul>
-<li><code>filter()</code>と<code>arrange()</code>を使って、<strong>12月のフライト</strong>に絞ってから、<strong>遠く飛んだ</strong>順に並べ替えてください</li>
-</ul>
-</section>
-<section id="パイプにつて" class="slide level2">
-<h2>パイプにつて</h2>
-<ul>
-<li><code>filter(データ, 条件)</code>というような書き方をしてきたが、また別の書き方がある：</li>
-</ul>
-<p><code>データ |&gt; filter(条件)</code></p>
-</section>
-<section id="パイプにつて-1" class="slide level2">
-<h2>パイプにつて</h2>
-<ul>
-<li><p><code>|&gt;</code>は「パイプ」と呼ばれる</p></li>
-<li><p>左にある物を右の方に渡す</p></li>
-<li><p>「それから」と読む</p></li>
-</ul>
-</section>
-<section id="いつパイプを使う" class="slide level2">
-<h2>いつパイプを使う？</h2>
-<ul>
-<li><strong>複数の作業</strong>を施すに便利
-<ul>
-<li>「パイプライン」</li>
+<li>まずターミナルで<code>git</code>と入力して、すでにインストールされているか確認</li>
+<li>必要なら<a href="https://brew.sh/">Homebrew</a>を先にインストール</li>
 </ul></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="co"># flightsから始まって、12月のデータに絞ってから、遠く飛んだ距離の順で並べる</span></span>
-<span id="cb26-2"><a></a>flights <span class="sc">|&gt;</span></span>
-<span id="cb26-3"><a></a>  <span class="fu">filter</span>(month <span class="sc">==</span> <span class="dv">12</span>) <span class="sc">|&gt;</span></span>
-<span id="cb26-4"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(distance))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 28,135 × 19
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
- 1  2013    12     1      928            930        -2     1532           1535
- 2  2013    12     2      920            930       -10     1525           1535
- 3  2013    12     4      933            930         3     1519           1535
- 4  2013    12     5      920            930       -10     1609           1535
- 5  2013    12     6      924            930        -6     1545           1535
- 6  2013    12     7      927            930        -3     1549           1535
- 7  2013    12     8      935            930         5     1520           1535
- 8  2013    12     9      928            930        -2     1528           1535
- 9  2013    12    11      930            930         0     1539           1535
-10  2013    12    13      929            930        -1     1527           1535
-# ℹ 28,125 more rows
-# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="mutateで新しい列を計算する" class="slide level2">
-<h2><code>mutate()</code>で新しい列を計算する</h2>
-<ul>
-<li>新しい列は右側から追加される
-<ul>
-<li>列が多い場合は見えないことも</li>
-</ul></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb28-2"><a></a>  <span class="fu">mutate</span>(<span class="at">speed =</span> distance <span class="sc">/</span> air_time <span class="sc">*</span> <span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 336,776 × 20
-    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
- 1  2013     1     1      517            515         2      830            819
- 2  2013     1     1      533            529         4      850            830
- 3  2013     1     1      542            540         2      923            850
- 4  2013     1     1      544            545        -1     1004           1022
- 5  2013     1     1      554            600        -6      812            837
- 6  2013     1     1      554            558        -4      740            728
- 7  2013     1     1      555            600        -5      913            854
- 8  2013     1     1      557            600        -3      709            723
- 9  2013     1     1      557            600        -3      838            846
-10  2013     1     1      558            600        -2      753            745
-# ℹ 336,766 more rows
-# ℹ 12 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, speed &lt;dbl&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="mutateで新しい列を計算する-1" class="slide level2">
-<h2><code>mutate()</code>で新しい列を計算する</h2>
-<ul>
-<li><code>.before</code>を使うと、新しい列が入る場所を指定できる</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb30-2"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb30-3"><a></a>    <span class="at">speed =</span> distance <span class="sc">/</span> air_time <span class="sc">*</span> <span class="dv">60</span>,</span>
-<span id="cb30-4"><a></a>    <span class="at">.before =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 336,776 × 20
-   speed  year month   day dep_time sched_dep_time dep_delay arr_time
-   &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
- 1  370.  2013     1     1      517            515         2      830
- 2  374.  2013     1     1      533            529         4      850
- 3  408.  2013     1     1      542            540         2      923
- 4  517.  2013     1     1      544            545        -1     1004
- 5  394.  2013     1     1      554            600        -6      812
- 6  288.  2013     1     1      554            558        -4      740
- 7  404.  2013     1     1      555            600        -5      913
- 8  259.  2013     1     1      557            600        -3      709
- 9  405.  2013     1     1      557            600        -3      838
-10  319.  2013     1     1      558            600        -2      753
-# ℹ 336,766 more rows
-# ℹ 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,
-#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
-#   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="mutateで新しい列を計算する-2" class="slide level2">
-<h2><code>mutate()</code>で新しい列を計算する</h2>
-<ul>
-<li><p><code>filter()</code>（と他のデータ整理用関数と同じように）、<code>mutate()</code>の出力は元のデータを触らない</p></li>
-<li><p>解析結果を保存したい時は<code>&lt;-</code>を使う</p></li>
+<li><a href="https://git-scm.com/download/win">Windows</a></li>
+<li><a href="https://git-scm.com/download/linux">Linux</a></li>
 </ul>
 </section>
-<section id="selectで列を絞る" class="slide level2">
-<h2><code>select()</code>で列を絞る</h2>
+<section id="githubアカウントの作成" class="slide level2">
+<h2>GitHubアカウントの作成</h2>
 <ul>
-<li><p>生データにたくさんの列が入っている場合がよくある。解析に必要な列だけに絞った方が解析がやりやすい</p></li>
-<li><p>基本的な使い方：列名で選択する</p></li>
+<li><a href="https://github.com/" class="uri">https://github.com/</a>にアクセスし、案内に従ってアカウントを作成</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb32-2"><a></a>  <span class="fu">select</span>(year, month, day)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 336,776 × 3
-    year month   day
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;
- 1  2013     1     1
- 2  2013     1     1
- 3  2013     1     1
- 4  2013     1     1
- 5  2013     1     1
- 6  2013     1     1
- 7  2013     1     1
- 8  2013     1     1
- 9  2013     1     1
-10  2013     1     1
-# ℹ 336,766 more rows</code></pre>
-</div>
-</div>
 </section>
-<section id="selectで列を絞る-1" class="slide level2">
-<h2><code>select()</code>で列を絞る</h2>
+<section id="github認証pat" class="slide level2">
+<h2>GitHub認証：PAT</h2>
+<p>PAT（Personal Access Token）は特別なパスワードのようなものです。</p>
+<p>SSHという別の認証方法もありますが、少し設定が複雑です。</p>
+</section>
+<section id="githubでpatを作成" class="slide level2">
+<h2>GitHubでPATを作成</h2>
 <ul>
-<li>選択したい列が多い場合は、<code>:</code>を使ってどこから〜どこまでというふうに書くと便利：</li>
+<li><a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a>にアクセス</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb34-2"><a></a>  <span class="fu">select</span>(year<span class="sc">:</span>day)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 336,776 × 3
-    year month   day
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;
- 1  2013     1     1
- 2  2013     1     1
- 3  2013     1     1
- 4  2013     1     1
- 5  2013     1     1
- 6  2013     1     1
- 7  2013     1     1
- 8  2013     1     1
- 9  2013     1     1
-10  2013     1     1
-# ℹ 336,766 more rows</code></pre>
-</div>
-</div>
+<p>または、Rで<code>usethis</code>パッケージをインストールし、</p>
+<pre><code>install.packages("usethis")
+usethis::create_github_token()</code></pre>
+<ul>
+<li>スコープ（権限）を確認。「repo」「user」「workflow」がおすすめ。<code>create_github_token()</code>を使うと推奨スコープが自動で選択されます。</li>
+<li>「Generate token」をクリック</li>
+</ul>
 </section>
-<section id="チャレンジ-5" class="slide level2">
-<h2>チャレンジ</h2>
-<p><code>JFK</code>から出発したフライトに絞ってから、速度を計算してから、早い速度の順に並べ替えてください</p>
+<section id="patの保存" class="slide level2">
+<h2>PATの保存</h2>
+<ul>
+<li>発行されたPATをクリップボードにコピー。<strong>まだブラウザを閉じないでください！</strong></li>
+<li>Rで<code>install.packages("gitcreds")</code>を実行し、</li>
+<li><code>gitcreds::gitcreds_set()</code>を実行。</li>
+<li>先ほどコピーしたPATを入力。これでブラウザを閉じてOKです。</li>
+</ul>
+<p>完了！</p>
 </section>
-<section id="まとめ今日学んだ関数動詞" class="slide level2">
-<h2>まとめ：今日学んだ関数（動詞）</h2>
+<section id="patについての注意" class="slide level2">
+<h2>PATについての注意</h2>
 <ul>
-<li>行を扱う関数
+<li>PATは（デフォルトで30日後に）期限切れになります。</li>
+<li>期限が切れたら、GitHubで新しいPATを作成し、再度<code>gitcreds::gitcreds_set()</code>で登録してください。</li>
+<li>セキュリティのため、有効期限を設定するのがおすすめです。</li>
+</ul>
+</section>
+<section id="トラブルシューティング" class="slide level2">
+<h2>トラブルシューティング</h2>
+<p><code>Could not find system git</code>のようなエラーが出た場合は、<a href="https://github.com/SBOHVM/RPiR/discussions/444#discussioncomment-1795047">こちら</a>を参照：</p>
+<p><code>Tools -&gt; Global Options</code>で<code>git/svn</code>タブを選び、<code>C:\Program Files\Git\bin\git.exe</code>など、gitの実行ファイルを指定してください。</p>
+</section>
+<section id="gitに自分の情報を登録" class="slide level2">
+<h2>gitに自分の情報を登録</h2>
+<p>gitにGitHubのユーザー名とメールアドレスを教えましょう：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"your_github_username"</span></span>
+<span id="cb2-2"><a></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your_email_adress"</span></span>
+<span id="cb2-3"><a></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="デフォルト設定の変更" class="slide level2">
+<h2>デフォルト設定の変更</h2>
 <ul>
-<li><code>filter()</code></li>
-<li><code>arrange()</code></li>
-</ul></li>
-<li>列を扱う関数
+<li>gitでは複数のバージョン（“ブランチ”）を同時に管理できます。</li>
+<li>メインのブランチ名を「main」に設定しましょう：</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="リポジトリrepoについて" class="slide level2">
+<h2>リポジトリ（repo）について</h2>
 <ul>
-<li><code>mutate()</code></li>
-<li><code>select()</code></li>
-</ul></li>
-<li>集計の関数
+<li><p>「リポジトリ（repo）」は、プロジェクトのコードやファイルをまとめて保存するフォルダです。</p></li>
+<li><p><strong>gitはリポジトリの中身を管理する</strong></p></li>
+</ul>
+</section>
+<section id="リモートとローカルのリポジトリ" class="slide level2">
+<h2>リモートとローカルのリポジトリ</h2>
 <ul>
-<li><code>summarize()</code></li>
-<li><code>group_by()</code></li>
-<li><code>ungroup()</code></li>
+<li><strong>ローカルリポジトリ</strong>：自分のパソコン上のプロジェクト</li>
+<li><strong>リモートリポジトリ</strong>：オンライン（GitHub上）のコピー
+<ul>
+<li>通常、リモートリポジトリは<code>origin</code>という名前で呼ばれます</li>
 </ul></li>
 </ul>
 </section>
-<section id="まとめ" class="slide level2">
-<h2>まとめ</h2>
+<section id="クローンcloning" class="slide level2">
+<h2>クローン（cloning）</h2>
+<p>まだ自分のパソコンにないリポジトリをダウンロードしたいときは、</p>
 <ul>
-<li><p><code>|&gt;</code>とデータ整理用の関数を組み合わせることによって、すぐにでもかなり高度なデータ解析のパイプラインができるようなる。</p></li>
-<li><p>初めての方にはとてもコードの量が多いように思えるでしょうが、このようなツールを毎日使うって、慣れていくとそのうちどのようなデータでもRで扱えるようになる！</p></li>
+<li><strong>クローン</strong>＝オンラインのリポジトリを自分のパソコンにコピーすること</li>
 </ul>
+</section>
+<section id="プッシュとプル" class="slide level2">
+<h2>プッシュとプル</h2>
+<p>リポジトリをセットアップしたら、内容を同期する必要があります。</p>
+<ul>
+<li><strong>プッシュ</strong>：ローカルの変更をリモートに送る</li>
+<li><strong>プル</strong>：リモートの変更をローカルに取り込む</li>
+</ul>
+</section>
+<section id="コミット" class="slide level2">
+<h2>コミット</h2>
+<ul>
+<li><strong>コミット</strong>は、リポジトリに記録される1回分の変更です。</li>
+</ul>
+<p>コミットには2つのステップがあります。</p>
+</section>
+<section id="ステージングとコミット" class="slide level2">
+<h2>ステージングとコミット</h2>
+<p>変更したファイルは自動的にgitの履歴に追加されません。</p>
+<ul>
+<li>まず<strong>ステージング</strong>（追加したいファイルや部分を選ぶ）</li>
+<li>次に<strong>コミットメッセージ</strong>（変更内容の短い説明）を入力</li>
+<li>最後に<strong>コミット</strong>して履歴に記録します</li>
+</ul>
+</section>
+<section id="gitignoreファイル" class="slide level2">
+<h2><code>.gitignore</code>ファイル</h2>
+<p>gitで管理したくないファイルは、<code>.gitignore</code>という特別なファイルにリストアップします。</p>
+<p><strong>生データや出力ファイル</strong>は通常無視するのが良いです。解析そのもの（コード）だけを管理しましょう。</p>
+</section>
+<section id="実際の流れ" class="slide level2">
+<h2>実際の流れ</h2>
+<p>RStudioを使って、典型的なgitのワークフローを一緒に体験します。</p>
+<p>細かい説明は<a href="../day3/intro_to_git_ja.html">こちら</a>にまとめていますので、参照してください。</p>
 
 
 </section></section>

@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>再現可能なデータ解析 Day 2: Git/GitHub入門 – データサイエンス</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">データサイエンス</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">ホーム</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#学習目標" id="toc-学習目標" class="nav-link active" data-scroll-target="#学習目標">学習目標</a></li>
+  <li><a href="#パート1バージョン管理gitgithubgitクライアントとは" id="toc-パート1バージョン管理gitgithubgitクライアントとは" class="nav-link" data-scroll-target="#パート1バージョン管理gitgithubgitクライアントとは">パート1：バージョン管理、Git、GitHub、Gitクライアントとは？</a>
+  <ul class="collapse">
+  <li><a href="#gitの基本" id="toc-gitの基本" class="nav-link" data-scroll-target="#gitの基本">Gitの基本</a></li>
+  <li><a href="#なぜgithappy-git-and-github-for-the-user-第1.1節-より抜粋" id="toc-なぜgithappy-git-and-github-for-the-user-第1.1節-より抜粋" class="nav-link" data-scroll-target="#なぜgithappy-git-and-github-for-the-user-第1.1節-より抜粋">なぜGit？（Happy Git and GitHub for the useR 第1.1節 より抜粋）</a></li>
+  <li><a href="#なぜgithubhappy-git-and-github-for-the-user-第1.2節-より抜粋" id="toc-なぜgithubhappy-git-and-github-for-the-user-第1.2節-より抜粋" class="nav-link" data-scroll-target="#なぜgithubhappy-git-and-github-for-the-user-第1.2節-より抜粋">なぜGitHub？（Happy Git and GitHub for the useR 第1.2節 より抜粋）</a></li>
+  <li><a href="#そもそも何が何なの" id="toc-そもそも何が何なの" class="nav-link" data-scroll-target="#そもそも何が何なの">そもそも何が何なの？</a></li>
+  </ul></li>
+  <li><a href="#パート2-環境のセットアップ" id="toc-パート2-環境のセットアップ" class="nav-link" data-scroll-target="#パート2-環境のセットアップ">パート2: 環境のセットアップ</a>
+  <ul class="collapse">
+  <li><a href="#gitのインストールhappy-git-and-github-for-the-user-第6章-より抜粋" id="toc-gitのインストールhappy-git-and-github-for-the-user-第6章-より抜粋" class="nav-link" data-scroll-target="#gitのインストールhappy-git-and-github-for-the-user-第6章-より抜粋">1. Gitのインストール（Happy Git and GitHub for the useR 第6章 より抜粋）</a></li>
+  <li><a href="#githubアカウントの登録happy-git-and-github-for-the-user-第6章-より抜粋" id="toc-githubアカウントの登録happy-git-and-github-for-the-user-第6章-より抜粋" class="nav-link" data-scroll-target="#githubアカウントの登録happy-git-and-github-for-the-user-第6章-より抜粋">2. GitHubアカウントの登録（Happy Git and GitHub for the useR 第6章 より抜粋）</a></li>
+  <li><a href="#gitに自分を登録するhappy-git-and-github-for-the-user-第7章-より抜粋" id="toc-gitに自分を登録するhappy-git-and-github-for-the-user-第7章-より抜粋" class="nav-link" data-scroll-target="#gitに自分を登録するhappy-git-and-github-for-the-user-第7章-より抜粋">3. Gitに自分を登録する（Happy Git and GitHub for the useR 第7章 より抜粋）</a></li>
+  <li><a href="#sshで認証するhappy-git-and-github-for-the-user-第10章-より抜粋" id="toc-sshで認証するhappy-git-and-github-for-the-user-第10章-より抜粋" class="nav-link" data-scroll-target="#sshで認証するhappy-git-and-github-for-the-user-第10章-より抜粋">4. SSHで認証する（Happy Git and GitHub for the useR 第10章 より抜粋）</a></li>
+  </ul></li>
+  <li><a href="#パート3-create-clone-stage-commit-push-pull" id="toc-パート3-create-clone-stage-commit-push-pull" class="nav-link" data-scroll-target="#パート3-create-clone-stage-commit-push-pull">パート3: Create, Clone, Stage, Commit, Push, Pull!</a>
+  <ul class="collapse">
+  <li><a href="#概要" id="toc-概要" class="nav-link" data-scroll-target="#概要">概要</a></li>
+  <li><a href="#新しい課題リポジトリの作成" id="toc-新しい課題リポジトリの作成" class="nav-link" data-scroll-target="#新しい課題リポジトリの作成">新しい課題リポジトリの作成</a></li>
+  <li><a href="#クローン" id="toc-クローン" class="nav-link" data-scroll-target="#クローン">クローン</a></li>
+  <li><a href="#ステージ" id="toc-ステージ" class="nav-link" data-scroll-target="#ステージ">ステージ</a></li>
+  <li><a href="#コミット" id="toc-コミット" class="nav-link" data-scroll-target="#コミット">コミット</a></li>
+  <li><a href="#プッシュ" id="toc-プッシュ" class="nav-link" data-scroll-target="#プッシュ">プッシュ</a></li>
+  <li><a href="#プル" id="toc-プル" class="nav-link" data-scroll-target="#プル">プル</a></li>
+  <li><a href="#gitignoreについて" id="toc-gitignoreについて" class="nav-link" data-scroll-target="#gitignoreについて">.gitignoreについて</a></li>
+  </ul></li>
+  <li><a href="#パート4-宿題課題" id="toc-パート4-宿題課題" class="nav-link" data-scroll-target="#パート4-宿題課題">パート4: 宿題課題</a></li>
+  <li><a href="#追加リソース" id="toc-追加リソース" class="nav-link" data-scroll-target="#追加リソース">追加リソース</a></li>
+  <li><a href="#謝辞" id="toc-謝辞" class="nav-link" data-scroll-target="#謝辞">謝辞</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">再現可能なデータ解析 Day 2: Git/GitHub入門</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p><strong>注意：この文書はAIによる自動翻訳です。内容に誤りが含まれる可能性があります。正確な内容は<a href="https://data-analysis-chiba.github.io/day2/day02_intro_to_git.html">オリジナル（英語）</a>をご参照ください。</strong></p>
+</blockquote>
+<section id="学習目標" class="level2">
+<h2 class="anchored" data-anchor-id="学習目標">学習目標</h2>
+<p>この授業の終わりまでに、あなたは以下ができるようになります：</p>
+<ul>
+<li>バージョン管理とは何か、なぜ重要なのかを概念的に理解する</li>
+<li>Git、GitHub、Gitクライアントの違いと関係を説明できる</li>
+<li>GitHubのブラウザインターフェースに慣れ、リポジトリの内容を閲覧したり、Issueを作成したりといった基本操作ができる</li>
+<li>GitとGitHubを使うための環境をセットアップできる</li>
+<li>Gitの基本的なワークフロー（作成、クローン、ステージ、コミット、プッシュ、プル）を実践できる</li>
+<li>この授業での課題提出の主要な手順を理解する</li>
+</ul>
+</section>
+<section id="パート1バージョン管理gitgithubgitクライアントとは" class="level2">
+<h2 class="anchored" data-anchor-id="パート1バージョン管理gitgithubgitクライアントとは">パート1：バージョン管理、Git、GitHub、Gitクライアントとは？</h2>
+<p>これらの用語は最初は少し難しく感じるかもしれませんが、心配しないでください。すべてはあなたの作業を楽にするために作られたものです。もし初めてなら少し慣れが必要ですが、この授業では必要なことを一つずつ丁寧に説明していきます。</p>
+<section id="gitの基本" class="level3">
+<h3 class="anchored" data-anchor-id="gitの基本">Gitの基本</h3>
+<p>バージョン管理はソフトウェアエンジニアの必須ツールの一つです。<a href="https://www.theguardian.com/technology/blog/2008/aug/19/howmanypeoplemakewindows7">The Guardian</a>によると、900人以上の開発者がMicrosoft Windows 7の開発に関わったそうです。これだけ多くの人が一つのプロジェクトに関わると、1日、あるいは1時間のうちに何度もコードが変更されます。誰が、何のために、どこを変えたのか？複数人が同じファイルや同じ行を同時に編集したらどうなるでしょう？</p>
+<p>バージョン管理システムは、ファイル（多くの場合ソフトウェアのソースコード）の変化の履歴をきれいに、かつ簡単にたどれるように記録します。また、複数人が同じファイルを同時に編集した場合など、問題が起きたときに解決する仕組みも備えています。</p>
+<p>Gitは数あるバージョン管理システムの一つですが、非常に人気があります。他にも<a href="https://www.mercurial-scm.org/">Mercurial</a>、<a href="https://www.perforce.com/">Perforce</a>、<a href="https://subversion.apache.org/">Subversion</a>などがあります。</p>
+<p>この<a href="https://git-scm.com/video/what-is-version-control">動画</a>も参考にしてください。</p>
+</section>
+<section id="なぜgithappy-git-and-github-for-the-user-第1.1節-より抜粋" class="level3">
+<h3 class="anchored" data-anchor-id="なぜgithappy-git-and-github-for-the-user-第1.1節-より抜粋">なぜGit？（<a href="http://happygitwithr.com/big-picture.html#why-git">Happy Git and GitHub for the useR 第1.1節</a> より抜粋）</h3>
+<p>Gitはバージョン管理システムです。もともとは大規模なソフトウェア開発プロジェクトで、複数の開発者が協力して作業するために作られました。Gitは「リポジトリ」と呼ばれるファイル群の進化を、理路整然と、かつ高度に構造化された方法で管理します。</p>
+<p>もしピンとこなければ、「Microsoft Wordの『変更履歴』機能を超強化したもの」と考えてみてください。</p>
+<p>近年、データサイエンス分野でもGitが活用されています。ソースコードだけでなく、データ、図、レポートなど、データ分析プロジェクトを構成する様々なファイルの管理にも使われています。</p>
+</section>
+<section id="なぜgithubhappy-git-and-github-for-the-user-第1.2節-より抜粋" class="level3">
+<h3 class="anchored" data-anchor-id="なぜgithubhappy-git-and-github-for-the-user-第1.2節-より抜粋">なぜGitHub？（<a href="http://happygitwithr.com/big-picture.html#why-github">Happy Git and GitHub for the useR 第1.2節</a> より抜粋）</h3>
+<p>ここでGitHubやBitbucket、GitLabなどのホスティングサービスが登場します。これらはインターネット上でGitプロジェクトの「家」となる場所を提供します。</p>
+<p>もしイメージが湧かなければ、「DropBoxの超強化版」と考えてみてください。リモートホストは、Gitで管理されたプロジェクトの配布チャンネルや中継所の役割を果たします。他の人があなたの成果物を見たり、同期したり、場合によっては変更を加えることもできます。これらのサービスは、従来のUnix系Gitサーバーよりも、洗練されたWebインターフェースを備えている点が特徴です。</p>
+<p>ただし注意が必要です。GitHubなどのサービスはファイル管理には優れていますが、大容量データの保存には向いていません。GitHubはリポジトリのサイズを1GB未満にすることを推奨しています（<a href="https://help.github.com/articles/what-is-my-disk-quota/">参考</a>）。さらに、100MBを超えるファイルはアップロードできません（<a href="https://help.github.com/articles/working-with-large-files/">参考</a>）。</p>
+<p>個人プロジェクトでも、バックアップのためにリモートにプッシュしておくのは良い習慣です。なぜなら、Gitの操作に慣れていないうちは、ローカルリポジトリを壊してしまうことがよくあるからです。幸い、多くの場合Gitのインフラだけが壊れていて、ファイル自体は無事です。とはいえ、そうしたトラブルはとても厄介です。公式のGitの解決策もありますが、深夜3時に自力で直すのは大変です。最近GitHubにプッシュしていれば、新しいコピーを取得し、ローカルだけの変更をパッチして、すぐに作業を再開できます。</p>
+<p>本講義では具体性のためGitHubを使いますが、他のサービス（BitbucketやGitLab）でも基本的な考え方や多くの操作は共通です。</p>
+</section>
+<section id="そもそも何が何なの" class="level3">
+<h3 class="anchored" data-anchor-id="そもそも何が何なの">そもそも何が何なの？</h3>
+<p><strong><em>バージョン管理</em></strong> とは、ファイル（主にコードベース）を「管理」するためのソフトウェアシステム全般を指します。Gitはその一例に過ぎません。他にも <a href="https://www.mercurial-scm.org/">Mercurial</a>、<a href="https://www.perforce.com/">Perforce</a>、<a href="https://subversion.apache.org/">Subversion</a> などがあります。</p>
+<p><strong><em>Git</em></strong> はバージョン管理ソフトウェアです。GitHubサーバーとあなたのパソコンの両方で動作します。これにより、パソコンとGitHub上のリモートリポジトリが通信でき、プッシュやプル、履歴管理などの機能が使えます。</p>
+<p><strong><em>GitHub</em></strong> は、リモートリポジトリをクラウド上で管理するサービスです。 グループで作業する場合、あなたや共同作業者はそれぞれ独立して GitHubとやり取りし、最新のコード変更をプル／プッシュします。 GitHubは、各自がローカルマシンで作業していても、 プロジェクトディレクトリの最新の「真実」を保持します。</p>
+<p><strong><em>Gitクライアント</em></strong> は、Gitとのやり取りを簡単にする グラフィカルユーザーインターフェースを提供するソフトウェアです。 本講義では <strong>RStudioの内蔵Gitクライアント</strong> を使用します。 他にも <a href="https://www.sourcetreeapp.com/">SourceTree</a> や <a href="https://desktop.github.com/">GitHub Desktop</a> などがあります。 もちろん、ターミナル（コマンドライン）は最も強力ですが、 コマンドラインに慣れていない場合は最も難しい方法です。</p>
+</section>
+</section>
+<section id="パート2-環境のセットアップ" class="level2">
+<h2 class="anchored" data-anchor-id="パート2-環境のセットアップ">パート2: 環境のセットアップ</h2>
+<p>Gitを使い始める前に、パソコンに必要なソフトウェアを インストールする必要があります。このセクションでは、1. Gitのインストール、2. GitHubアカウントの登録、3. SSHキーの設定、4. RStudioからGitを使う方法を説明します。</p>
+<section id="gitのインストールhappy-git-and-github-for-the-user-第6章-より抜粋" class="level3">
+<h3 class="anchored" data-anchor-id="gitのインストールhappy-git-and-github-for-the-user-第6章-より抜粋">1. Gitのインストール（<a href="http://happygitwithr.com/install-git.html">Happy Git and GitHub for the useR 第6章</a> より抜粋）</h3>
+<p>Gitを使うには、コマンドラインで使えること、 そしてRStudioが呼び出せることが必要です。 すでにインストールされている場合は確認して、 問題なければこのステップをスキップしてください。 インストールされていない場合は、以下のOSごとの手順に従ってください。</p>
+<section id="gitがすでにインストールされているか確認" class="level4">
+<h4 class="anchored" data-anchor-id="gitがすでにインストールされているか確認">Gitがすでにインストールされているか確認</h4>
+<p>シェル（ターミナル／コマンドライン）を開き、 <code>git --version</code> と入力してEnterを押します。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">## git version 2.39.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>git: command not found</code> のような表示が出た場合は、 OSごとのインストール手順に進んでください。</p>
+<p>上記のようにバージョン番号が表示された場合は、 すでにGitがインストールされています。素晴らしい！ ただし、バージョン番号が<code>2.28</code>未満の場合は、 アップデートをおすすめします（下記の手順を参照）。 新しいバージョンでは、デフォルトブランチ名を設定できるためです。 Gitコミュニティでは、リポジトリのデフォルトブランチ名を 「master」から中立的で包括的な「main」へ変更する動きがあります。 <a href="https://www.bbc.com/news/technology-53050955">GitHubも新しいブランチ名をmainに変更しました</a>。 古いバージョンのGitではデフォルトが「master」なので、 新しいリポジトリを作成するたびにローカルのデフォルトブランチ名を 変更する必要があります。バージョン2.28以降なら一度設定すれば 今後作成する全てのリポジトリで有効です。</p>
+<p>すでに最新のGitがインストールされていれば、次のステップはスキップできます！</p>
+</section>
+<section id="windowsでのgitインストール" class="level4">
+<h4 class="anchored" data-anchor-id="windowsでのgitインストール">WindowsでのGitインストール</h4>
+<p><a href="https://git-for-windows.github.io/">Git for Windows</a> をインストールしてください。 インストール中はデフォルト設定のままで問題ありません。</p>
+<ul>
+<li>Gitの実行ファイルが標準的な場所に配置されるため、 RStudioなど他のプログラムからも認識されやすくなります。</li>
+<li>Bashシェルも利用できるので、より高度な使い方にも対応できます。</li>
+<li>ただし、付属のGitクライアントはあまり高機能ではありません。</li>
+<li>RStudio for Windowsは、gitがFiles(x86)フォルダにあることを好みます。 それ以外の場所だと認識されない場合があるので注意してください。</li>
+</ul>
+</section>
+<section id="macでのgitインストール" class="level4">
+<h4 class="anchored" data-anchor-id="macでのgitインストール">MacでのGitインストール</h4>
+<p>まずXcodeコマンドラインツール（Xcode本体ではありません）を インストールします。ターミナルを開き、以下を入力してEnterを押します。 表示される指示に従ってください。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--install</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>インストール後、以下でバージョンを確認します。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--version</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">## xcode-select version 2384.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>次のいずれかのコマンドを入力すると、 開発者コマンドラインツールのインストールを促されます。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>「Install」をクリックしてインストールしてください。</p>
+<p>Xcodeでうまくいかない場合は、 <a href="http://git-scm.com/downloads" class="uri">http://git-scm.com/downloads</a> からインストールするか、 Homebrewを使っている場合は以下のコマンドを試してください。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>インストール後、再度 <code>git --version</code> で確認してください。</p>
+<p>また、Gitをアップデートした場合は、 <a href="https://happygitwithr.com/rstudio-see-git.html">RStudioが正しいバージョンのgitを参照しているか確認</a> しておくと安心です。</p>
+</section>
+<section id="linuxでのgitインストール" class="level4">
+<h4 class="anchored" data-anchor-id="linuxでのgitインストール">LinuxでのGitインストール</h4>
+<p>ディストリビューションのパッケージマネージャーでインストールします。</p>
+<p>UbuntuやDebianの場合：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>FedoraやRedHatの場合：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> yum install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><a href="https://git-scm.com/download/linux">他のLinux/Unix用パッケージマネージャーの一覧はこちら</a></p>
+</section>
+</section>
+<section id="githubアカウントの登録happy-git-and-github-for-the-user-第6章-より抜粋" class="level3">
+<h3 class="anchored" data-anchor-id="githubアカウントの登録happy-git-and-github-for-the-user-第6章-より抜粋">2. GitHubアカウントの登録（<a href="http://happygitwithr.com/install-git.html">Happy Git and GitHub for the useR 第6章</a> より抜粋）</h3>
+<p>GitHubアカウントをまだ持っていない場合は、 <a href="https://github.com">GitHub</a> で登録してください（無料です）。</p>
+<p>ユーザー名を選ぶ際のポイント：</p>
+<ul>
+<li>実名を入れると、相手に覚えてもらいやすくなります。</li>
+<li>他のサービス（TwitterやSlackなど）と同じユーザー名が空いていれば再利用もおすすめです。</li>
+<li>将来の就職先などに見せても問題ない名前にしましょう。</li>
+<li>短い方が覚えやすいです。</li>
+<li>できるだけ短く、かつユニークな名前を。</li>
+<li>所属や居住地など、時期によって変わる情報は避けましょう。</li>
+<li>プログラミングで特別な意味を持つ単語は避けましょう。 例：ユーザー名にNAを使うと、Rの欠損値と混同されることがあります。</li>
+</ul>
+<p>ユーザー名は後から変更できますが、最初にしっかり考えて決めましょう。</p>
+<ul>
+<li><a href="https://help.github.com/articles/changing-your-github-username/">GitHubユーザー名の変更方法</a></li>
+<li><a href="https://help.github.com/articles/what-happens-when-i-change-my-username/">ユーザー名を変更した場合どうなるか</a></li>
+</ul>
+</section>
+<section id="gitに自分を登録するhappy-git-and-github-for-the-user-第7章-より抜粋" class="level3">
+<h3 class="anchored" data-anchor-id="gitに自分を登録するhappy-git-and-github-for-the-user-第7章-より抜粋">3. Gitに自分を登録する（<a href="http://happygitwithr.com/hello-git.html">Happy Git and GitHub for the useR 第7章</a> より抜粋）</h3>
+<p>まず、Gitに自分の情報を登録します。 ここで入力した情報は、コミットごとに記録され、 誰がどの変更を行ったか追跡できるようになります。 この設定は一度だけでOKです。</p>
+<p>シェル／ターミナルで以下を実行します：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name ＜あなたのGitHubユーザー名＞</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email ＜あなたのメールアドレス＞</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sshで認証するhappy-git-and-github-for-the-user-第10章-より抜粋" class="level3">
+<h3 class="anchored" data-anchor-id="sshで認証するhappy-git-and-github-for-the-user-第10章-より抜粋">4. SSHで認証する（<a href="https://happygitwithr.com/ssh-keys.html">Happy Git and GitHub for the useR 第10章</a> より抜粋）</h3>
+<p>リモートGitサーバー（例：GitHub）とやり取りする際は、 認証情報が必要です。これにより、あなたが特定のGitHubユーザーであること、 操作権限があることを証明します。</p>
+<p>GitはHTTPSまたはSSHのいずれかのプロトコルで通信できます。 ここでは、特別な理由がなければHTTPSを推奨します （SSHを使いたい場合は<a href="https://happygitwithr.com/ssh-keys.html">Happy Git and GitHub for the useR 第10章</a>を参照）。 HTTPSでは「パーソナルアクセストークン（PAT）」を使います。</p>
+<p>なお、GitHubのWebサイトにログインする際のパスワードは、 Gitサーバーとのやり取りには使えません。 （以前は可能でしたが、現在はGitHubで廃止されています。） 詳細は<a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">Token authentication requirements for Git operations</a>を参照してください。</p>
+<p>もしパスワードで認証しようとすると、以下のようなエラーが出ます：</p>
+<pre><code>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/OWNER/REPO.git/'</code></pre>
+<p>ここではPATの取得と保存の最小限の手順を紹介します。 もしうまくいかない場合は、担当教員に相談し、 <a href="https://happygitwithr.com/https-pat.html">Happy Git and GitHub for the useR 第9章</a>も参照してください。</p>
+<p><a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a> にアクセスし、 「Generate token」をクリックします（またはRから <code>usethis::create_github_token()</code> を実行）。</p>
+<p>スコープ（権限）は「repo」「user」「workflow」などを選択するのがおすすめです。</p>
+<p>「Generate token」をクリックします。</p>
+<p>生成されたPATをクリップボードにコピーします。 このウィンドウは閉じずに残しておきましょう。 <strong>一度閉じるとPATは再表示できません</strong>（新たに発行は可能です）。 PATはパスワードマネージャーなど安全な場所に保存し、 有効期限まで再利用できるようにしましょう。</p>
+<p>次に、PATをパソコンの安全な場所に保存し、gitが認証に使えるように設定します。 Rで行うのが簡単です。</p>
+<p>まずRパッケージ “gitcreds” をインストールし、 <code>gitcreds::gitcreds_set()</code> を実行してPATを入力します。 これで毎回パスワードやトークンを入力せずにGitHubとやり取りできます。</p>
+<section id="デフォルトブランチ名をmainに設定" class="level4">
+<h4 class="anchored" data-anchor-id="デフォルトブランチ名をmainに設定">デフォルトブランチ名をmainに設定</h4>
+<p>最後に、すべての新しいリポジトリでデフォルトブランチ名をmainに設定します。</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>このコマンドが成功すればOKです。</p>
+<p>このコマンドはGit 2.28以降でのみ有効です。 古いバージョンの場合は、リポジトリごとに手動でブランチ名を変更する必要があります。</p>
+<p>オプション1：コマンドライン（新しいリポジトリ内で）</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>オプション2：RStudioプロジェクトでusethisパッケージを使う</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># まだインストールしていなければusethisをインストール</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># デフォルトブランチ名をmasterからmainに変更</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_default_branch_rename</span>(<span class="at">to =</span> <span class="st">"main"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="パート3-create-clone-stage-commit-push-pull" class="level2">
+<h2 class="anchored" data-anchor-id="パート3-create-clone-stage-commit-push-pull">パート3: Create, Clone, Stage, Commit, Push, Pull!</h2>
+<p>いよいよGitを使い始めます。</p>
+<p>タイトルにある6つの動詞（Create, Clone, Stage, Commit, Push, Pull）が、 Gitで行う操作の90%を占めます。 それぞれの意味と手順を簡単に説明します。</p>
+<p>RStudioなどのGitクライアントでできることは、 すべてシェル（ターミナル）でも可能です。 ここではRStudioでの操作を中心に説明します。</p>
+<p>シェルでの操作に興味がある場合は、 <a href="https://swcarpentry.github.io/git-novice">Software Carpentryのワークショップ教材</a> も参考にしてください。</p>
+<section id="概要" class="level3">
+<h3 class="anchored" data-anchor-id="概要">概要</h3>
+<p><strong>リポジトリ</strong> とは、プロジェクト用のディレクトリです。 通常のディレクトリと違うのは、Gitが管理し、 すべての変更履歴（コミット）を記録している点です。</p>
+<p>リポジトリをGitHubに保存したものが「リモートリポジトリ」です。 これを自分のパソコンに <strong>「クローン」</strong> すると、 ローカルリポジトリができます。 <strong>「プッシュ」</strong> や <strong>「プル」</strong> でローカルとリモートの内容を同期します。</p>
+<p>例えば、ローカルリポジトリでコードを修正し、 準備ができたら「プッシュ」してリモートリポジトリ（GitHub）に反映します。 グループメンバーは「プル」して最新のリモートリポジトリの内容を 自分のローカルリポジトリに取り込み、作業を続けることができます。</p>
+<p>このワークフローの細かい部分は今は分からなくても大丈夫です。 全体像をつかんでおきましょう。 実際に手を動かすことで理解が深まります。</p>
+<p>この授業では、新しい課題用リポジトリを作成するところから始めます。 このリポジトリを使って、課題の提出方法を説明します。</p>
+</section>
+<section id="新しい課題リポジトリの作成" class="level3">
+<h3 class="anchored" data-anchor-id="新しい課題リポジトリの作成">新しい課題リポジトリの作成</h3>
+<p>新しい課題を始めるには、Moodleで配布される課題招待リンクが必要です。</p>
+<p>Moodleにログインし、コースページに移動します。 「Day 2: Git and GitHub」タブの「First repo」リンクをクリックします。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/canvas.png" class="img-fluid figure-img"></p>
+<figcaption>Moodle</figcaption>
+</figure>
+</div>
+<p>GitHubにログインしていない場合はログインを求められます。 初めての課題の場合は、最初にGitHub IDと名簿の名前を紐付ける画面が表示されます。 その後、「Accept this assignment」ボタン（緑色）をクリックします。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/accept.png" class="img-fluid figure-img"></p>
+<figcaption>Accept assignment</figcaption>
+</figure>
+</div>
+<p>「creating repo」ページに移動します。課題のファイル数が多い場合は数分かかることもありますが、通常はすぐに完了します。ページをリロードしてみてください。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/creatingrepo.png" class="img-fluid figure-img"></p>
+<figcaption>Creating repo</figcaption>
+</figure>
+</div>
+<p>リポジトリの準備ができると、リンクが表示されます。締切がある場合はここに表示されます。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/repoready.png" class="img-fluid figure-img"></p>
+<figcaption>Repo ready</figcaption>
+</figure>
+</div>
+<p>リンクをクリックすると、あなたの新しいリポジトリのGitHubページに移動します。 Webブラウザ上でファイルを閲覧できます（現時点ではまだ空です）。 このリポジトリは「Private」と表示され、あなたと教員だけがアクセスできます。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/create_repository_success.png" class="img-fluid figure-img"></p>
+<figcaption>Repository created screenshot</figcaption>
+</figure>
+</div>
+<p>リポジトリが作成できない場合は、教員に相談してください。</p>
+<p><em>この手順は本講義特有です。一般的な新規リポジトリを作成したい場合は、 GitHubのホーム画面で「New repository」ボタンをクリックしてください。 その際、リポジトリを「Private」（自分だけ）または「Public」（公開）に設定できます。</em></p>
+</section>
+<section id="クローン" class="level3">
+<h3 class="anchored" data-anchor-id="クローン">クローン</h3>
+<p>次に、このリポジトリを自分のパソコンに <strong>クローン</strong> します。 これでローカルで編集できるようになります。</p>
+<p>作業前にRStudioの最新版をインストールしておきましょう。</p>
+<p>GitHubリポジトリのWebページから <strong>HTTPS</strong>（SSHではなく）リンクをコピーします。 例： <code>https://github.com/data-analysis-chiba-2023/first-repo-joelnitta.git</code></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/create_repository_success_link.png" class="img-fluid figure-img"></p>
+<figcaption>Repository link screenshot</figcaption>
+</figure>
+</div>
+<p><strong>注意：</strong> 今回は空のリポジトリですが、今後の課題では最初からファイルが入っている場合もあります。 その場合は、ファイル一覧右上の緑色「Code」ボタンから「HTTPS」を選択し、 リポジトリURLをコピーしてください。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clone.png" class="img-fluid figure-img"></p>
+<figcaption>GitHub clone</figcaption>
+</figure>
+</div>
+<p>RStudioで新しいプロジェクトを作成します：</p>
+<ul>
+<li>File &gt; New Project &gt; Version Control &gt; Git</li>
+<li>「repository URL」に先ほどコピーしたURLを貼り付けます。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/create_new_rstudio_project.png" class="img-fluid figure-img"></p>
+<figcaption>Create new project screenshot</figcaption>
+</figure>
+</div>
+<p>「Version Controlから取得」のオプションが表示されない場合は、 <a href="http://happygitwithr.com/rstudio-see-git.html">Happy Git and GitHub for the useR 第13章</a>を参照してください。</p>
+<p>プロジェクトのローカルディレクトリを必ず確認しましょう。 どこに保存されているか分からなくなるのはよくあるミスです。</p>
+<p>複数のプロジェクトを作成する場合は、デスクトップに「data-analysis-course」フォルダを作り、 その中に各プロジェクトをまとめておくのがおすすめです。</p>
+<p>「Open in new session」にチェックを入れると、 新しいウィンドウでプロジェクトが開きます。「Create Project」をクリック。</p>
+<p>指定したディレクトリに新しいプロジェクトディレクトリが作成され、 .Rprojファイルが含まれているはずです。 このファイルも後でリモートリポジトリにプッシュします。</p>
+<p>RStudioの新しいウィンドウが開き、「Git」タブが表示されていることを確認してください。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/new_project_rstudio_window.png" class="img-fluid figure-img"></p>
+<figcaption>New RStudio window containing the new project</figcaption>
+</figure>
+</div>
+<p>これでローカルにGitリポジトリをクローンできました！</p>
+<p>ディレクトリには .Rproj と .gitignore しかありません。 （.gitignoreについては後述します。）</p>
+<p>まず最初に追加すべきファイルはREADME.mdです。 GitHubはREADMEファイルを自動的に検出し、 リポジトリのWebページに内容を表示してくれます。</p>
+<p>新しいMarkdownファイルを作成し、「This is a line from RStudio」と書いて README.mdという名前で保存してください。</p>
+<p>次に、この変更をGitHubに反映させます。</p>
+</section>
+<section id="ステージ" class="level3">
+<h3 class="anchored" data-anchor-id="ステージ">ステージ</h3>
+<p>まず、変更を「ステージ」します。 これはGitHubに「この変更を記録したい」と伝える操作です。</p>
+<p>RStudioの「Git」タブでREADME.mdと.Rprojファイルにチェックを入れてステージします。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/stage.png" class="img-fluid figure-img"></p>
+<figcaption>Stage changes</figcaption>
+</figure>
+</div>
+<p>これでGitが新しい変更を認識しました。</p>
+<p>コマンドラインの場合は <code>git add</code> コマンドで同じことができます。</p>
+</section>
+<section id="コミット" class="level3">
+<h3 class="anchored" data-anchor-id="コミット">コミット</h3>
+<p>次に「コミット」します。 コミットは、現在のディレクトリの状態を記録する操作です。</p>
+<p>RStudioでは Tools &gt; Version Control &gt; Commit（またはGitペインのCommitボタン）をクリック。 各ファイルの変更内容を確認し、コミットメッセージを入力します。 例：「Add README.md and the RStudio project file」</p>
+<p>「Commit」と「Close」をクリック。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/commit.png" class="img-fluid figure-img"></p>
+<figcaption>Commit changes</figcaption>
+</figure>
+</div>
+<p>GitHubのリポジトリページを開いても、まだ新しいファイルは表示されません。 驚きましたか？</p>
+<p><strong>重要！</strong> 変更はまだGitHubには反映されていません。 コミットはローカルリポジトリだけの操作です。 これにより、オフラインでも変更履歴を記録できます。 また、リモートリポジトリとのマージ時のトラブルも防げます。 初心者が混乱しやすいポイントなので、しっかり理解しましょう。</p>
+</section>
+<section id="プッシュ" class="level3">
+<h3 class="anchored" data-anchor-id="プッシュ">プッシュ</h3>
+<p>「プッシュ」は、ローカルの変更をGitHubのリモートリポジトリに反映する操作です。 通常、ローカルで複数回コミットした後、まとめてプッシュします。</p>
+<p>今回はREADME.mdと.Rprojファイルの追加を1回コミットしたので、 これをプッシュします。</p>
+<p>RStudioの緑色の「上矢印」（または Tools &gt; Version Control &gt; Push Branch）をクリック。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/push.png" class="img-fluid figure-img"></p>
+<figcaption>Push</figcaption>
+</figure>
+</div>
+<p>RStudioで以下のようなポップアップが表示されます。</p>
+<pre><code>&gt;&gt;&gt; git push origin HEAD:refs/heads/main
+To github.com:data-analysis-chiba-2023/first-repo-username.git
+ * [new branch]      HEAD -&gt; main</code></pre>
+<p>GitHubのリポジトリページを再度開くと、</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pushed.png" class="img-fluid figure-img"></p>
+<figcaption>Changes pushed!</figcaption>
+</figure>
+</div>
+<p>README.mdの内容がリポジトリのホームページに表示されているはずです！</p>
+<p>GitHubのUIをいろいろ触ってみましょう。 ファイルや内容の閲覧、コミット履歴の確認、 プロジェクト管理機能（issues, wiki, コントリビューション統計など）もあります。</p>
+<p>他の人があなたのリポジトリをクローンしたい場合、 （課題の場合はあなたや教員が）コラボレーターとして追加する必要があります。 デフォルトではリポジトリはあなたと教員だけがアクセス可能です。 「Settings」から変更できます。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/add_collabs.png" class="img-fluid figure-img"></p>
+<figcaption>GitHub add collaborators</figcaption>
+</figure>
+</div>
+</section>
+<section id="プル" class="level3">
+<h3 class="anchored" data-anchor-id="プル">プル</h3>
+<p>最後に「プル」操作をデモします。 ここではGitHub上で直接ファイルを編集し、 その変更をローカルに取り込む流れを説明します。 （実際の運用では推奨しません。理由は後述します。）</p>
+<p>GitHubのリポジトリページでREADME.mdをクリックし、 右上の鉛筆アイコンをクリック。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pencil.png" class="img-fluid figure-img"></p>
+<figcaption>Edit file on GitHub directly</figcaption>
+</figure>
+</div>
+<p>「This change was made directly on GitHub.」と追記し、 コミットメッセージを入力して「main」ブランチに直接コミットします。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/demo_direct_edit.png" class="img-fluid figure-img"></p>
+<figcaption>README.md changed directly on GitHub</figcaption>
+</figure>
+</div>
+<p>ローカルのREADME.mdはまだ変更前のままです。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/local_before.png" class="img-fluid figure-img"></p>
+<figcaption>Local version of README.md is unchanged</figcaption>
+</figure>
+</div>
+<p>RStudioの青い下矢印（または Tools &gt; Version Control &gt; Pull Branches）をクリック。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/local_after.png" class="img-fluid figure-img"></p>
+<figcaption>Local version of README.md changed after pulling</figcaption>
+</figure>
+</div>
+<p><strong>重要</strong> - 実際の作業では、GitHub上で直接大きな変更を加えるのは避けましょう。 ブラウザはRStudioのエディタより信頼性が低く、 ローカルで未コミットの変更があると競合の原因にもなります。 ここではデモのために行いました。</p>
+</section>
+<section id="gitignoreについて" class="level3">
+<h3 class="anchored" data-anchor-id="gitignoreについて">.gitignoreについて</h3>
+<p>これまで無視してきた.gitignoreファイルを見てみましょう。</p>
+<pre><code>.Rproj.user
+.Rhistory
+.RData
+.Ruserdata</code></pre>
+<p>これは、これらのファイルをGitの管理対象から除外する設定です。</p>
+<p>データセットが100MBを超える場合など、 GitHubのファイルサイズ制限に引っかかることがあります。 その場合、データファイルを.gitignoreに追加して管理対象外にできます。 特定の拡張子をまとめて除外したい場合はワイルドカードも使えます。 例：<code>*.txt</code> と書けばtxtファイル全てを無視できます。</p>
+<p>GitHubの<a href="https://github.com/github/gitignore">.gitignoreテンプレート集</a>も参考にしてください。</p>
+</section>
+</section>
+<section id="パート4-宿題課題" class="level2">
+<h2 class="anchored" data-anchor-id="パート4-宿題課題">パート4: 宿題課題</h2>
+<p>これでクローン、コミット、プッシュの一連の流れを体験しました。 宿題では、これをもう一度練習します。</p>
+<p>まずMoodleでDay 2 Homework課題のリンクをクリックし、 GitHubリポジトリを作成します。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/day2_homework.png" class="img-fluid figure-img"></p>
+<figcaption>Location of Day 2 homework</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/day2_homework_link.png" class="img-fluid figure-img"></p>
+<figcaption>Location of Day 2 homework link</figcaption>
+</figure>
+</div>
+<p>前と同じようにリモートリポジトリをローカルにクローンし、 <code>git_facts.md</code> ファイルの空欄を埋めて保存します。 その後、コミットし、リモートにプッシュしてください。</p>
+<p><strong>締切までに必ず行ってください。</strong></p>
+<p>繰り返しますが、<strong>ローカルでコミットし、リモートにプッシュする</strong> 両方を締切前に完了してください。 GitHubで変更が確認できなければ、 正しく提出できていないことになります。 評価は締切前の最新コミットで行われます。 締切後のコミットは無効（採点対象外）です。</p>
+<p>提出できたか不安な場合は、 MoodleのリンクからGitHubリポジトリを開き、 自分が編集した内容が反映されているか確認しましょう。</p>
+</section>
+<section id="追加リソース" class="level2">
+<h2 class="anchored" data-anchor-id="追加リソース">追加リソース</h2>
+<p>もっと学びたい人のための参考資料：</p>
+<ul>
+<li><a href="http://happygitwithr.com/">Happy Git and GitHub for the useR</a>（著： <a href="https://github.com/jennybc">Dr.&nbsp;Jenny Bryan</a>）</li>
+<li><a href="https://git-scm.com/documentation">Git公式ドキュメント</a></li>
+</ul>
+</section>
+<section id="謝辞" class="level2">
+<h2 class="anchored" data-anchor-id="謝辞">謝辞</h2>
+<p>本資料は https://stat540-ubc.github.io/ の内容を <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International license</a> のもとで Joel H. Nitta が改変したものです。</p>
+<p>本講義は <a href="https://github.com/echu113">Eric Chu</a> が開発し、 <a href="http://happygitwithr.com/">Happy Git and GitHub for the useR</a>（著： <a href="https://github.com/jennybc">Dr.&nbsp;Jenny Bryan</a>）の内容を元にしています。 その後、Keegan Korthauer により大幅に改変されました。</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -700,186 +700,165 @@
     "text": "RStudioのデフォルト設定を変えましょう\n前のセッションのデータが残っていることは再現の観点からダメ！"
   },
   {
-    "objectID": "day3/index.html#データの整理data-wrangling",
-    "href": "day3/index.html#データの整理data-wrangling",
+    "objectID": "day3/index.html#aiを使う時の注意点",
+    "href": "day3/index.html#aiを使う時の注意点",
     "title": "データサイエンス",
-    "section": "データの整理（Data Wrangling）",
-    "text": "データの整理（Data Wrangling）\n\nデータが手に入る時、まだ解析に使いえない状態が多い\nデータの整理（「wrangling」）は解析に使えるように整えるプロセス\n\n元々はカウボーイが牛を扱う技術から来る"
+    "section": "AIを使う時の注意点",
+    "text": "AIを使う時の注意点\n\n先週、AIを使ってみました。どんなことに注意が必要だと思った？"
   },
   {
-    "objectID": "day3/index.html#今日のデータセット",
-    "href": "day3/index.html#今日のデータセット",
+    "objectID": "day3/index.html#aiを使う時の注意点-1",
+    "href": "day3/index.html#aiを使う時の注意点-1",
     "title": "データサイエンス",
-    "section": "今日のデータセット",
-    "text": "今日のデータセット\n\nR4DS第３章で使われているデータは２０１３年にニューヨーク市発着のフライト\nこのデータはncyflights13というパッケージに入っている"
+    "section": "AIを使う時の注意点",
+    "text": "AIを使う時の注意点\n\n\n取扱注意のデータの扱い\n\nこのデータをAIに渡してもいいのか？（個人情報など）\n研究用に使う前に、指導教官と相談してください\n\n思う通りの結果にならないことがある\n\n正しく機能した状態に戻れる？"
   },
   {
-    "objectID": "day3/index.html#チャレンジ",
-    "href": "day3/index.html#チャレンジ",
+    "objectID": "day3/index.html#gitとは",
+    "href": "day3/index.html#gitとは",
     "title": "データサイエンス",
-    "section": "チャレンジ",
-    "text": "チャレンジ\nncyflights13パッケージをインストールして、nycflights.Rというスクリプトでパッケージをロードしてください"
+    "section": "Gitとは？",
+    "text": "Gitとは？\n\nGitはバージョン管理ソフトウェアです。\nMS WordやGoogle Docsの「変更履歴」機能のようなものですが、コード（テキスト）用です。"
   },
   {
-    "objectID": "day3/index.html#今日のデータセット-1",
-    "href": "day3/index.html#今日のデータセット-1",
+    "objectID": "day3/index.html#なぜgitを使うのか",
+    "href": "day3/index.html#なぜgitを使うのか",
     "title": "データサイエンス",
-    "section": "今日のデータセット",
-    "text": "今日のデータセット\nデータはflightsというデータフレームに入っている：\n\nlibrary(nycflights13)\nlibrary(tidyverse)\n\nflights\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      517            515         2      830            819\n 2  2013     1     1      533            529         4      850            830\n 3  2013     1     1      542            540         2      923            850\n 4  2013     1     1      544            545        -1     1004           1022\n 5  2013     1     1      554            600        -6      812            837\n 6  2013     1     1      554            558        -4      740            728\n 7  2013     1     1      555            600        -5      913            854\n 8  2013     1     1      557            600        -3      709            723\n 9  2013     1     1      557            600        -3      838            846\n10  2013     1     1      558            600        -2      753            745\n# ℹ 336,766 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "section": "なぜGitを使うのか？",
+    "text": "なぜGitを使うのか？\n\nコードを共有するため\n\n再現性のために重要。他の人があなたのコードにアクセスできなければ、解析を再現できません。\n\n解析で試したことの履歴を残すため\n\n何を変更したかを後から確認できます。特に何かが壊れた時に重要です。\n\nコードの開発を整理するため\n\nすべての変更（“コミット”）にコメントを付けるので、どのようにコードを書いているかを意識できます。"
   },
   {
-    "objectID": "day3/index.html#データ整理の関数",
-    "href": "day3/index.html#データ整理の関数",
+    "objectID": "day3/index.html#githubとは",
+    "href": "day3/index.html#githubとは",
     "title": "データサイエンス",
-    "section": "データ整理の関数",
-    "text": "データ整理の関数\nこれから学ぶ関数の共通点：\n\nデータフレームをインプットとし、データフレームを返す\n最初の引数がインプットのデータフレーム\n他の引数は詳細（行の名前に引用符を使わない）"
+    "section": "GitHubとは？",
+    "text": "GitHubとは？\n\nGitを使ったプロジェクトを管理するためのオンラインツール（サイト）\nコードのクラウドバックアップのような役割も果たす。\n他の人とコードを簡単に共有できる。"
   },
   {
-    "objectID": "day3/index.html#filterで行を絞り込む",
-    "href": "day3/index.html#filterで行を絞り込む",
+    "objectID": "day3/index.html#セットアップ",
+    "href": "day3/index.html#セットアップ",
     "title": "データサイエンス",
-    "section": "filter()で行を絞り込む",
-    "text": "filter()で行を絞り込む\n\n生データが必要以上に多い場合がよくある（特に、「ビッグデータ」を扱っているとき）\nfilter()で条件を定めて、その行だけに絞り込む"
+    "section": "セットアップ",
+    "text": "セットアップ\n\nパソコンにgitをインストールし、https://github.comでアカウントを作成しましょう。"
   },
   {
-    "objectID": "day3/index.html#filterで行を絞り込む-1",
-    "href": "day3/index.html#filterで行を絞り込む-1",
+    "objectID": "day3/index.html#gitのインストール",
+    "href": "day3/index.html#gitのインストール",
     "title": "データサイエンス",
-    "section": "filter()で行を絞り込む",
-    "text": "filter()で行を絞り込む\n\n元のデータは変わっていない\nfilter()の出力を保存したい時は&lt;-を使う"
+    "section": "gitのインストール",
+    "text": "gitのインストール\n\nMac\n\nまずターミナルでgitと入力して、すでにインストールされているか確認\n必要ならHomebrewを先にインストール\n\nWindows\nLinux"
   },
   {
-    "objectID": "day3/index.html#データの比較",
-    "href": "day3/index.html#データの比較",
+    "objectID": "day3/index.html#githubアカウントの作成",
+    "href": "day3/index.html#githubアカウントの作成",
     "title": "データサイエンス",
-    "section": "データの比較",
-    "text": "データの比較\nデータの比較を行う主な記号：\n\n&gt; より大きい\n&lt; より小さい\n== イコール （=ではない！）\n| あるいは\n& そして（複数条件の指定）\n\n比較の記号のアウトプットは論理ベクトル"
+    "section": "GitHubアカウントの作成",
+    "text": "GitHubアカウントの作成\n\nhttps://github.com/にアクセスし、案内に従ってアカウントを作成"
   },
   {
-    "objectID": "day3/index.html#チャレンジ-1",
-    "href": "day3/index.html#チャレンジ-1",
+    "objectID": "day3/index.html#github認証pat",
+    "href": "day3/index.html#github認証pat",
     "title": "データサイエンス",
-    "section": "チャレンジ",
-    "text": "チャレンジ\n何故11 = 10がエラーになってしまう？"
+    "section": "GitHub認証：PAT",
+    "text": "GitHub認証：PAT\nPAT（Personal Access Token）は特別なパスワードのようなものです。\nSSHという別の認証方法もありますが、少し設定が複雑です。"
   },
   {
-    "objectID": "day3/index.html#チャレンジ-2",
-    "href": "day3/index.html#チャレンジ-2",
+    "objectID": "day3/index.html#githubでpatを作成",
+    "href": "day3/index.html#githubでpatを作成",
     "title": "データサイエンス",
-    "section": "チャレンジ",
-    "text": "チャレンジ\n\n１月のフライトに絞っとください\n\n\n\nfilter(flights, month == 1)\n\n# A tibble: 27,004 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      517            515         2      830            819\n 2  2013     1     1      533            529         4      850            830\n 3  2013     1     1      542            540         2      923            850\n 4  2013     1     1      544            545        -1     1004           1022\n 5  2013     1     1      554            600        -6      812            837\n 6  2013     1     1      554            558        -4      740            728\n 7  2013     1     1      555            600        -5      913            854\n 8  2013     1     1      557            600        -3      709            723\n 9  2013     1     1      557            600        -3      838            846\n10  2013     1     1      558            600        -2      753            745\n# ℹ 26,994 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "section": "GitHubでPATを作成",
+    "text": "GitHubでPATを作成\n\nhttps://github.com/settings/tokensにアクセス\n\nまたは、Rでusethisパッケージをインストールし、\ninstall.packages(\"usethis\")\nusethis::create_github_token()\n\nスコープ（権限）を確認。「repo」「user」「workflow」がおすすめ。create_github_token()を使うと推奨スコープが自動で選択されます。\n「Generate token」をクリック"
   },
   {
-    "objectID": "day3/index.html#チャレンジ-3",
-    "href": "day3/index.html#チャレンジ-3",
+    "objectID": "day3/index.html#patの保存",
+    "href": "day3/index.html#patの保存",
     "title": "データサイエンス",
-    "section": "チャレンジ",
-    "text": "チャレンジ\n\n１月１日のフライトに絞っとください\n\n\n\nfilter(flights, month == 1 & day == 1)\n\n# A tibble: 842 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      517            515         2      830            819\n 2  2013     1     1      533            529         4      850            830\n 3  2013     1     1      542            540         2      923            850\n 4  2013     1     1      544            545        -1     1004           1022\n 5  2013     1     1      554            600        -6      812            837\n 6  2013     1     1      554            558        -4      740            728\n 7  2013     1     1      555            600        -5      913            854\n 8  2013     1     1      557            600        -3      709            723\n 9  2013     1     1      557            600        -3      838            846\n10  2013     1     1      558            600        -2      753            745\n# ℹ 832 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "section": "PATの保存",
+    "text": "PATの保存\n\n発行されたPATをクリップボードにコピー。まだブラウザを閉じないでください！\nRでinstall.packages(\"gitcreds\")を実行し、\ngitcreds::gitcreds_set()を実行。\n先ほどコピーしたPATを入力。これでブラウザを閉じてOKです。\n\n完了！"
   },
   {
-    "objectID": "day3/index.html#filterで行を絞り込む-2",
-    "href": "day3/index.html#filterで行を絞り込む-2",
+    "objectID": "day3/index.html#patについての注意",
+    "href": "day3/index.html#patについての注意",
     "title": "データサイエンス",
-    "section": "filter()で行を絞り込む",
-    "text": "filter()で行を絞り込む\nもう一つの複数条件を設定方法：,で条件を加える（filter()だけ）\n\nfilter(flights, month == 1, day == 1)\n\n# A tibble: 842 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      517            515         2      830            819\n 2  2013     1     1      533            529         4      850            830\n 3  2013     1     1      542            540         2      923            850\n 4  2013     1     1      544            545        -1     1004           1022\n 5  2013     1     1      554            600        -6      812            837\n 6  2013     1     1      554            558        -4      740            728\n 7  2013     1     1      555            600        -5      913            854\n 8  2013     1     1      557            600        -3      709            723\n 9  2013     1     1      557            600        -3      838            846\n10  2013     1     1      558            600        -2      753            745\n# ℹ 832 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "section": "PATについての注意",
+    "text": "PATについての注意\n\nPATは（デフォルトで30日後に）期限切れになります。\n期限が切れたら、GitHubで新しいPATを作成し、再度gitcreds::gitcreds_set()で登録してください。\nセキュリティのため、有効期限を設定するのがおすすめです。"
   },
   {
-    "objectID": "day3/index.html#arrangeで行を並べ替える",
-    "href": "day3/index.html#arrangeで行を並べ替える",
+    "objectID": "day3/index.html#トラブルシューティング",
+    "href": "day3/index.html#トラブルシューティング",
     "title": "データサイエンス",
-    "section": "arrange()で行を並べ替える",
-    "text": "arrange()で行を並べ替える\n\n# 出発の日と時間で並べ替える\narrange(flights, year, month, day, dep_time)\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      517            515         2      830            819\n 2  2013     1     1      533            529         4      850            830\n 3  2013     1     1      542            540         2      923            850\n 4  2013     1     1      544            545        -1     1004           1022\n 5  2013     1     1      554            600        -6      812            837\n 6  2013     1     1      554            558        -4      740            728\n 7  2013     1     1      555            600        -5      913            854\n 8  2013     1     1      557            600        -3      709            723\n 9  2013     1     1      557            600        -3      838            846\n10  2013     1     1      558            600        -2      753            745\n# ℹ 336,766 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "section": "トラブルシューティング",
+    "text": "トラブルシューティング\nCould not find system gitのようなエラーが出た場合は、こちらを参照：\nTools -&gt; Global Optionsでgit/svnタブを選び、C:\\Program Files\\Git\\bin\\git.exeなど、gitの実行ファイルを指定してください。"
   },
   {
-    "objectID": "day3/index.html#arrangeで行を並べ替える-1",
-    "href": "day3/index.html#arrangeで行を並べ替える-1",
+    "objectID": "day3/index.html#gitに自分の情報を登録",
+    "href": "day3/index.html#gitに自分の情報を登録",
     "title": "データサイエンス",
-    "section": "arrange()で行を並べ替える",
-    "text": "arrange()で行を並べ替える\n\narrange()はデフォルトで小さい方からの順になっている\n大きい方から並べたい時はdesc()（「descend」、「降りる」）を使う：\n\n\n# 大きく遅れた順で並べる\narrange(flights, desc(dep_delay))\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     9      641            900      1301     1242           1530\n 2  2013     6    15     1432           1935      1137     1607           2120\n 3  2013     1    10     1121           1635      1126     1239           1810\n 4  2013     9    20     1139           1845      1014     1457           2210\n 5  2013     7    22      845           1600      1005     1044           1815\n 6  2013     4    10     1100           1900       960     1342           2211\n 7  2013     3    17     2321            810       911      135           1020\n 8  2013     6    27      959           1900       899     1236           2226\n 9  2013     7    22     2257            759       898      121           1026\n10  2013    12     5      756           1700       896     1058           2020\n# ℹ 336,766 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "section": "gitに自分の情報を登録",
+    "text": "gitに自分の情報を登録\ngitにGitHubのユーザー名とメールアドレスを教えましょう：\ngit config --global user.name \"your_github_username\"\ngit config --global user.email \"your_email_adress\"\ngit config --global --list"
   },
   {
-    "objectID": "day3/index.html#チャレンジ-4",
-    "href": "day3/index.html#チャレンジ-4",
+    "objectID": "day3/index.html#デフォルト設定の変更",
+    "href": "day3/index.html#デフォルト設定の変更",
     "title": "データサイエンス",
-    "section": "チャレンジ",
-    "text": "チャレンジ\n\nfilter()とarrange()を使って、12月のフライトに絞ってから、遠く飛んだ順に並べ替えてください"
+    "section": "デフォルト設定の変更",
+    "text": "デフォルト設定の変更\n\ngitでは複数のバージョン（“ブランチ”）を同時に管理できます。\nメインのブランチ名を「main」に設定しましょう：\n\ngit config --global init.defaultBranch main"
   },
   {
-    "objectID": "day3/index.html#パイプにつて",
-    "href": "day3/index.html#パイプにつて",
+    "objectID": "day3/index.html#リポジトリrepoについて",
+    "href": "day3/index.html#リポジトリrepoについて",
     "title": "データサイエンス",
-    "section": "パイプにつて",
-    "text": "パイプにつて\n\nfilter(データ, 条件)というような書き方をしてきたが、また別の書き方がある：\n\nデータ |&gt; filter(条件)"
+    "section": "リポジトリ（repo）について",
+    "text": "リポジトリ（repo）について\n\n「リポジトリ（repo）」は、プロジェクトのコードやファイルをまとめて保存するフォルダです。\ngitはリポジトリの中身を管理する"
   },
   {
-    "objectID": "day3/index.html#パイプにつて-1",
-    "href": "day3/index.html#パイプにつて-1",
+    "objectID": "day3/index.html#リモートとローカルのリポジトリ",
+    "href": "day3/index.html#リモートとローカルのリポジトリ",
     "title": "データサイエンス",
-    "section": "パイプにつて",
-    "text": "パイプにつて\n\n|&gt;は「パイプ」と呼ばれる\n左にある物を右の方に渡す\n「それから」と読む"
+    "section": "リモートとローカルのリポジトリ",
+    "text": "リモートとローカルのリポジトリ\n\nローカルリポジトリ：自分のパソコン上のプロジェクト\nリモートリポジトリ：オンライン（GitHub上）のコピー\n\n通常、リモートリポジトリはoriginという名前で呼ばれます"
   },
   {
-    "objectID": "day3/index.html#いつパイプを使う",
-    "href": "day3/index.html#いつパイプを使う",
+    "objectID": "day3/index.html#クローンcloning",
+    "href": "day3/index.html#クローンcloning",
     "title": "データサイエンス",
-    "section": "いつパイプを使う？",
-    "text": "いつパイプを使う？\n\n複数の作業を施すに便利\n\n「パイプライン」\n\n\n\n# flightsから始まって、12月のデータに絞ってから、遠く飛んだ距離の順で並べる\nflights |&gt;\n  filter(month == 12) |&gt;\n  arrange(desc(distance))\n\n# A tibble: 28,135 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013    12     1      928            930        -2     1532           1535\n 2  2013    12     2      920            930       -10     1525           1535\n 3  2013    12     4      933            930         3     1519           1535\n 4  2013    12     5      920            930       -10     1609           1535\n 5  2013    12     6      924            930        -6     1545           1535\n 6  2013    12     7      927            930        -3     1549           1535\n 7  2013    12     8      935            930         5     1520           1535\n 8  2013    12     9      928            930        -2     1528           1535\n 9  2013    12    11      930            930         0     1539           1535\n10  2013    12    13      929            930        -1     1527           1535\n# ℹ 28,125 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "section": "クローン（cloning）",
+    "text": "クローン（cloning）\nまだ自分のパソコンにないリポジトリをダウンロードしたいときは、\n\nクローン＝オンラインのリポジトリを自分のパソコンにコピーすること"
   },
   {
-    "objectID": "day3/index.html#mutateで新しい列を計算する",
-    "href": "day3/index.html#mutateで新しい列を計算する",
+    "objectID": "day3/index.html#プッシュとプル",
+    "href": "day3/index.html#プッシュとプル",
     "title": "データサイエンス",
-    "section": "mutate()で新しい列を計算する",
-    "text": "mutate()で新しい列を計算する\n\n新しい列は右側から追加される\n\n列が多い場合は見えないことも\n\n\n\nflights |&gt; \n  mutate(speed = distance / air_time * 60)\n\n# A tibble: 336,776 × 20\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      517            515         2      830            819\n 2  2013     1     1      533            529         4      850            830\n 3  2013     1     1      542            540         2      923            850\n 4  2013     1     1      544            545        -1     1004           1022\n 5  2013     1     1      554            600        -6      812            837\n 6  2013     1     1      554            558        -4      740            728\n 7  2013     1     1      555            600        -5      913            854\n 8  2013     1     1      557            600        -3      709            723\n 9  2013     1     1      557            600        -3      838            846\n10  2013     1     1      558            600        -2      753            745\n# ℹ 336,766 more rows\n# ℹ 12 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, speed &lt;dbl&gt;"
+    "section": "プッシュとプル",
+    "text": "プッシュとプル\nリポジトリをセットアップしたら、内容を同期する必要があります。\n\nプッシュ：ローカルの変更をリモートに送る\nプル：リモートの変更をローカルに取り込む"
   },
   {
-    "objectID": "day3/index.html#mutateで新しい列を計算する-1",
-    "href": "day3/index.html#mutateで新しい列を計算する-1",
+    "objectID": "day3/index.html#コミット",
+    "href": "day3/index.html#コミット",
     "title": "データサイエンス",
-    "section": "mutate()で新しい列を計算する",
-    "text": "mutate()で新しい列を計算する\n\n.beforeを使うと、新しい列が入る場所を指定できる\n\n\nflights |&gt; \n  mutate(\n    speed = distance / air_time * 60,\n    .before = 1)\n\n# A tibble: 336,776 × 20\n   speed  year month   day dep_time sched_dep_time dep_delay arr_time\n   &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;\n 1  370.  2013     1     1      517            515         2      830\n 2  374.  2013     1     1      533            529         4      850\n 3  408.  2013     1     1      542            540         2      923\n 4  517.  2013     1     1      544            545        -1     1004\n 5  394.  2013     1     1      554            600        -6      812\n 6  288.  2013     1     1      554            558        -4      740\n 7  404.  2013     1     1      555            600        -5      913\n 8  259.  2013     1     1      557            600        -3      709\n 9  405.  2013     1     1      557            600        -3      838\n10  319.  2013     1     1      558            600        -2      753\n# ℹ 336,766 more rows\n# ℹ 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,\n#   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "section": "コミット",
+    "text": "コミット\n\nコミットは、リポジトリに記録される1回分の変更です。\n\nコミットには2つのステップがあります。"
   },
   {
-    "objectID": "day3/index.html#mutateで新しい列を計算する-2",
-    "href": "day3/index.html#mutateで新しい列を計算する-2",
+    "objectID": "day3/index.html#ステージングとコミット",
+    "href": "day3/index.html#ステージングとコミット",
     "title": "データサイエンス",
-    "section": "mutate()で新しい列を計算する",
-    "text": "mutate()で新しい列を計算する\n\nfilter()（と他のデータ整理用関数と同じように）、mutate()の出力は元のデータを触らない\n解析結果を保存したい時は&lt;-を使う"
+    "section": "ステージングとコミット",
+    "text": "ステージングとコミット\n変更したファイルは自動的にgitの履歴に追加されません。\n\nまずステージング（追加したいファイルや部分を選ぶ）\n次にコミットメッセージ（変更内容の短い説明）を入力\n最後にコミットして履歴に記録します"
   },
   {
-    "objectID": "day3/index.html#selectで列を絞る",
-    "href": "day3/index.html#selectで列を絞る",
+    "objectID": "day3/index.html#gitignoreファイル",
+    "href": "day3/index.html#gitignoreファイル",
     "title": "データサイエンス",
-    "section": "select()で列を絞る",
-    "text": "select()で列を絞る\n\n生データにたくさんの列が入っている場合がよくある。解析に必要な列だけに絞った方が解析がやりやすい\n基本的な使い方：列名で選択する\n\n\nflights |&gt; \n  select(year, month, day)\n\n# A tibble: 336,776 × 3\n    year month   day\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1  2013     1     1\n 2  2013     1     1\n 3  2013     1     1\n 4  2013     1     1\n 5  2013     1     1\n 6  2013     1     1\n 7  2013     1     1\n 8  2013     1     1\n 9  2013     1     1\n10  2013     1     1\n# ℹ 336,766 more rows"
+    "section": ".gitignoreファイル",
+    "text": ".gitignoreファイル\ngitで管理したくないファイルは、.gitignoreという特別なファイルにリストアップします。\n生データや出力ファイルは通常無視するのが良いです。解析そのもの（コード）だけを管理しましょう。"
   },
   {
-    "objectID": "day3/index.html#selectで列を絞る-1",
-    "href": "day3/index.html#selectで列を絞る-1",
+    "objectID": "day3/index.html#実際の流れ",
+    "href": "day3/index.html#実際の流れ",
     "title": "データサイエンス",
-    "section": "select()で列を絞る",
-    "text": "select()で列を絞る\n\n選択したい列が多い場合は、:を使ってどこから〜どこまでというふうに書くと便利：\n\n\nflights |&gt; \n  select(year:day)\n\n# A tibble: 336,776 × 3\n    year month   day\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1  2013     1     1\n 2  2013     1     1\n 3  2013     1     1\n 4  2013     1     1\n 5  2013     1     1\n 6  2013     1     1\n 7  2013     1     1\n 8  2013     1     1\n 9  2013     1     1\n10  2013     1     1\n# ℹ 336,766 more rows"
-  },
-  {
-    "objectID": "day3/index.html#チャレンジ-5",
-    "href": "day3/index.html#チャレンジ-5",
-    "title": "データサイエンス",
-    "section": "チャレンジ",
-    "text": "チャレンジ\nJFKから出発したフライトに絞ってから、速度を計算してから、早い速度の順に並べ替えてください"
-  },
-  {
-    "objectID": "day3/index.html#まとめ今日学んだ関数動詞",
-    "href": "day3/index.html#まとめ今日学んだ関数動詞",
-    "title": "データサイエンス",
-    "section": "まとめ：今日学んだ関数（動詞）",
-    "text": "まとめ：今日学んだ関数（動詞）\n\n行を扱う関数\n\nfilter()\narrange()\n\n列を扱う関数\n\nmutate()\nselect()\n\n集計の関数\n\nsummarize()\ngroup_by()\nungroup()"
-  },
-  {
-    "objectID": "day3/index.html#まとめ",
-    "href": "day3/index.html#まとめ",
-    "title": "データサイエンス",
-    "section": "まとめ",
-    "text": "まとめ\n\n|&gt;とデータ整理用の関数を組み合わせることによって、すぐにでもかなり高度なデータ解析のパイプラインができるようなる。\n初めての方にはとてもコードの量が多いように思えるでしょうが、このようなツールを毎日使うって、慣れていくとそのうちどのようなデータでもRで扱えるようになる！"
+    "section": "実際の流れ",
+    "text": "実際の流れ\nRStudioを使って、典型的なgitのワークフローを一緒に体験します。\n細かい説明はこちらにまとめていますので、参照してください。"
   },
   {
     "objectID": "day4/index.html#データの整理data-wrangling",
@@ -1090,6 +1069,62 @@
     "title": "データサイエンス",
     "section": "チャレンジ：他のデータに結合してみる",
     "text": "チャレンジ：他のデータに結合してみる\nplanesのデータをflights2に結合することができますか？"
+  },
+  {
+    "objectID": "day3/intro_to_git_ja.html",
+    "href": "day3/intro_to_git_ja.html",
+    "title": "Git/GitHub入門",
+    "section": "",
+    "text": "注意：この文書はAIによる自動翻訳です。内容に誤りが含まれる可能性があります。正確な内容はオリジナル（英語）をご参照ください。"
+  },
+  {
+    "objectID": "day3/intro_to_git_ja.html#学習目標",
+    "href": "day3/intro_to_git_ja.html#学習目標",
+    "title": "Git/GitHub入門",
+    "section": "学習目標",
+    "text": "学習目標\nこの授業の終わりまでに、あなたは以下ができるようになります：\n\nバージョン管理とは何か、なぜ重要なのかを概念的に理解する\nGit、GitHub、Gitクライアントの違いと関係を説明できる\nGitHubのブラウザインターフェースに慣れ、リポジトリの内容を閲覧したり、Issueを作成したりといった基本操作ができる\nGitとGitHubを使うための環境をセットアップできる\nGitの基本的なワークフロー（作成、クローン、ステージ、コミット、プッシュ、プル）を実践できる\nこの授業での課題提出の主要な手順を理解する"
+  },
+  {
+    "objectID": "day3/intro_to_git_ja.html#パート1バージョン管理gitgithubgitクライアントとは",
+    "href": "day3/intro_to_git_ja.html#パート1バージョン管理gitgithubgitクライアントとは",
+    "title": "Git/GitHub入門",
+    "section": "パート1：バージョン管理、Git、GitHub、Gitクライアントとは？",
+    "text": "パート1：バージョン管理、Git、GitHub、Gitクライアントとは？\nこれらの用語は最初は少し難しく感じるかもしれませんが、心配しないでください。すべてはあなたの作業を楽にするために作られたものです。もし初めてなら少し慣れが必要ですが、この授業では必要なことを一つずつ丁寧に説明していきます。\n\nGitの基本\nバージョン管理はソフトウェアエンジニアの必須ツールの一つです。The Guardianによると、900人以上の開発者がMicrosoft Windows 7の開発に関わったそうです。これだけ多くの人が一つのプロジェクトに関わると、1日、あるいは1時間のうちに何度もコードが変更されます。誰が、何のために、どこを変えたのか？複数人が同じファイルや同じ行を同時に編集したらどうなるでしょう？\nバージョン管理システムは、ファイル（多くの場合ソフトウェアのソースコード）の変化の履歴をきれいに、かつ簡単にたどれるように記録します。また、複数人が同じファイルを同時に編集した場合など、問題が起きたときに解決する仕組みも備えています。\nGitは数あるバージョン管理システムの一つですが、非常に人気があります。他にもMercurial、Perforce、Subversionなどがあります。\nこの動画も参考にしてください。\n\n\nなぜGit？（Happy Git and GitHub for the useR 第1.1節 より抜粋）\nGitはバージョン管理システムです。もともとは大規模なソフトウェア開発プロジェクトで、複数の開発者が協力して作業するために作られました。Gitは「リポジトリ」と呼ばれるファイル群の進化を、理路整然と、かつ高度に構造化された方法で管理します。\nもしピンとこなければ、「Microsoft Wordの『変更履歴』機能を超強化したもの」と考えてみてください。\n近年、データサイエンス分野でもGitが活用されています。ソースコードだけでなく、データ、図、レポートなど、データ分析プロジェクトを構成する様々なファイルの管理にも使われています。\n\n\nなぜGitHub？（Happy Git and GitHub for the useR 第1.2節 より抜粋）\nここでGitHubやBitbucket、GitLabなどのホスティングサービスが登場します。これらはインターネット上でGitプロジェクトの「家」となる場所を提供します。\nもしイメージが湧かなければ、「DropBoxの超強化版」と考えてみてください。リモートホストは、Gitで管理されたプロジェクトの配布チャンネルや中継所の役割を果たします。他の人があなたの成果物を見たり、同期したり、場合によっては変更を加えることもできます。これらのサービスは、従来のUnix系Gitサーバーよりも、洗練されたWebインターフェースを備えている点が特徴です。\nただし注意が必要です。GitHubなどのサービスはファイル管理には優れていますが、大容量データの保存には向いていません。GitHubはリポジトリのサイズを1GB未満にすることを推奨しています（参考）。さらに、100MBを超えるファイルはアップロードできません（参考）。\n個人プロジェクトでも、バックアップのためにリモートにプッシュしておくのは良い習慣です。なぜなら、Gitの操作に慣れていないうちは、ローカルリポジトリを壊してしまうことがよくあるからです。幸い、多くの場合Gitのインフラだけが壊れていて、ファイル自体は無事です。とはいえ、そうしたトラブルはとても厄介です。公式のGitの解決策もありますが、深夜3時に自力で直すのは大変です。最近GitHubにプッシュしていれば、新しいコピーを取得し、ローカルだけの変更をパッチして、すぐに作業を再開できます。\n本講義では具体性のためGitHubを使いますが、他のサービス（BitbucketやGitLab）でも基本的な考え方や多くの操作は共通です。\n\n\nそもそも何が何なの？\nバージョン管理 とは、ファイル（主にコードベース）を「管理」するためのソフトウェアシステム全般を指します。Gitはその一例に過ぎません。他にも Mercurial、Perforce、Subversion などがあります。\nGit はバージョン管理ソフトウェアです。GitHubサーバーとあなたのパソコンの両方で動作します。これにより、パソコンとGitHub上のリモートリポジトリが通信でき、プッシュやプル、履歴管理などの機能が使えます。\nGitHub は、リモートリポジトリをクラウド上で管理するサービスです。 グループで作業する場合、あなたや共同作業者はそれぞれ独立して GitHubとやり取りし、最新のコード変更をプル／プッシュします。 GitHubは、各自がローカルマシンで作業していても、 プロジェクトディレクトリの最新の「真実」を保持します。\nGitクライアント は、Gitとのやり取りを簡単にする グラフィカルユーザーインターフェースを提供するソフトウェアです。 本講義では RStudioの内蔵Gitクライアント を使用します。 他にも SourceTree や GitHub Desktop などがあります。 もちろん、ターミナル（コマンドライン）は最も強力ですが、 コマンドラインに慣れていない場合は最も難しい方法です。"
+  },
+  {
+    "objectID": "day3/intro_to_git_ja.html#パート2-環境のセットアップ",
+    "href": "day3/intro_to_git_ja.html#パート2-環境のセットアップ",
+    "title": "Git/GitHub入門",
+    "section": "パート2: 環境のセットアップ",
+    "text": "パート2: 環境のセットアップ\nGitを使い始める前に、パソコンに必要なソフトウェアを インストールする必要があります。このセクションでは、1. Gitのインストール、2. GitHubアカウントの登録、3. SSHキーの設定、4. RStudioからGitを使う方法を説明します。\n\n1. Gitのインストール（Happy Git and GitHub for the useR 第6章 より抜粋）\nGitを使うには、コマンドラインで使えること、 そしてRStudioが呼び出せることが必要です。 すでにインストールされている場合は確認して、 問題なければこのステップをスキップしてください。 インストールされていない場合は、以下のOSごとの手順に従ってください。\n\nGitがすでにインストールされているか確認\nシェル（ターミナル／コマンドライン）を開き、 git --version と入力してEnterを押します。\ngit --version\n## git version 2.39.2\ngit: command not found のような表示が出た場合は、 OSごとのインストール手順に進んでください。\n上記のようにバージョン番号が表示された場合は、 すでにGitがインストールされています。素晴らしい！ ただし、バージョン番号が2.28未満の場合は、 アップデートをおすすめします（下記の手順を参照）。 新しいバージョンでは、デフォルトブランチ名を設定できるためです。 Gitコミュニティでは、リポジトリのデフォルトブランチ名を 「master」から中立的で包括的な「main」へ変更する動きがあります。 GitHubも新しいブランチ名をmainに変更しました。 古いバージョンのGitではデフォルトが「master」なので、 新しいリポジトリを作成するたびにローカルのデフォルトブランチ名を 変更する必要があります。バージョン2.28以降なら一度設定すれば 今後作成する全てのリポジトリで有効です。\nすでに最新のGitがインストールされていれば、次のステップはスキップできます！\n\n\nWindowsでのGitインストール\nGit for Windows をインストールしてください。 インストール中はデフォルト設定のままで問題ありません。\n\nGitの実行ファイルが標準的な場所に配置されるため、 RStudioなど他のプログラムからも認識されやすくなります。\nBashシェルも利用できるので、より高度な使い方にも対応できます。\nただし、付属のGitクライアントはあまり高機能ではありません。\nRStudio for Windowsは、gitがFiles(x86)フォルダにあることを好みます。 それ以外の場所だと認識されない場合があるので注意してください。\n\n\n\nMacでのGitインストール\nまずXcodeコマンドラインツール（Xcode本体ではありません）を インストールします。ターミナルを開き、以下を入力してEnterを押します。 表示される指示に従ってください。\nxcode-select --install\nインストール後、以下でバージョンを確認します。\nxcode-select --version\n## xcode-select version 2384.\n次のいずれかのコマンドを入力すると、 開発者コマンドラインツールのインストールを促されます。\ngit --version\ngit config\n「Install」をクリックしてインストールしてください。\nXcodeでうまくいかない場合は、 http://git-scm.com/downloads からインストールするか、 Homebrewを使っている場合は以下のコマンドを試してください。\nbrew install git\nインストール後、再度 git --version で確認してください。\nまた、Gitをアップデートした場合は、 RStudioが正しいバージョンのgitを参照しているか確認 しておくと安心です。\n\n\nLinuxでのGitインストール\nディストリビューションのパッケージマネージャーでインストールします。\nUbuntuやDebianの場合：\nsudo apt-get install git\nFedoraやRedHatの場合：\nsudo yum install git\n他のLinux/Unix用パッケージマネージャーの一覧はこちら\n\n\n\n2. GitHubアカウントの登録（Happy Git and GitHub for the useR 第6章 より抜粋）\nGitHubアカウントをまだ持っていない場合は、 GitHub で登録してください（無料です）。\nユーザー名を選ぶ際のポイント：\n\n実名を入れると、相手に覚えてもらいやすくなります。\n他のサービス（TwitterやSlackなど）と同じユーザー名が空いていれば再利用もおすすめです。\n将来の就職先などに見せても問題ない名前にしましょう。\n短い方が覚えやすいです。\nできるだけ短く、かつユニークな名前を。\n所属や居住地など、時期によって変わる情報は避けましょう。\nプログラミングで特別な意味を持つ単語は避けましょう。 例：ユーザー名にNAを使うと、Rの欠損値と混同されることがあります。\n\nユーザー名は後から変更できますが、最初にしっかり考えて決めましょう。\n\nGitHubユーザー名の変更方法\nユーザー名を変更した場合どうなるか\n\n\n\n3. Gitに自分を登録する（Happy Git and GitHub for the useR 第7章 より抜粋）\nまず、Gitに自分の情報を登録します。 ここで入力した情報は、コミットごとに記録され、 誰がどの変更を行ったか追跡できるようになります。 この設定は一度だけでOKです。\nシェル／ターミナルで以下を実行します：\ngit config --global user.name ＜あなたのGitHubユーザー名＞\ngit config --global user.email ＜あなたのメールアドレス＞\ngit config --global --list\n\n\n4. SSHで認証する（Happy Git and GitHub for the useR 第10章 より抜粋）\nリモートGitサーバー（例：GitHub）とやり取りする際は、 認証情報が必要です。これにより、あなたが特定のGitHubユーザーであること、 操作権限があることを証明します。\nGitはHTTPSまたはSSHのいずれかのプロトコルで通信できます。 ここでは、特別な理由がなければHTTPSを推奨します （SSHを使いたい場合はHappy Git and GitHub for the useR 第10章を参照）。 HTTPSでは「パーソナルアクセストークン（PAT）」を使います。\nなお、GitHubのWebサイトにログインする際のパスワードは、 Gitサーバーとのやり取りには使えません。 （以前は可能でしたが、現在はGitHubで廃止されています。） 詳細はToken authentication requirements for Git operationsを参照してください。\nもしパスワードで認証しようとすると、以下のようなエラーが出ます：\nremote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.\nremote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.\nfatal: Authentication failed for 'https://github.com/OWNER/REPO.git/'\nここではPATの取得と保存の最小限の手順を紹介します。 もしうまくいかない場合は、担当教員に相談し、 Happy Git and GitHub for the useR 第9章も参照してください。\nhttps://github.com/settings/tokens にアクセスし、 「Generate token」をクリックします（またはRから usethis::create_github_token() を実行）。\nスコープ（権限）は「repo」「user」「workflow」などを選択するのがおすすめです。\n「Generate token」をクリックします。\n生成されたPATをクリップボードにコピーします。 このウィンドウは閉じずに残しておきましょう。 一度閉じるとPATは再表示できません（新たに発行は可能です）。 PATはパスワードマネージャーなど安全な場所に保存し、 有効期限まで再利用できるようにしましょう。\n次に、PATをパソコンの安全な場所に保存し、gitが認証に使えるように設定します。 Rで行うのが簡単です。\nまずRパッケージ “gitcreds” をインストールし、 gitcreds::gitcreds_set() を実行してPATを入力します。 これで毎回パスワードやトークンを入力せずにGitHubとやり取りできます。\n\nデフォルトブランチ名をmainに設定\n最後に、すべての新しいリポジトリでデフォルトブランチ名をmainに設定します。\ngit config --global init.defaultBranch main\nこのコマンドが成功すればOKです。\nこのコマンドはGit 2.28以降でのみ有効です。 古いバージョンの場合は、リポジトリごとに手動でブランチ名を変更する必要があります。\nオプション1：コマンドライン（新しいリポジトリ内で）\ngit branch -M main\nオプション2：RStudioプロジェクトでusethisパッケージを使う\n# まだインストールしていなければusethisをインストール\ninstall.packages(\"usethis\")\n# デフォルトブランチ名をmasterからmainに変更\nusethis::git_default_branch_rename(to = \"main\")"
+  },
+  {
+    "objectID": "day3/intro_to_git_ja.html#パート3-create-clone-stage-commit-push-pull",
+    "href": "day3/intro_to_git_ja.html#パート3-create-clone-stage-commit-push-pull",
+    "title": "Git/GitHub入門",
+    "section": "パート3: Create, Clone, Stage, Commit, Push, Pull!",
+    "text": "パート3: Create, Clone, Stage, Commit, Push, Pull!\nいよいよGitを使い始めます。\nタイトルにある6つの動詞（Create, Clone, Stage, Commit, Push, Pull）が、 Gitで行う操作の90%を占めます。 それぞれの意味と手順を簡単に説明します。\nRStudioなどのGitクライアントでできることは、 すべてシェル（ターミナル）でも可能です。 ここではRStudioでの操作を中心に説明します。\nシェルでの操作に興味がある場合は、 Software Carpentryのワークショップ教材 も参考にしてください。\n\n概要\nリポジトリ とは、プロジェクト用のディレクトリです。 通常のディレクトリと違うのは、Gitが管理し、 すべての変更履歴（コミット）を記録している点です。\nリポジトリをGitHubに保存したものが「リモートリポジトリ」です。 これを自分のパソコンに 「クローン」 すると、 ローカルリポジトリができます。 「プッシュ」 や 「プル」 でローカルとリモートの内容を同期します。\n例えば、ローカルリポジトリでコードを修正し、 準備ができたら「プッシュ」してリモートリポジトリ（GitHub）に反映します。 グループメンバーは「プル」して最新のリモートリポジトリの内容を 自分のローカルリポジトリに取り込み、作業を続けることができます。\nこのワークフローの細かい部分は今は分からなくても大丈夫です。 全体像をつかんでおきましょう。 実際に手を動かすことで理解が深まります。\nこの授業では、新しい課題用リポジトリを作成するところから始めます。 このリポジトリを使って、課題の提出方法を説明します。\n\n\n新しい課題リポジトリの作成\n新しい課題を始めるには、Moodleで配布される課題招待リンクが必要です。\nMoodleにログインし、コースページに移動します。 「Day 2: Git and GitHub」タブの「First repo」リンクをクリックします。\n\n\n\nMoodle\n\n\nGitHubにログインしていない場合はログインを求められます。 初めての課題の場合は、最初にGitHub IDと名簿の名前を紐付ける画面が表示されます。 その後、「Accept this assignment」ボタン（緑色）をクリックします。\n\n\n\nAccept assignment\n\n\n「creating repo」ページに移動します。課題のファイル数が多い場合は数分かかることもありますが、通常はすぐに完了します。ページをリロードしてみてください。\n\n\n\nCreating repo\n\n\nリポジトリの準備ができると、リンクが表示されます。締切がある場合はここに表示されます。\n\n\n\nRepo ready\n\n\nリンクをクリックすると、あなたの新しいリポジトリのGitHubページに移動します。 Webブラウザ上でファイルを閲覧できます（現時点ではまだ空です）。 このリポジトリは「Private」と表示され、あなたと教員だけがアクセスできます。\n\n\n\nRepository created screenshot\n\n\nリポジトリが作成できない場合は、教員に相談してください。\nこの手順は本講義特有です。一般的な新規リポジトリを作成したい場合は、 GitHubのホーム画面で「New repository」ボタンをクリックしてください。 その際、リポジトリを「Private」（自分だけ）または「Public」（公開）に設定できます。\n\n\nクローン\n次に、このリポジトリを自分のパソコンに クローン します。 これでローカルで編集できるようになります。\n作業前にRStudioの最新版をインストールしておきましょう。\nGitHubリポジトリのWebページから HTTPS（SSHではなく）リンクをコピーします。 例： https://github.com/data-analysis-chiba-2023/first-repo-joelnitta.git\n\n\n\nRepository link screenshot\n\n\n注意： 今回は空のリポジトリですが、今後の課題では最初からファイルが入っている場合もあります。 その場合は、ファイル一覧右上の緑色「Code」ボタンから「HTTPS」を選択し、 リポジトリURLをコピーしてください。\n\n\n\nGitHub clone\n\n\nRStudioで新しいプロジェクトを作成します：\n\nFile &gt; New Project &gt; Version Control &gt; Git\n「repository URL」に先ほどコピーしたURLを貼り付けます。\n\n\n\n\nCreate new project screenshot\n\n\n「Version Controlから取得」のオプションが表示されない場合は、 Happy Git and GitHub for the useR 第13章を参照してください。\nプロジェクトのローカルディレクトリを必ず確認しましょう。 どこに保存されているか分からなくなるのはよくあるミスです。\n複数のプロジェクトを作成する場合は、デスクトップに「data-science-course」フォルダを作り、 その中に各プロジェクトをまとめておくのがおすすめです。\n「Open in new session」にチェックを入れると、 新しいウィンドウでプロジェクトが開きます。「Create Project」をクリック。\n指定したディレクトリに新しいプロジェクトディレクトリが作成され、 .Rprojファイルが含まれているはずです。 このファイルも後でリモートリポジトリにプッシュします。\nRStudioの新しいウィンドウが開き、「Git」タブが表示されていることを確認してください。\n\n\n\nNew RStudio window containing the new project\n\n\nこれでローカルにGitリポジトリをクローンできました！\nディレクトリには .Rproj と .gitignore しかありません。 （.gitignoreについては後述します。）\nまず最初に追加すべきファイルはREADME.mdです。 GitHubはREADMEファイルを自動的に検出し、 リポジトリのWebページに内容を表示してくれます。\n新しいMarkdownファイルを作成し、「This is a line from RStudio」と書いて README.mdという名前で保存してください。\n次に、この変更をGitHubに反映させます。\n\n\nステージ\nまず、変更を「ステージ」します。 これはGitHubに「この変更を記録したい」と伝える操作です。\nRStudioの「Git」タブでREADME.mdと.Rprojファイルにチェックを入れてステージします。\n\n\n\nStage changes\n\n\nこれでGitが新しい変更を認識しました。\nコマンドラインの場合は git add コマンドで同じことができます。\n\n\nコミット\n次に「コミット」します。 コミットは、現在のディレクトリの状態を記録する操作です。\nRStudioでは Tools &gt; Version Control &gt; Commit（またはGitペインのCommitボタン）をクリック。 各ファイルの変更内容を確認し、コミットメッセージを入力します。 例：「Add README.md and the RStudio project file」\n「Commit」と「Close」をクリック。\n\n\n\nCommit changes\n\n\nGitHubのリポジトリページを開いても、まだ新しいファイルは表示されません。 驚きましたか？\n重要！ 変更はまだGitHubには反映されていません。 コミットはローカルリポジトリだけの操作です。 これにより、オフラインでも変更履歴を記録できます。 また、リモートリポジトリとのマージ時のトラブルも防げます。 初心者が混乱しやすいポイントなので、しっかり理解しましょう。\n\n\nプッシュ\n「プッシュ」は、ローカルの変更をGitHubのリモートリポジトリに反映する操作です。 通常、ローカルで複数回コミットした後、まとめてプッシュします。\n今回はREADME.mdと.Rprojファイルの追加を1回コミットしたので、 これをプッシュします。\nRStudioの緑色の「上矢印」（または Tools &gt; Version Control &gt; Push Branch）をクリック。\n\n\n\nPush\n\n\nRStudioで以下のようなポップアップが表示されます。\n&gt;&gt;&gt; git push origin HEAD:refs/heads/main\nTo github.com:data-analysis-chiba-2023/first-repo-username.git\n * [new branch]      HEAD -&gt; main\nGitHubのリポジトリページを再度開くと、\n\n\n\nChanges pushed!\n\n\nREADME.mdの内容がリポジトリのホームページに表示されているはずです！\nGitHubのUIをいろいろ触ってみましょう。 ファイルや内容の閲覧、コミット履歴の確認、 プロジェクト管理機能（issues, wiki, コントリビューション統計など）もあります。\n他の人があなたのリポジトリをクローンしたい場合、 （課題の場合はあなたや教員が）コラボレーターとして追加する必要があります。 デフォルトではリポジトリはあなたと教員だけがアクセス可能です。 「Settings」から変更できます。\n\n\n\nGitHub add collaborators\n\n\n\n\nプル\n最後に「プル」操作をデモします。 ここではGitHub上で直接ファイルを編集し、 その変更をローカルに取り込む流れを説明します。 （実際の運用では推奨しません。理由は後述します。）\nGitHubのリポジトリページでREADME.mdをクリックし、 右上の鉛筆アイコンをクリック。\n\n\n\nEdit file on GitHub directly\n\n\n「This change was made directly on GitHub.」と追記し、 コミットメッセージを入力して「main」ブランチに直接コミットします。\n\n\n\nREADME.md changed directly on GitHub\n\n\nローカルのREADME.mdはまだ変更前のままです。\n\n\n\nLocal version of README.md is unchanged\n\n\nRStudioの青い下矢印（または Tools &gt; Version Control &gt; Pull Branches）をクリック。\n\n\n\nLocal version of README.md changed after pulling\n\n\n重要 - 実際の作業では、GitHub上で直接大きな変更を加えるのは避けましょう。 ブラウザはRStudioのエディタより信頼性が低く、 ローカルで未コミットの変更があると競合の原因にもなります。 ここではデモのために行いました。\n\n\n.gitignoreについて\nこれまで無視してきた.gitignoreファイルを見てみましょう。\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\nこれは、これらのファイルをGitの管理対象から除外する設定です。\nデータセットが100MBを超える場合など、 GitHubのファイルサイズ制限に引っかかることがあります。 その場合、データファイルを.gitignoreに追加して管理対象外にできます。 特定の拡張子をまとめて除外したい場合はワイルドカードも使えます。 例：*.txt と書けばtxtファイル全てを無視できます。\nGitHubの.gitignoreテンプレート集も参考にしてください。"
+  },
+  {
+    "objectID": "day3/intro_to_git_ja.html#パート4-宿題課題",
+    "href": "day3/intro_to_git_ja.html#パート4-宿題課題",
+    "title": "Git/GitHub入門",
+    "section": "パート4: 宿題課題",
+    "text": "パート4: 宿題課題\nこれでクローン、コミット、プッシュの一連の流れを体験しました。 宿題では、これをもう一度練習します。\nまずMoodleでDay 2 Homework課題のリンクをクリックし、 GitHubリポジトリを作成します。\n\n\n\nLocation of Day 2 homework\n\n\n\n\n\nLocation of Day 2 homework link\n\n\n前と同じようにリモートリポジトリをローカルにクローンし、 git_facts.md ファイルの空欄を埋めて保存します。 その後、コミットし、リモートにプッシュしてください。\n締切までに必ず行ってください。\n繰り返しますが、ローカルでコミットし、リモートにプッシュする 両方を締切前に完了してください。 GitHubで変更が確認できなければ、 正しく提出できていないことになります。 評価は締切前の最新コミットで行われます。 締切後のコミットは無効（採点対象外）です。\n提出できたか不安な場合は、 MoodleのリンクからGitHubリポジトリを開き、 自分が編集した内容が反映されているか確認しましょう。"
+  },
+  {
+    "objectID": "day3/intro_to_git_ja.html#追加リソース",
+    "href": "day3/intro_to_git_ja.html#追加リソース",
+    "title": "Git/GitHub入門",
+    "section": "追加リソース",
+    "text": "追加リソース\nもっと学びたい人のための参考資料：\n\nHappy Git and GitHub for the useR（著： Dr. Jenny Bryan）\nGit公式ドキュメント"
+  },
+  {
+    "objectID": "day3/intro_to_git_ja.html#謝辞",
+    "href": "day3/intro_to_git_ja.html#謝辞",
+    "title": "Git/GitHub入門",
+    "section": "謝辞",
+    "text": "謝辞\n本資料は https://stat540-ubc.github.io/ の内容を Attribution-NonCommercial 4.0 International license のもとで Joel H. Nitta が改変したものです。\n本講義は Eric Chu が開発し、 Happy Git and GitHub for the useR（著： Dr. Jenny Bryan）の内容を元にしています。 その後、Keegan Korthauer により大幅に改変されました。"
   },
   {
     "objectID": "day2/index.html#スクリプトについて",
@@ -1404,7 +1439,7 @@
     "href": "index.html#スケジュール",
     "title": "データサイエンス",
     "section": "スケジュール",
-    "text": "スケジュール\n毎週のリーディングを講義の前に読んでください。\n（全ての講義の録画はありません）\n\n第1回（2026-04-14）: ガイダンス、データサイエンスとR入門\n\nスライド\nリーディング\n\nR4DS Introduction\nR4DS Chapter 2 (Workflow: Basics)\n\n\n第2回（2026-04-21）: プロジェクトの整理とデータの読み込み\n\nスライド\nリーディング\n\nR4DS Chapter 6 (Workflow: Scripts and Projects)\nR4DS Chapter 7 (Data Import)\n\n\n第3回（2026-04-28）: データの整理（１）\n\nスライド\nリーディング\n\nR4DS Chapter 3 (Data Transformation)\n\n\n第4回（2026-05-07）: データの整理（２）\n\nスライド\nリーディング\n\nR4DS Chapter 5 (Data Tidying)\nR4DS Chapter 19 (Joins)\n\n\n第5回（2026-05-12）: データの可視化\n\nスライド\nリーディング\n\nR4DS Chapter 1 (Data Visualization)\n\n\n第6回（2026-05-19）: 再現可能な文書の書き方\n\nスライド\nリーディング\n\nR4DS Chapter 28 (Quarto)\n\n\n第7回（2026-05-26）: レポートの発表、再現可能なデータ解析のベストプラクティス\n\nスライド\n\nオンデマンド回: 生成AIの基本\n\nスライド\n資料：中部大学「ChatGPTについて」\n録画"
+    "text": "スケジュール\n毎週のリーディングを講義の前に読んでください。\n（全ての講義の録画はありません）\n\n第1回（2026-04-14）: ガイダンス、データサイエンスとR入門\n\nスライド\nリーディング\n\nR4DS Introduction\nR4DS Chapter 2 (Workflow: Basics)\n\n\n第2回（2026-04-21）: プロジェクトの整理\n\nスライド\nリーディング\n\nR4DS Chapter 6 (Workflow: Scripts and Projects)\n\n\n第3回（2026-04-28）: Git\n\nスライド\nリーディング\n\nGit/GitHub入門\n\n\n第4回（2026-05-07）: データの整理\n\nスライド\nリーディング\n\nR4DS Chapter 5 (Data Tidying)\nR4DS Chapter 19 (Joins)\n\n\n第5回（2026-05-12）: データの可視化\n\nスライド\nリーディング\n\nR4DS Chapter 1 (Data Visualization)\n\n\n第6回（2026-05-19）: 再現可能な文書の書き方\n\nスライド\nリーディング\n\nR4DS Chapter 28 (Quarto)\n\n\n第7回（2026-05-26）: レポートの発表、再現可能なデータ解析のベストプラクティス\n\nスライド\n\nオンデマンド回: 生成AIの基本\n\nスライド\n資料：中部大学「ChatGPTについて」\n録画"
   },
   {
     "objectID": "index.html#オフィスアワー",
