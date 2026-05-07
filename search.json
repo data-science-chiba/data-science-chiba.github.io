@@ -977,7 +977,7 @@
     "href": "day4/index.html#copilot-cliのコマンド",
     "title": "データサイエンス",
     "section": "CoPilot CLIのコマンド",
-    "text": "CoPilot CLIのコマンド\n\n全てのコマンドはスラッシュ（/）で始まる\n\n例えば、/helpと入力すると、利用可能なコマンドのリストが表示されます"
+    "text": "CoPilot CLIのコマンド\n\n全てのコマンドはスラッシュ（/）で始まる\n\n例えば、/helpと入力すると、利用可能なコマンドのリストが表示されます\n/exitでCoPilotのセッションを終了できる"
   },
   {
     "objectID": "day4/index.html#planning-mode",
