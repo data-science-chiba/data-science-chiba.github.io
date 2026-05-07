@@ -7,374 +7,176 @@ execute:
   echo: true
 ---
 
-# 第4回：データの整理（２）
+# 第4回：AIエージェント
 
 ```{r}
 #| echo: false
 options(width = 70)
 ```
 
-
 <https://data-science-chiba.github.io/day4/>
 
-## データの整理（Data Wrangling）
+## AIエージェントとは？
 
-- データが手に入る時、まだ解析に使いえない状態が多い
+- ブラウザチャット（ChatGPTなど）
+  - 対話しながら、コードを書いてもらう
 
-- データの整理（「wrangling」）は**解析に使えるように整えるプロセス**
-  - 元々はカウボーイが**牛を扱う技術**から来る
-
----
-
-![Getty Images](https://media.istockphoto.com/id/172342607/photo/cattle-drive.jpg?s=612x612&w=0&k=20&c=Fz--vTqe2gMWKxbHvgdLCgfUveH_Y3-k0js5H1m9Snc=)
+- コードエディタ（RStudioのAI機能など）
+  - コメントによるコードの完成
 
 ---
 
-![Image by Allison Horst](https://datasciencecampus.github.io/DSCA_data_wrangling_with_r/slides/images/data_cowboy.png){fig-alt="data wrangling monsters"}
+- **AIエージェント**
+  - 人間の指示に従ってタスクを**自動的に**実行するAIシステム
+  - あなたのプロジェクトに入っているファイルの中身を理解して、あなたの指示に従ってコードを書いてくれる
+  - ブラウザチャットやコードエディタのAI機能はより**はるかに強力**
 
-## 今日学ぶこと
+## ターミナルについて
 
-- データの集計
-- データの形の変え方（縦長いから横広いとその逆）
-- データの結合
-
-## データの集計
-
-`summarize()`でデータの**集計**ができる：
-
-```{r}
-#| message: false
-#| warning: false
-
-library(nycflights13)
-library(tidyverse)
-
-summarize(flights, mean_sched_dep_time = mean(sched_dep_time))
-```
-
-## グループ化
-
-- しかし、全体の平均だけを計算してもあまり意味はない。
-
-- それよりも、何か**毎に**データの集計を行いたい方が多い。
-
-- それには`group_by()`関数を使う。例えば、**月ごと**。まずはデータのグループを指定する：
+- ターミナルは、**コンピュータと対話する**ためのテキストベースのインターフェース
+  - 今までは、RStudioのコンソールでRコードを実行していましたが、ターミナルでは、R以外のコマンドも実行できる
 
 ---
 
-```{r}
-flights %>%
-  group_by(month)
-```
+- GitHub Copilot CLIは、**ターミナルでAIエージェントを使用できる**ソフト（CLI = Command Line Interface） 
+  - GitHub Copilot CLIを使うために、まずターミナルの基本的なコマンドを学びましょう
+  - ターミナルは広くプログラミングに使われているから、覚えておくと便利です
 
-## グループ化してから、集計する
+## ターミナルのインストール（Windowsのみ）
 
-次に、集計する：
+- Git Bashをインストールしていない場合は、以下のリンクからダウンロードしてインストールしてください： <https://gitforwindows.org/>
 
-```{r}
-flights |> 
-  group_by(month) |> 
-  summarize(
-    avg_delay = mean(dep_delay)
-  )
-```
+## ターミナルの開き方
+
+- Windows: スタートメニュー → "Git Bash" と検索して開く
+
+- Mac: Spotlight Search（Cmd + Space） → "Terminal" と検索して開く
+
+- （RStudioのターミナルも使って来ましたが、CoPilot CLIと相性が悪いので、今回はRStudioのターミナルは使わないことにします）
+
+## CoPilot CLI のインストール
+
+- ターミナルのコマンドを使って、GitHub Copilot CLIをインストールしましょう：
+
+- Windows: `winget install GitHub.Copilot`
+
+- Mac: `brew install copilot-cli`
+
+## ターミナルのコマンドについて
+
+- ターミナルでは、マウスを一切使わずに、キーボードだけでコンピュータを操作する
+  - パソコンが最初できた頃は、グラフィックユーザーインターフェース（GUI）がなかったため、すべての操作はターミナルで行われていた
+  - そのため、多くのコマンドは打ちやすいように短くなっている
+
+## ターミナルの基本的なコマンド
+
+- `pwd`：現在のディレクトリ（フォルダ）を表示する
+  - 現在のディレクトリは、**作業ディレクトリ**（working directory）とも呼ばれる
+- `ls`：現在のディレクトリにあるファイルやフォルダを表示する
+
+## パスについて
+
+- ターミナルでファイルやフォルダを指定するためには、**パス**を使う必要がある
+  - パスは、ファイルやフォルダの場所を示す文字列（住所みたいなもの）
+  - 例えば、`/Users/joelnitta/Desktop/`は、デスクトップのパスです
+
+## ターミナルの基本的なコマンド
+
+- `cd`：ディレクトリを移動する
+  - `cd ..`は、一つ上のディレクトリに移動するコマンド
+
+- これからは、`cd`コマンドを使って、**RStudioのプロジェクトのディレクトリに移動**してから、CoPilot CLIを使うことにします
+
+## TidyTuesdayについて
+
+- TidyTuesdayは、**毎週火曜日**に公開されるデータセットを使って、データ分析の練習をする組織です
+
+- TidyTuesdayのデータセットは、**GitHub**に公開されているので、誰でもアクセスできます
+
+<https://github.com/rfordatascience/tidytuesday>
+
+## 今日のデータセット: The Languages of Africa
+
+- TidyTuesdayのデータの表から「Data」にある「The Languages of Africa」をクリック
+  - データの説明と読み込みのコードが書いてあるページに移動します
 
 ---
 
-あれ？なんで`NA`になってしまった？
+- 前回学んだ方法で新しいRStudioプロジェクトを作成してから、ターミナルでプロジェクトのディレクトリに移動する
+  - プロジェクトの名前は、`africa-languages`にしましょう
+  - `Create a git repository`のチェックを入れましょう
 
-. . . 
+## Copilot CLIを使う前に
 
-- `NA`(「Not Applicable」、「該当しない」)はデータが**欠けている**ことを示す。
-- `mean()`は**一つでもデータが欠けていることがあると、結果は全部**`NA`になってしまう。
-- 欠けているデータを無視して平均を計算するには、`na.rm = TRUE`を指定しないといけない
+- これから、Copilot CLIがコードを書いてくれるけど、現状との違いを理解するために、まずは現状を確認して、問題がないようでしたら、`git commit`　で変更を保存しておきましょう
 
----
+## Copilot CLIを使ってみる
 
-```{r}
-flights |> 
-  group_by(month) |> 
-  summarize(
-    avg_delay = mean(dep_delay, na.rm = TRUE)
-  )
+- ターミナルで、`copilot`と入力して、GitHub Copilot CLIを起動する
+  - 初めて起動する時は、GitHubアカウントでログインする必要があります
+
+- ChatGPTのようなチャット形式で対話できる
+
+## パーミッションの設定
+
+![](../images/copilot-start.png){}
+
+## パーミッションの重要性
+
+- 今までのAIツールと大きな違い：エージェントは、あなたのプロジェクトのファイルにアクセスして、コードを書いてくれる
+  - だから、エージェントがアクセスできるファイルを**制限する**ことが重要
+
+## ChatGPTのようなチャット形式で対話できる
+
+- 例えば、`copilot`を起動した後、以下のように入力してみましょう：
+
+```
+How can I use copilot to help me analyze data?
 ```
 
-## どこが`NA`だったのかを`filter()`で確かめる
+## CoPilot CLIのコマンド
 
-```{r}
-flights |>
-  filter(is.na(dep_delay))
+- 全てのコマンドはスラッシュ（/）で始まる
+  - 例えば、`/help`と入力すると、利用可能なコマンドのリストが表示されます
+
+## Planning Mode
+
+- 実際にコードを書く前に、**Planning Mode**を使って、エージェントにタスクの計画を立ててもらうことができます
+  - `/plan`と入力すると、Planning Modeが開始されます
+
 ```
+/plan I want to use R to analyze African languages. Please read this description of the dataset and help me plan my analysis
 
-## `n()`でグループの件数を数える
+https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-01-13/readme.md
 
-```{r}
-flights |> 
-  group_by(month) |> 
-  summarize(
-    avg_delay = mean(dep_delay, na.rm = TRUE),
-    n = n()
-  )
-```
-
-## `ungroup()`でグループを解除する
-
-- グループ毎の計算が終わったら、`ungroup()`でグループの解除をする必要がある場合がある。
-
-（以下のコードでは自動的にグループが解除されるので本当はいらないけど、必要な場合もある）
-
-```{r}
-flights |> 
-  group_by(month) |> 
-  summarize(
-    avg_delay = mean(dep_delay, na.rm = TRUE)
-  ) |>
-  ungroup()
-```
-
-## 複数条件でグループ分けする
-
-```{r}
-daily <-
-  flights |>
-  group_by(year, month, day)
-```
-
-```{r}
-summarize(daily, n = n())
-```
-
-## `ungroup()`でグループを解除する
-
-```{r}
-daily |>
-  ungroup() |>
-  summarize(
-    avg_delay = mean(dep_delay, na.rm = TRUE),
-    n = n()
-  )
-```
-
-## データの形を変える
-
-- 同じデータを様々な形で表すことができる。
-
-- 例えば、以下の結核のデータを見ましょう（`tidyverse`の`tidyr`パッケージに入っている例のデータセット）：
-
-```{r}
-table1
+Use the tidyverse. I am an R beginner, so please keep the code simple, in one R script, with comments explaining what each part does.
 ```
 
 ---
 
-```{r}
-table2
-```
+- CoPilot がしばらく考えてから計画を提案してくれる
+- 良さそうな場合、「計画を実行します」のようなオプションを選択して、コードを書いてもらうことができる
 
-## データの形を変える
+![](../images/copilot-implement.png){}
 
-- 元々のデータが同じであることは確認できましたか？
+## コードの確認
 
-- でも、`table1`と`table2`には**大事な違い**がある：
-  - `table1`だけが**tidy**（すぐに解析できるように整っている）になっている
+- エージェントがコードを書いてくれたら、**必ずコードを確認**してください
+  - コードが正しいかどうか、あなたの意図に合っているかどうかを確認することが重要です
 
-## tidyなデータの定義
+- 自分の思う通りにコードができたことを確認したら、`git commit`で変更を保存しておきましょう
 
-- 各列が変数を表している
-- 各行が観察を表している
-- 各セルが一つの値を表している
+## 課題
 
-![](https://r4ds.hadley.nz/images/tidy-1.png)
-
-## tidyなデータの利点
-
-- 今まで学んできた関数（`mutate()`、`filter()`など）はtidyなデータの方が使いやすい
-- グラフを作成する際も、tidyなデータの方が使いやすいです
-
-例えば：
-
-```{r}
-# 1万人あたりの病気の発生率を計算する
-table1 |>
-  mutate(rate = cases / population * 10000)
-```
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday)から好きなデータセットを選んで、Copilot CLIを使って分析してみましょう
+- 前回と同様に、GitHubからリポジトリをクローンして、プロジェクトを作成してから、取り組んでください
+  - リポジトリーのリンクは Moodle に載せてあります
+  - 締め切り：2026年5月30日（日）23:59
 
 ---
 
-```{r}
-ggplot(table1, aes(x = year, y = cases)) +
-  geom_line(aes(group = country)) +
-  geom_point(aes(shape = country, color = country), size = 4)
-```
+- 必ず、コードを確認してから、`git commit`で変更を保存してください
+- リモートリポジトリーに変更をプッシュすることで提出になります
+  - 私があなたのコードをエラーなしで実行できるようにしてください
+  - Moodleでは、自分の言葉で解析の結果を説明してください
 
-## ワイド（横広い）データを縦長（ロング）に変える
-
-`billboard`というデータセットには２０００年の歌のランキングが入っている：
-
-```{r}
-billboard
-```
-
-## ワイドなデータの例：`billboard`
-
-- 列：
-  - `artist` アーティスト（演奏者）
-  - `track` 曲名
-  - `date.entered` 最初にランキングに入った日付
-  - `wk1` .. `wk76` それぞれの種のランキング
-
-列がやたらある。そして、**列の名前にデータがある**（周目）。これをどうやって別の変数にできるのでしょうか？
-
-## ワイドからロングにするのは`pivot_longer()`
-
-- `pivot_longer()`の主な引数：
-  - `cols` どの列を使う（ロングにする）
-  - `names_to` ロング形式に変換される新しい列の名前
-  - `values_to` 新しい値の列の名前
-
-でや、やって見ましょう
-
----
-
-```{r}
-billboard |>
-  pivot_longer(
-    cols = starts_with("wk"),
-    names_to = "week",
-    values_to = "rank"
-  )
-```
-
-列の数が大幅に減り、行の数が増えたことが分かりますか？
-
-## ロングなデータをワイドに変える
-
-`cms_patient_experience`というデータセットには患者の経験のデータが入っている
-
-```{r}
-cms_patient_experience
-```
-
-## cms_patient_experienceの特徴
-
-- 研究の対象となっているのは**組織**だけど、各組織のデータは６つの行を跨いでいる。
-
-- どうやって一つの組織を一つの列にできる？
-
-## ロングからワイドにするのは`pivot_wider()`
-
-- `pivot_wider()`の主な引数：
-  - `cols` どの列を使う（ワイドにする）
-  - `names_from` 列名として使用するロング形式の列名
-  - `values_from` 新しい列に配置される値を持つロング形式の列
-
-でや、やって見ましょう
-
----
-
-```{r}
-cms_patient_experience |>
-  pivot_wider(
-    names_from = measure_cd,
-    values_from = prf_rate
-  )
-```
-
----
-
-ふむ、`NA`が多い、行の数がまだ変わっていない。どうすれば良い・・
-
----
-
-## id_colsで行を識別する列を指定する
-
-```{r}
-cms_patient_experience |>
-  pivot_wider(
-    names_from = measure_cd,
-    values_from = prf_rate,
-    id_cols = starts_with("org")
-  )
-```
-
-## データの結合
-
-- 多くの場合、使いたいデータが複数のデータセット（データフレーム、あるいはファイル）に跨いで入っている
-
-- したがって、**データの結合**（join）を行う必要がある
-
-## 複数のデータセットの例：飛行機のデータ
-
-`airlines`には航空会社の名前のデータが入っている：
-
-```{r}
-airlines
-```
-
----
-
-どうやってこのデータを`nycflights13`と結合させることができるのでしょうか？
-
-## 付け加えたデータが右の方に入る
-
-`nycflights13`は列の数が多いことを覚えていますか？
-
-- これから新しいデータと結合しても、付け加えたデータが右の方に入るため、結果が見えないので、説明するために小さいバージョンを用意する
-
-```{r}
-flights2 <- flights |>
-  select(year, time_hour, origin, dest, tailnum, carrier)
-```
-
-## 別のデータフレームからデータを加える：`left_join()`
-
-航空会社の名前を追加しましょう：
-
-```{r}
-flights2 |>
-  left_join(airlines)
-```
-
-## 結合する時は「鍵」が大事
-
-上のコードを走らせた際、このメッセージがありました：
-
-```
-Joining with `by = join_by(carrier)`
-```
-
-- つまり、それぞれのデータフレームが**共通に持っている列**です。これ「鍵」（Key）と呼ぶ。
-
-- 共通に持っている列がないと、結合ができない。
-
-## 結合する時は「鍵」が大事
-
-上のコードは自動的に共通する列を鍵として使ったけど、手動で指定することもできる：
-
-```{r}
-flights2 |>
-  left_join(
-    airlines,
-    by = join_by(carrier))
-```
-
-## 鍵となる列の条件
-
-- 右側のデータの鍵が行を**識別できる**必要がある。それぞれの`carrier`はデータに一回だけ出てくる
-
-- `count()`で確かめる（`n`が全て`1`になっている）
-
-```{r}
-airlines |>
-  count(carrier)
-```
-
-## 他のデータに結合してみる
-
-`nycflights13`パッケージに他のデータフレームがいくつかある：
-
-![](https://r4ds.hadley.nz/diagrams/relational.png)
-
-## チャレンジ：他のデータに結合してみる
-
-`planes`のデータを`flights2`に結合することができますか？

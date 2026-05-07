@@ -1,3 +1,7 @@
 .DS_Store
 /.quarto/
 docs/
+.Rproj.user
+.positai
+.Rhistory
+*.Rproj
