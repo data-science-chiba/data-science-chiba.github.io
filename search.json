@@ -18,7 +18,7 @@
     "href": "day1/index.html#moodle",
     "title": "データサイエンス",
     "section": "Moodle",
-    "text": "Moodle\nhttps://moodle.gs.chiba-u.jp/moodle/course/view.php?id=44391\n全てのリーディング、宿題などが載っています"
+    "text": "Moodle\nhttps://moodle.gs.chiba-u.jp/moodle/course/view.php?id=50866\n全てのリーディング、宿題などが載っています"
   },
   {
     "objectID": "day1/index.html#オフィスアワー",
@@ -711,7 +711,7 @@
     "href": "day3/index.html#aiを使う時の注意点-1",
     "title": "データサイエンス",
     "section": "AIを使う時の注意点",
-    "text": "AIを使う時の注意点\n\n\n取扱注意のデータの扱い\n\nこのデータをAIに渡してもいいのか？（個人情報など）\n研究用に使う前に、指導教官と相談してください\n\n思う通りの結果にならないことがある\n\n正しく機能した状態に戻れる？"
+    "text": "AIを使う時の注意点\n\n\n取扱注意のデータ\n\nこのデータをAIに渡してもいいのか？（個人情報など）\n研究用に使う前に、指導教官と相談してください\n\n思う通りの結果にならないことがある\n\n正しく機能した状態に戻れる？"
   },
   {
     "objectID": "day3/index.html#gitとは",
@@ -861,214 +861,144 @@
     "text": "実際の流れ\nRStudioを使って、典型的なgitのワークフローを一緒に体験します。\n細かい説明はこちらにまとめていますので、参照してください。"
   },
   {
-    "objectID": "day4/index.html#データの整理data-wrangling",
-    "href": "day4/index.html#データの整理data-wrangling",
+    "objectID": "day4/index.html#aiエージェントとは",
+    "href": "day4/index.html#aiエージェントとは",
     "title": "データサイエンス",
-    "section": "データの整理（Data Wrangling）",
-    "text": "データの整理（Data Wrangling）\n\nデータが手に入る時、まだ解析に使いえない状態が多い\nデータの整理（「wrangling」）は解析に使えるように整えるプロセス\n\n元々はカウボーイが牛を扱う技術から来る"
+    "section": "AIエージェントとは？",
+    "text": "AIエージェントとは？\n\nブラウザチャット（ChatGPTなど）\n\n対話しながら、コードを書いてもらう\n\nコードエディタ（RStudioのAI機能など）\n\nコメントによるコードの完成"
   },
   {
-    "objectID": "day4/index.html#今日学ぶこと",
-    "href": "day4/index.html#今日学ぶこと",
+    "objectID": "day4/index.html#ターミナルについて",
+    "href": "day4/index.html#ターミナルについて",
     "title": "データサイエンス",
-    "section": "今日学ぶこと",
-    "text": "今日学ぶこと\n\nデータの集計\nデータの形の変え方（縦長いから横広いとその逆）\nデータの結合"
+    "section": "ターミナルについて",
+    "text": "ターミナルについて\n\nターミナルは、コンピュータと対話するためのテキストベースのインターフェース\n\n今までは、RStudioのコンソールでRコードを実行していましたが、ターミナルでは、R以外のコマンドも実行できる"
   },
   {
-    "objectID": "day4/index.html#データの集計",
-    "href": "day4/index.html#データの集計",
+    "objectID": "day4/index.html#ターミナルのインストールwindowsのみ",
+    "href": "day4/index.html#ターミナルのインストールwindowsのみ",
     "title": "データサイエンス",
-    "section": "データの集計",
-    "text": "データの集計\nsummarize()でデータの集計ができる：\n\nlibrary(nycflights13)\nlibrary(tidyverse)\n\nsummarize(flights, mean_sched_dep_time = mean(sched_dep_time))\n\n# A tibble: 1 × 1\n  mean_sched_dep_time\n                &lt;dbl&gt;\n1               1344."
+    "section": "ターミナルのインストール（Windowsのみ）",
+    "text": "ターミナルのインストール（Windowsのみ）\n\nGit Bashをインストールしていない場合は、以下のリンクからダウンロードしてインストールしてください： https://gitforwindows.org/"
   },
   {
-    "objectID": "day4/index.html#グループ化",
-    "href": "day4/index.html#グループ化",
+    "objectID": "day4/index.html#ターミナルの開き方",
+    "href": "day4/index.html#ターミナルの開き方",
     "title": "データサイエンス",
-    "section": "グループ化",
-    "text": "グループ化\n\nしかし、全体の平均だけを計算してもあまり意味はない。\nそれよりも、何か毎にデータの集計を行いたい方が多い。\nそれにはgroup_by()関数を使う。例えば、月ごと。まずはデータのグループを指定する："
+    "section": "ターミナルの開き方",
+    "text": "ターミナルの開き方\n\nWindows: スタートメニュー → “Git Bash” と検索して開く\nMac: Spotlight Search（Cmd + Space） → “Terminal” と検索して開く\n（RStudioのターミナルも使って来ましたが、CoPilot CLIと相性が悪いので、今回はRStudioのターミナルは使わないことにします）"
   },
   {
-    "objectID": "day4/index.html#グループ化してから集計する",
-    "href": "day4/index.html#グループ化してから集計する",
+    "objectID": "day4/index.html#copilot-cli-のインストール",
+    "href": "day4/index.html#copilot-cli-のインストール",
     "title": "データサイエンス",
-    "section": "グループ化してから、集計する",
-    "text": "グループ化してから、集計する\n次に、集計する：\n\nflights |&gt; \n  group_by(month) |&gt; \n  summarize(\n    avg_delay = mean(dep_delay)\n  )\n\n# A tibble: 12 × 2\n   month avg_delay\n   &lt;int&gt;     &lt;dbl&gt;\n 1     1        NA\n 2     2        NA\n 3     3        NA\n 4     4        NA\n 5     5        NA\n 6     6        NA\n 7     7        NA\n 8     8        NA\n 9     9        NA\n10    10        NA\n11    11        NA\n12    12        NA"
+    "section": "CoPilot CLI のインストール",
+    "text": "CoPilot CLI のインストール\n\nターミナルのコマンドを使って、GitHub Copilot CLIをインストールしましょう：\nWindows: winget install GitHub.Copilot\nMac: brew install copilot-cli"
   },
   {
-    "objectID": "day4/index.html#どこがnaだったのかをfilterで確かめる",
-    "href": "day4/index.html#どこがnaだったのかをfilterで確かめる",
+    "objectID": "day4/index.html#ターミナルのコマンドについて",
+    "href": "day4/index.html#ターミナルのコマンドについて",
     "title": "データサイエンス",
-    "section": "どこがNAだったのかをfilter()で確かめる",
-    "text": "どこがNAだったのかをfilter()で確かめる\n\nflights |&gt;\n  filter(is.na(dep_delay))\n\n# A tibble: 8,255 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;\n 1  2013     1     1       NA           1630        NA       NA\n 2  2013     1     1       NA           1935        NA       NA\n 3  2013     1     1       NA           1500        NA       NA\n 4  2013     1     1       NA            600        NA       NA\n 5  2013     1     2       NA           1540        NA       NA\n 6  2013     1     2       NA           1620        NA       NA\n 7  2013     1     2       NA           1355        NA       NA\n 8  2013     1     2       NA           1420        NA       NA\n 9  2013     1     2       NA           1321        NA       NA\n10  2013     1     2       NA           1545        NA       NA\n# ℹ 8,245 more rows\n# ℹ 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;,\n#   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;,\n#   dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "section": "ターミナルのコマンドについて",
+    "text": "ターミナルのコマンドについて\n\nターミナルでは、マウスを一切使わずに、キーボードだけでコンピュータを操作する\n\nパソコンが最初できた頃は、グラフィックユーザーインターフェース（GUI）がなかったため、すべての操作はターミナルで行われていた\nそのため、多くのコマンドは打ちやすいように短くなっている"
   },
   {
-    "objectID": "day4/index.html#nでグループの件数を数える",
-    "href": "day4/index.html#nでグループの件数を数える",
+    "objectID": "day4/index.html#ターミナルの基本的なコマンド",
+    "href": "day4/index.html#ターミナルの基本的なコマンド",
     "title": "データサイエンス",
-    "section": "n()でグループの件数を数える",
-    "text": "n()でグループの件数を数える\n\nflights |&gt; \n  group_by(month) |&gt; \n  summarize(\n    avg_delay = mean(dep_delay, na.rm = TRUE),\n    n = n()\n  )\n\n# A tibble: 12 × 3\n   month avg_delay     n\n   &lt;int&gt;     &lt;dbl&gt; &lt;int&gt;\n 1     1     10.0  27004\n 2     2     10.8  24951\n 3     3     13.2  28834\n 4     4     13.9  28330\n 5     5     13.0  28796\n 6     6     20.8  28243\n 7     7     21.7  29425\n 8     8     12.6  29327\n 9     9      6.72 27574\n10    10      6.24 28889\n11    11      5.44 27268\n12    12     16.6  28135"
+    "section": "ターミナルの基本的なコマンド",
+    "text": "ターミナルの基本的なコマンド\n\npwd：現在のディレクトリ（フォルダ）を表示する\n\n現在のディレクトリは、作業ディレクトリ（working directory）とも呼ばれる\n\nls：現在のディレクトリにあるファイルやフォルダを表示する"
   },
   {
-    "objectID": "day4/index.html#ungroupでグループを解除する",
-    "href": "day4/index.html#ungroupでグループを解除する",
+    "objectID": "day4/index.html#パスについて",
+    "href": "day4/index.html#パスについて",
     "title": "データサイエンス",
-    "section": "ungroup()でグループを解除する",
-    "text": "ungroup()でグループを解除する\n\nグループ毎の計算が終わったら、ungroup()でグループの解除をする必要がある場合がある。\n\n（以下のコードでは自動的にグループが解除されるので本当はいらないけど、必要な場合もある）\n\nflights |&gt; \n  group_by(month) |&gt; \n  summarize(\n    avg_delay = mean(dep_delay, na.rm = TRUE)\n  ) |&gt;\n  ungroup()\n\n# A tibble: 12 × 2\n   month avg_delay\n   &lt;int&gt;     &lt;dbl&gt;\n 1     1     10.0 \n 2     2     10.8 \n 3     3     13.2 \n 4     4     13.9 \n 5     5     13.0 \n 6     6     20.8 \n 7     7     21.7 \n 8     8     12.6 \n 9     9      6.72\n10    10      6.24\n11    11      5.44\n12    12     16.6"
+    "section": "パスについて",
+    "text": "パスについて\n\nターミナルでファイルやフォルダを指定するためには、パスを使う必要がある\n\nパスは、ファイルやフォルダの場所を示す文字列（住所みたいなもの）\n例えば、/Users/joelnitta/Desktop/は、デスクトップのパスです"
   },
   {
-    "objectID": "day4/index.html#複数条件でグループ分けする",
-    "href": "day4/index.html#複数条件でグループ分けする",
+    "objectID": "day4/index.html#ターミナルの基本的なコマンド-1",
+    "href": "day4/index.html#ターミナルの基本的なコマンド-1",
     "title": "データサイエンス",
-    "section": "複数条件でグループ分けする",
-    "text": "複数条件でグループ分けする\n\ndaily &lt;-\n  flights |&gt;\n  group_by(year, month, day)\n\n\nsummarize(daily, n = n())\n\n# A tibble: 365 × 4\n# Groups:   year, month [12]\n    year month   day     n\n   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1  2013     1     1   842\n 2  2013     1     2   943\n 3  2013     1     3   914\n 4  2013     1     4   915\n 5  2013     1     5   720\n 6  2013     1     6   832\n 7  2013     1     7   933\n 8  2013     1     8   899\n 9  2013     1     9   902\n10  2013     1    10   932\n# ℹ 355 more rows"
+    "section": "ターミナルの基本的なコマンド",
+    "text": "ターミナルの基本的なコマンド\n\ncd：ディレクトリを移動する\n\ncd ..は、一つ上のディレクトリに移動するコマンド\n\nこれからは、cdコマンドを使って、RStudioのプロジェクトのディレクトリに移動してから、CoPilot CLIを使うことにします"
   },
   {
-    "objectID": "day4/index.html#ungroupでグループを解除する-1",
-    "href": "day4/index.html#ungroupでグループを解除する-1",
+    "objectID": "day4/index.html#tidytuesdayについて",
+    "href": "day4/index.html#tidytuesdayについて",
     "title": "データサイエンス",
-    "section": "ungroup()でグループを解除する",
-    "text": "ungroup()でグループを解除する\n\ndaily |&gt;\n  ungroup() |&gt;\n  summarize(\n    avg_delay = mean(dep_delay, na.rm = TRUE),\n    n = n()\n  )\n\n# A tibble: 1 × 2\n  avg_delay      n\n      &lt;dbl&gt;  &lt;int&gt;\n1      12.6 336776"
+    "section": "TidyTuesdayについて",
+    "text": "TidyTuesdayについて\n\nTidyTuesdayは、毎週火曜日に公開されるデータセットを使って、データ分析の練習をする組織です\nTidyTuesdayのデータセットは、GitHubに公開されているので、誰でもアクセスできます\n\nhttps://github.com/rfordatascience/tidytuesday"
   },
   {
-    "objectID": "day4/index.html#データの形を変える",
-    "href": "day4/index.html#データの形を変える",
+    "objectID": "day4/index.html#今日のデータセット-the-languages-of-africa",
+    "href": "day4/index.html#今日のデータセット-the-languages-of-africa",
     "title": "データサイエンス",
-    "section": "データの形を変える",
-    "text": "データの形を変える\n\n同じデータを様々な形で表すことができる。\n例えば、以下の結核のデータを見ましょう（tidyverseのtidyrパッケージに入っている例のデータセット）：\n\n\ntable1\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
+    "section": "今日のデータセット: The Languages of Africa",
+    "text": "今日のデータセット: The Languages of Africa\n\nTidyTuesdayのデータの表から「Data」にある「The Languages of Africa」をクリック\n\nデータの説明と読み込みのコードが書いてあるページに移動します"
   },
   {
-    "objectID": "day4/index.html#データの形を変える-1",
-    "href": "day4/index.html#データの形を変える-1",
+    "objectID": "day4/index.html#copilot-cliを使う前に",
+    "href": "day4/index.html#copilot-cliを使う前に",
     "title": "データサイエンス",
-    "section": "データの形を変える",
-    "text": "データの形を変える\n\n元々のデータが同じであることは確認できましたか？\nでも、table1とtable2には大事な違いがある：\n\ntable1だけがtidy（すぐに解析できるように整っている）になっている"
+    "section": "Copilot CLIを使う前に",
+    "text": "Copilot CLIを使う前に\n\nこれから、Copilot CLIがコードを書いてくれるけど、現状との違いを理解するために、まずは現状を確認して、問題がないようでしたら、git commit　で変更を保存しておきましょう"
   },
   {
-    "objectID": "day4/index.html#tidyなデータの定義",
-    "href": "day4/index.html#tidyなデータの定義",
+    "objectID": "day4/index.html#copilot-cliを使ってみる",
+    "href": "day4/index.html#copilot-cliを使ってみる",
     "title": "データサイエンス",
-    "section": "tidyなデータの定義",
-    "text": "tidyなデータの定義\n\n各列が変数を表している\n各行が観察を表している\n各セルが一つの値を表している"
+    "section": "Copilot CLIを使ってみる",
+    "text": "Copilot CLIを使ってみる\n\nターミナルで、copilotと入力して、GitHub Copilot CLIを起動する\n\n初めて起動する時は、GitHubアカウントでログインする必要があります\n\nChatGPTのようなチャット形式で対話できる"
   },
   {
-    "objectID": "day4/index.html#tidyなデータの利点",
-    "href": "day4/index.html#tidyなデータの利点",
+    "objectID": "day4/index.html#パーミッションの設定",
+    "href": "day4/index.html#パーミッションの設定",
     "title": "データサイエンス",
-    "section": "tidyなデータの利点",
-    "text": "tidyなデータの利点\n\n今まで学んできた関数（mutate()、filter()など）はtidyなデータの方が使いやすい\nグラフを作成する際も、tidyなデータの方が使いやすいです\n\n例えば：\n\n# 1万人あたりの病気の発生率を計算する\ntable1 |&gt;\n  mutate(rate = cases / population * 10000)\n\n# A tibble: 6 × 5\n  country      year  cases population  rate\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071 0.373\n2 Afghanistan  2000   2666   20595360 1.29 \n3 Brazil       1999  37737  172006362 2.19 \n4 Brazil       2000  80488  174504898 4.61 \n5 China        1999 212258 1272915272 1.67 \n6 China        2000 213766 1280428583 1.67"
+    "section": "パーミッションの設定",
+    "text": "パーミッションの設定"
   },
   {
-    "objectID": "day4/index.html#ワイド横広いデータを縦長ロングに変える",
-    "href": "day4/index.html#ワイド横広いデータを縦長ロングに変える",
+    "objectID": "day4/index.html#パーミッションの重要性",
+    "href": "day4/index.html#パーミッションの重要性",
     "title": "データサイエンス",
-    "section": "ワイド（横広い）データを縦長（ロング）に変える",
-    "text": "ワイド（横広い）データを縦長（ロング）に変える\nbillboardというデータセットには２０００年の歌のランキングが入っている：\n\nbillboard\n\n# A tibble: 317 × 79\n   artist track date.entered   wk1   wk2   wk3   wk4   wk5   wk6   wk7\n   &lt;chr&gt;  &lt;chr&gt; &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 2 Pac  Baby… 2000-02-26      87    82    72    77    87    94    99\n 2 2Ge+h… The … 2000-09-02      91    87    92    NA    NA    NA    NA\n 3 3 Doo… Kryp… 2000-04-08      81    70    68    67    66    57    54\n 4 3 Doo… Loser 2000-10-21      76    76    72    69    67    65    55\n 5 504 B… Wobb… 2000-04-15      57    34    25    17    17    31    36\n 6 98^0   Give… 2000-08-19      51    39    34    26    26    19     2\n 7 A*Tee… Danc… 2000-07-08      97    97    96    95   100    NA    NA\n 8 Aaliy… I Do… 2000-01-29      84    62    51    41    38    35    35\n 9 Aaliy… Try … 2000-03-18      59    53    38    28    21    18    16\n10 Adams… Open… 2000-08-26      76    76    74    69    68    67    61\n# ℹ 307 more rows\n# ℹ 69 more variables: wk8 &lt;dbl&gt;, wk9 &lt;dbl&gt;, wk10 &lt;dbl&gt;, wk11 &lt;dbl&gt;,\n#   wk12 &lt;dbl&gt;, wk13 &lt;dbl&gt;, wk14 &lt;dbl&gt;, wk15 &lt;dbl&gt;, wk16 &lt;dbl&gt;,\n#   wk17 &lt;dbl&gt;, wk18 &lt;dbl&gt;, wk19 &lt;dbl&gt;, wk20 &lt;dbl&gt;, wk21 &lt;dbl&gt;,\n#   wk22 &lt;dbl&gt;, wk23 &lt;dbl&gt;, wk24 &lt;dbl&gt;, wk25 &lt;dbl&gt;, wk26 &lt;dbl&gt;,\n#   wk27 &lt;dbl&gt;, wk28 &lt;dbl&gt;, wk29 &lt;dbl&gt;, wk30 &lt;dbl&gt;, wk31 &lt;dbl&gt;,\n#   wk32 &lt;dbl&gt;, wk33 &lt;dbl&gt;, wk34 &lt;dbl&gt;, wk35 &lt;dbl&gt;, wk36 &lt;dbl&gt;, …"
+    "section": "パーミッションの重要性",
+    "text": "パーミッションの重要性\n\n今までのAIツールと大きな違い：エージェントは、あなたのプロジェクトのファイルにアクセスして、コードを書いてくれる\n\nだから、エージェントがアクセスできるファイルを制限することが重要"
   },
   {
-    "objectID": "day4/index.html#ワイドなデータの例billboard",
-    "href": "day4/index.html#ワイドなデータの例billboard",
+    "objectID": "day4/index.html#chatgptのようなチャット形式で対話できる",
+    "href": "day4/index.html#chatgptのようなチャット形式で対話できる",
     "title": "データサイエンス",
-    "section": "ワイドなデータの例：billboard",
-    "text": "ワイドなデータの例：billboard\n\n列：\n\nartist アーティスト（演奏者）\ntrack 曲名\ndate.entered 最初にランキングに入った日付\nwk1 .. wk76 それぞれの種のランキング\n\n\n列がやたらある。そして、列の名前にデータがある（周目）。これをどうやって別の変数にできるのでしょうか？"
+    "section": "ChatGPTのようなチャット形式で対話できる",
+    "text": "ChatGPTのようなチャット形式で対話できる\n\n例えば、copilotを起動した後、以下のように入力してみましょう：\n\nHow can I use copilot to help me analyze data?"
   },
   {
-    "objectID": "day4/index.html#ワイドからロングにするのはpivot_longer",
-    "href": "day4/index.html#ワイドからロングにするのはpivot_longer",
+    "objectID": "day4/index.html#copilot-cliのコマンド",
+    "href": "day4/index.html#copilot-cliのコマンド",
     "title": "データサイエンス",
-    "section": "ワイドからロングにするのはpivot_longer()",
-    "text": "ワイドからロングにするのはpivot_longer()\n\npivot_longer()の主な引数：\n\ncols どの列を使う（ロングにする）\nnames_to ロング形式に変換される新しい列の名前\nvalues_to 新しい値の列の名前\n\n\nでや、やって見ましょう"
+    "section": "CoPilot CLIのコマンド",
+    "text": "CoPilot CLIのコマンド\n\n全てのコマンドはスラッシュ（/）で始まる\n\n例えば、/helpと入力すると、利用可能なコマンドのリストが表示されます"
   },
   {
-    "objectID": "day4/index.html#ロングなデータをワイドに変える",
-    "href": "day4/index.html#ロングなデータをワイドに変える",
+    "objectID": "day4/index.html#planning-mode",
+    "href": "day4/index.html#planning-mode",
     "title": "データサイエンス",
-    "section": "ロングなデータをワイドに変える",
-    "text": "ロングなデータをワイドに変える\ncms_patient_experienceというデータセットには患者の経験のデータが入っている\n\ncms_patient_experience\n\n# A tibble: 500 × 5\n   org_pac_id org_nm                 measure_cd measure_title prf_rate\n   &lt;chr&gt;      &lt;chr&gt;                  &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;\n 1 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       63\n 2 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       87\n 3 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       86\n 4 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       57\n 5 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       85\n 6 0446157747 USC CARE MEDICAL GROU… CAHPS_GRP… CAHPS for MI…       24\n 7 0446162697 ASSOCIATION OF UNIVER… CAHPS_GRP… CAHPS for MI…       59\n 8 0446162697 ASSOCIATION OF UNIVER… CAHPS_GRP… CAHPS for MI…       85\n 9 0446162697 ASSOCIATION OF UNIVER… CAHPS_GRP… CAHPS for MI…       83\n10 0446162697 ASSOCIATION OF UNIVER… CAHPS_GRP… CAHPS for MI…       63\n# ℹ 490 more rows"
+    "section": "Planning Mode",
+    "text": "Planning Mode\n\n実際にコードを書く前に、Planning Modeを使って、エージェントにタスクの計画を立ててもらうことができます\n\n/planと入力すると、Planning Modeが開始されます\n\n\n/plan I want to use R to analyze African languages. Please read this description of the dataset and help me plan my analysis\n\nhttps://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-01-13/readme.md\n\nUse the tidyverse. I am an R beginner, so please keep the code simple, in one R script, with comments explaining what each part does."
   },
   {
-    "objectID": "day4/index.html#cms_patient_experienceの特徴",
-    "href": "day4/index.html#cms_patient_experienceの特徴",
+    "objectID": "day4/index.html#コードの確認",
+    "href": "day4/index.html#コードの確認",
     "title": "データサイエンス",
-    "section": "cms_patient_experienceの特徴",
-    "text": "cms_patient_experienceの特徴\n\n研究の対象となっているのは組織だけど、各組織のデータは６つの行を跨いでいる。\nどうやって一つの組織を一つの列にできる？"
+    "section": "コードの確認",
+    "text": "コードの確認\n\nエージェントがコードを書いてくれたら、必ずコードを確認してください\n\nコードが正しいかどうか、あなたの意図に合っているかどうかを確認することが重要です\n\n自分の思う通りにコードができたことを確認したら、git commitで変更を保存しておきましょう"
   },
   {
-    "objectID": "day4/index.html#ロングからワイドにするのはpivot_wider",
-    "href": "day4/index.html#ロングからワイドにするのはpivot_wider",
+    "objectID": "day4/index.html#課題",
+    "href": "day4/index.html#課題",
     "title": "データサイエンス",
-    "section": "ロングからワイドにするのはpivot_wider()",
-    "text": "ロングからワイドにするのはpivot_wider()\n\npivot_wider()の主な引数：\n\ncols どの列を使う（ワイドにする）\nnames_from 列名として使用するロング形式の列名\nvalues_from 新しい列に配置される値を持つロング形式の列\n\n\nでや、やって見ましょう"
-  },
-  {
-    "objectID": "day4/index.html#id_colsで行を識別する列を指定する",
-    "href": "day4/index.html#id_colsで行を識別する列を指定する",
-    "title": "データサイエンス",
-    "section": "id_colsで行を識別する列を指定する",
-    "text": "id_colsで行を識別する列を指定する\n\ncms_patient_experience |&gt;\n  pivot_wider(\n    names_from = measure_cd,\n    values_from = prf_rate,\n    id_cols = starts_with(\"org\")\n  )\n\n# A tibble: 95 × 8\n   org_pac_id org_nm   CAHPS_GRP_1 CAHPS_GRP_2 CAHPS_GRP_3 CAHPS_GRP_5\n   &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n 1 0446157747 USC CAR…          63          87          86          57\n 2 0446162697 ASSOCIA…          59          85          83          63\n 3 0547164295 BEAVER …          49          NA          75          44\n 4 0749333730 CAPE PH…          67          84          85          65\n 5 0840104360 ALLIANC…          66          87          87          64\n 6 0840109864 REX HOS…          73          87          84          67\n 7 0840513552 SCL HEA…          58          83          76          58\n 8 0941545784 GRITMAN…          46          86          81          54\n 9 1052612785 COMMUNI…          65          84          80          58\n10 1254237779 OUR LAD…          61          NA          NA          65\n# ℹ 85 more rows\n# ℹ 2 more variables: CAHPS_GRP_8 &lt;dbl&gt;, CAHPS_GRP_12 &lt;dbl&gt;"
-  },
-  {
-    "objectID": "day4/index.html#データの結合",
-    "href": "day4/index.html#データの結合",
-    "title": "データサイエンス",
-    "section": "データの結合",
-    "text": "データの結合\n\n多くの場合、使いたいデータが複数のデータセット（データフレーム、あるいはファイル）に跨いで入っている\nしたがって、データの結合（join）を行う必要がある"
-  },
-  {
-    "objectID": "day4/index.html#複数のデータセットの例飛行機のデータ",
-    "href": "day4/index.html#複数のデータセットの例飛行機のデータ",
-    "title": "データサイエンス",
-    "section": "複数のデータセットの例：飛行機のデータ",
-    "text": "複数のデータセットの例：飛行機のデータ\nairlinesには航空会社の名前のデータが入っている：\n\nairlines\n\n# A tibble: 16 × 2\n   carrier name                       \n   &lt;chr&gt;   &lt;chr&gt;                      \n 1 9E      Endeavor Air Inc.          \n 2 AA      American Airlines Inc.     \n 3 AS      Alaska Airlines Inc.       \n 4 B6      JetBlue Airways            \n 5 DL      Delta Air Lines Inc.       \n 6 EV      ExpressJet Airlines Inc.   \n 7 F9      Frontier Airlines Inc.     \n 8 FL      AirTran Airways Corporation\n 9 HA      Hawaiian Airlines Inc.     \n10 MQ      Envoy Air                  \n11 OO      SkyWest Airlines Inc.      \n12 UA      United Air Lines Inc.      \n13 US      US Airways Inc.            \n14 VX      Virgin America             \n15 WN      Southwest Airlines Co.     \n16 YV      Mesa Airlines Inc."
-  },
-  {
-    "objectID": "day4/index.html#付け加えたデータが右の方に入る",
-    "href": "day4/index.html#付け加えたデータが右の方に入る",
-    "title": "データサイエンス",
-    "section": "付け加えたデータが右の方に入る",
-    "text": "付け加えたデータが右の方に入る\nnycflights13は列の数が多いことを覚えていますか？\n\nこれから新しいデータと結合しても、付け加えたデータが右の方に入るため、結果が見えないので、説明するために小さいバージョンを用意する\n\n\nflights2 &lt;- flights |&gt;\n  select(year, time_hour, origin, dest, tailnum, carrier)"
-  },
-  {
-    "objectID": "day4/index.html#別のデータフレームからデータを加えるleft_join",
-    "href": "day4/index.html#別のデータフレームからデータを加えるleft_join",
-    "title": "データサイエンス",
-    "section": "別のデータフレームからデータを加える：left_join()",
-    "text": "別のデータフレームからデータを加える：left_join()\n航空会社の名前を追加しましょう：\n\nflights2 |&gt;\n  left_join(airlines)\n\n# A tibble: 336,776 × 7\n    year time_hour           origin dest  tailnum carrier name        \n   &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;       \n 1  2013 2013-01-01 05:00:00 EWR    IAH   N14228  UA      United Air …\n 2  2013 2013-01-01 05:00:00 LGA    IAH   N24211  UA      United Air …\n 3  2013 2013-01-01 05:00:00 JFK    MIA   N619AA  AA      American Ai…\n 4  2013 2013-01-01 05:00:00 JFK    BQN   N804JB  B6      JetBlue Air…\n 5  2013 2013-01-01 06:00:00 LGA    ATL   N668DN  DL      Delta Air L…\n 6  2013 2013-01-01 05:00:00 EWR    ORD   N39463  UA      United Air …\n 7  2013 2013-01-01 06:00:00 EWR    FLL   N516JB  B6      JetBlue Air…\n 8  2013 2013-01-01 06:00:00 LGA    IAD   N829AS  EV      ExpressJet …\n 9  2013 2013-01-01 06:00:00 JFK    MCO   N593JB  B6      JetBlue Air…\n10  2013 2013-01-01 06:00:00 LGA    ORD   N3ALAA  AA      American Ai…\n# ℹ 336,766 more rows"
-  },
-  {
-    "objectID": "day4/index.html#結合する時は鍵が大事",
-    "href": "day4/index.html#結合する時は鍵が大事",
-    "title": "データサイエンス",
-    "section": "結合する時は「鍵」が大事",
-    "text": "結合する時は「鍵」が大事\n上のコードを走らせた際、このメッセージがありました：\nJoining with `by = join_by(carrier)`\n\nつまり、それぞれのデータフレームが共通に持っている列です。これ「鍵」（Key）と呼ぶ。\n共通に持っている列がないと、結合ができない。"
-  },
-  {
-    "objectID": "day4/index.html#結合する時は鍵が大事-1",
-    "href": "day4/index.html#結合する時は鍵が大事-1",
-    "title": "データサイエンス",
-    "section": "結合する時は「鍵」が大事",
-    "text": "結合する時は「鍵」が大事\n上のコードは自動的に共通する列を鍵として使ったけど、手動で指定することもできる：\n\nflights2 |&gt;\n  left_join(\n    airlines,\n    by = join_by(carrier))\n\n# A tibble: 336,776 × 7\n    year time_hour           origin dest  tailnum carrier name        \n   &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;       \n 1  2013 2013-01-01 05:00:00 EWR    IAH   N14228  UA      United Air …\n 2  2013 2013-01-01 05:00:00 LGA    IAH   N24211  UA      United Air …\n 3  2013 2013-01-01 05:00:00 JFK    MIA   N619AA  AA      American Ai…\n 4  2013 2013-01-01 05:00:00 JFK    BQN   N804JB  B6      JetBlue Air…\n 5  2013 2013-01-01 06:00:00 LGA    ATL   N668DN  DL      Delta Air L…\n 6  2013 2013-01-01 05:00:00 EWR    ORD   N39463  UA      United Air …\n 7  2013 2013-01-01 06:00:00 EWR    FLL   N516JB  B6      JetBlue Air…\n 8  2013 2013-01-01 06:00:00 LGA    IAD   N829AS  EV      ExpressJet …\n 9  2013 2013-01-01 06:00:00 JFK    MCO   N593JB  B6      JetBlue Air…\n10  2013 2013-01-01 06:00:00 LGA    ORD   N3ALAA  AA      American Ai…\n# ℹ 336,766 more rows"
-  },
-  {
-    "objectID": "day4/index.html#鍵となる列の条件",
-    "href": "day4/index.html#鍵となる列の条件",
-    "title": "データサイエンス",
-    "section": "鍵となる列の条件",
-    "text": "鍵となる列の条件\n\n右側のデータの鍵が行を識別できる必要がある。それぞれのcarrierはデータに一回だけ出てくる\ncount()で確かめる（nが全て1になっている）\n\n\nairlines |&gt;\n  count(carrier)\n\n# A tibble: 16 × 2\n   carrier     n\n   &lt;chr&gt;   &lt;int&gt;\n 1 9E          1\n 2 AA          1\n 3 AS          1\n 4 B6          1\n 5 DL          1\n 6 EV          1\n 7 F9          1\n 8 FL          1\n 9 HA          1\n10 MQ          1\n11 OO          1\n12 UA          1\n13 US          1\n14 VX          1\n15 WN          1\n16 YV          1"
-  },
-  {
-    "objectID": "day4/index.html#他のデータに結合してみる",
-    "href": "day4/index.html#他のデータに結合してみる",
-    "title": "データサイエンス",
-    "section": "他のデータに結合してみる",
-    "text": "他のデータに結合してみる\nnycflights13パッケージに他のデータフレームがいくつかある："
-  },
-  {
-    "objectID": "day4/index.html#チャレンジ他のデータに結合してみる",
-    "href": "day4/index.html#チャレンジ他のデータに結合してみる",
-    "title": "データサイエンス",
-    "section": "チャレンジ：他のデータに結合してみる",
-    "text": "チャレンジ：他のデータに結合してみる\nplanesのデータをflights2に結合することができますか？"
+    "section": "課題",
+    "text": "課題\n\nTidyTuesdayから好きなデータセットを選んで、Copilot CLIを使って分析してみましょう\n前回と同様に、GitHubからリポジトリをクローンして、プロジェクトを作成してから、取り組んでください\n\nリポジトリーのリンクは Moodle に載せてあります\n締め切り：2026年5月30日（日）23:59"
   },
   {
     "objectID": "day3/intro_to_git_ja.html",
@@ -1530,7 +1460,7 @@
     "href": "day6/diamond-sizes-hide.html",
     "title": "データサイエンス",
     "section": "",
-    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.0     ✔ readr     2.1.6\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.2     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.2.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.0     ✔ readr     2.1.6\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.2     ✔ tibble    3.3.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.2.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
   },
   {
     "objectID": "day6/diamond-sizes.html",
