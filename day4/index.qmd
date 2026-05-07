@@ -138,6 +138,7 @@ How can I use copilot to help me analyze data?
 
 - 全てのコマンドはスラッシュ（/）で始まる
   - 例えば、`/help`と入力すると、利用可能なコマンドのリストが表示されます
+  - `/exit`でCoPilotのセッションを終了できる
 
 ## Planning Mode
 
