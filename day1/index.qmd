@@ -47,7 +47,7 @@ execute:
 
 ## Moodle
 
-<https://moodle.gs.chiba-u.jp/moodle/course/view.php?id=44391>
+<https://moodle.gs.chiba-u.jp/moodle/course/view.php?id=50866>
 
 全てのリーディング、宿題などが載っています
 
