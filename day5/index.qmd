@@ -39,9 +39,14 @@ library(tidyverse)
 
 - RやRStudioとは別だが、RStudioと一緒にインストールされるため、個別にインストールする必要はない
 
+---
+
 - ファイルの拡張子は`.Qmd`
   - 「Quarto Markdown」（Markdownについては後ほど説明する）
 
+- RStudioでの作成方法：
+  - File > New File > Quarto Document
+  - 今回は`r4ds`プロジェクトの中で`diamond-sizes.qmd`という名前で作成しましょう
 
 ## `.Qmd`ファイルの基本
 
@@ -61,9 +66,8 @@ cat(readr::read_file("diamond-sizes.qmd"))
 
 ```{r}
 #| eval: false
-
 # 小さなデータセットを作る
-smaller <- diamonds |> 
+smaller <- diamonds |>
   filter(carat <= 2.5)
 ```
 
@@ -226,3 +230,7 @@ data/
 results/
 *.docx
 ```
+
+## 練習
+
+- 前回作成したコードをquarto形式に変換してみてください
