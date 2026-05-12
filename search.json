@@ -998,7 +998,7 @@
     "href": "day5/index.html#quartoを用いた再現可能な文書の作成",
     "title": "データサイエンス",
     "section": "Quartoを用いた再現可能な文書の作成",
-    "text": "Quartoを用いた再現可能な文書の作成\n\nQuartoとは、Rコードの計算結果を直接文書に埋め込むためのソフトウェア\nRやRStudioとは別だが、RStudioと一緒にインストールされるため、個別にインストールする必要はない\nファイルの拡張子は.Qmd\n\n「Quarto Markdown」（Markdownについては後ほど説明する）"
+    "text": "Quartoを用いた再現可能な文書の作成\n\nQuartoとは、Rコードの計算結果を直接文書に埋め込むためのソフトウェア\nRやRStudioとは別だが、RStudioと一緒にインストールされるため、個別にインストールする必要はない"
   },
   {
     "objectID": "day5/index.html#qmdファイルの基本",
@@ -1012,7 +1012,7 @@
     "href": "day5/index.html#今までのコードの書き方.rファイル",
     "title": "データサイエンス",
     "section": "今までのコードの書き方（.Rファイル）",
-    "text": "今までのコードの書き方（.Rファイル）\n\n普通に書く文章は正常なコードでないといけない\n他の文章はコメントとして書く\n\n\n# 小さなデータセットを作る\nsmaller &lt;- diamonds |&gt; \n  filter(carat &lt;= 2.5)"
+    "text": "今までのコードの書き方（.Rファイル）\n\n普通に書く文章は正常なコードでないといけない\n他の文章はコメントとして書く\n\n\n# 小さなデータセットを作る\nsmaller &lt;- diamonds |&gt;\n  filter(carat &lt;= 2.5)"
   },
   {
     "objectID": "day5/index.html#quartoの書き方",
@@ -1111,6 +1111,13 @@
     "title": "データサイエンス",
     "section": "レポートの注意点",
     "text": "レポートの注意点\n\nAIを使って自分のデータを解析する場合、その前に指導教官と相談すること"
+  },
+  {
+    "objectID": "day5/index.html#練習",
+    "href": "day5/index.html#練習",
+    "title": "データサイエンス",
+    "section": "練習",
+    "text": "練習\n\n前回作成したコードをquarto形式に変換してみてください"
   },
   {
     "objectID": "index.html",

@@ -223,9 +223,19 @@
 <ul>
 <li><p>Quartoとは、Rコードの計算結果を直接文書に埋め込むためのソフトウェア</p></li>
 <li><p>RやRStudioとは別だが、RStudioと一緒にインストールされるため、個別にインストールする必要はない</p></li>
-<li><p>ファイルの拡張子は<code>.Qmd</code></p>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>ファイルの拡張子は<code>.Qmd</code>
 <ul>
 <li>「Quarto Markdown」（Markdownについては後ほど説明する）</li>
+</ul></li>
+<li>RStudioでの作成方法：
+<ul>
+<li>File &gt; New File &gt; Quarto Document</li>
+<li>今回は<code>r4ds</code>プロジェクトの中で<code>diamond-sizes.qmd</code>という名前で作成しましょう</li>
 </ul></li>
 </ul>
 </section>
@@ -272,7 +282,7 @@ smaller |&gt;
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># 小さなデータセットを作る</span></span>
-<span id="cb2-2"><a></a>smaller <span class="ot">&lt;-</span> diamonds <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a></a>smaller <span class="ot">&lt;-</span> diamonds <span class="sc">|&gt;</span></span>
 <span id="cb2-3"><a></a>  <span class="fu">filter</span>(carat <span class="sc">&lt;=</span> <span class="fl">2.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -449,6 +459,12 @@ smaller &lt;- diamonds |&gt;
 <pre><code>data/
 results/
 *.docx</code></pre>
+</section>
+<section id="練習" class="slide level2">
+<h2>練習</h2>
+<ul>
+<li>前回作成したコードをquarto形式に変換してみてください</li>
+</ul>
 
 
 </section></section>
