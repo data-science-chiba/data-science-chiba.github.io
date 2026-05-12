@@ -7,7 +7,7 @@ execute:
   echo: true
 ---
 
-# 第6回：再現可能な文書の作成
+# 第5回：再現可能な文書の作成
 
 ```{r}
 #| echo: false
@@ -16,7 +16,7 @@ options(width = 70)
 library(tidyverse)
 ```
 
-<https://data-science-chiba.github.io/day6/>
+<https://data-science-chiba.github.io/day5/>
 
 ## ディスカッション
 
@@ -205,17 +205,6 @@ cat(readr::read_file("diamond-sizes-hide.qmd"))
 
 - 自分のデータ、あるいはTidy Tuesdayプロジェクトが提供しているデータセットを使って、**二つ以上**のグラフを作成し、そのグラフから読み取るメッセージを説明してください
 
-- QuartoとRを使って書いて、HTMLとして出力
+- QuartoとRを使って書いて、docx（ワードファイル）として出力
 
-- 次回（5月27日）までに提出して、授業中に発表する
-
-## レポートのデータの読み込み
-
-```{r}
-#| eval: false
-library(tidytuesdayR)
-tuesdata <- tidytuesdayR::tt_load(2025, week = 13)
-pokemon_df <- tuesdata$pokemon_df
-```
-
-[データの詳細については、こちらを見てください](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-04-01/readme.md)
+- 最終回までに提出して、授業中に発表する
